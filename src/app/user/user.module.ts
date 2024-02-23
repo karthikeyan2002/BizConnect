@@ -19,6 +19,6 @@ import { UserRoutingModule } from './user-routing.module';
     CommonModule,
     MatToolbarModule,
     UserRoutingModule,
-    ]
+  ]
 })
 export class UserModule { }
