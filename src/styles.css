@@ -12,3 +12,22 @@ body {
     flex: 1 1 auto;
 }
 
+.col-lg-6 {
+    height: 70vh;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-container mat-form-field{
+    width: 300px;
+    margin-bottom: 0.6rem;
+}
+
+.example-container mat-error{
+    width: 300px;
+}

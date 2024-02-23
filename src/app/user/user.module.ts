@@ -6,7 +6,11 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UserRoutingModule } from './user-routing.module';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,11 @@ import { UserRoutingModule } from './user-routing.module';
     CommonModule,
     MatToolbarModule,
     UserRoutingModule,
-  ]
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
+  ],
 })
 export class UserModule { }
