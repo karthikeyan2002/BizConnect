@@ -45,7 +45,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .example-container mat-form-field,
@@ -64,12 +64,4 @@ mat-toolbar {
 
 .example-spacer {
     flex: 1 1 auto;
-}
-
-mat-tab{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
