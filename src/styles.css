@@ -7,19 +7,14 @@ body {
     width: 100%;
 }
 
-.col-lg-6 {
+.col-lg-5,
+.col-lg-7 {
     height: 100vh;
 }
 
-.col-lg-4 {
-    height: 100vh;
-}
-
-.login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.logo {
+    width: 100px;
+    height: 100px;
 }
 
 .about-section {
@@ -29,17 +24,28 @@ body {
 
 .about-section div {
     margin: 1rem;
+    margin-top: 1.5rem;
+}
+
+.about-section p {
+    text-align: justify;
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    word-spacing: 1px;
 }
 
 .network-img {
-    width: 20rem;
-    height: 10rem;
-    margin-top: 1rem;
+    width: 28rem;
+    height: 12rem;
+    margin-top: 1.5rem;
 }
 
-.logo {
-    width: 100px;
-    height: 100px;
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .example-container mat-form-field,
@@ -58,4 +64,12 @@ mat-toolbar {
 
 .example-spacer {
     flex: 1 1 auto;
+}
+
+mat-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }

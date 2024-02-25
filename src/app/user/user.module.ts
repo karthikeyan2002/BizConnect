@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AboutComponent } from './about/about.component';
 import { TabComponent } from './tab/tab.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { TabComponent } from './tab/tab.component';
     RegisterComponent,
     HomeComponent,
     AboutComponent,
-    TabComponent
+    TabComponent,
+    LoginRegisterComponent
    ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { TabComponent } from './tab/tab.component';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatTabsModule
   ],
 })
 export class UserModule { }
