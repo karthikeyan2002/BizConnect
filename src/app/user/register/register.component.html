@@ -1,6 +1,7 @@
-<app-navbar></app-navbar>
 <div class="row">
-    <div class="col-lg-4"></div>
+    <div class="col-lg-4 p-4 about-section">
+        <app-about></app-about>
+    </div>
     <div class="col-lg-8 login-container">
         <h1>Register</h1>
         <form class="example-form">
@@ -61,15 +62,14 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm password</mat-label>
-                        <input [type]="hide ? 'password' : 'text'" matInput [formControl]="passwordFormControl"
+                        <input [type]="hide ? 'password' : 'text'" matInput [formControl]="confirmPasswordControl"
                             [errorStateMatcher]="matcher">
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error *ngIf="passwordFormControl.hasError('required')">Password is required</mat-error>
-                        <mat-error *ngIf="passwordFormControl.hasError('minlength')">Password must be at least 8
-                            characters</mat-error>
+                        <mat-error *ngIf="confirmPasswordControl.hasError('required')">Password is required</mat-error>
+                        <mat-error *ngIf="confirmPasswordControl.hasError('mismatch')">No match with Password</mat-error>
                     </mat-form-field>
                 </div>
                 <div>
@@ -77,7 +77,8 @@
                         Register
                     </button>
                 </div>
-                <p class="mt-4">Having an account ? Login </p>
+                <p class="m-2">Having an Account ? <button mat-button color="primary" class="anchor-like"
+                    (click)="navigateToLogin()">Login</button></p>
             </div>
         </form>
     </div>

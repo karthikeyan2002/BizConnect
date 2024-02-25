@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -17,13 +18,33 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
+  constructor(private route:Router) {}
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)])
   hide = true;
   matcher = new MyErrorStateMatcher();
-  cityControl = new FormControl('',[Validators.required]);
+  cityControl = new FormControl('', [Validators.required]);
+  // Define a new FormControl for confirmPassword
+  confirmPasswordControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+    // Custom validator to match the password
+    this.matchConfirmPassword.bind(this)
+  ]);
 
+  // Custom validator function to match password and confirmPassword
+  matchConfirmPassword(control: FormControl) {
+    const password = this.passwordFormControl.value;
+    const confirmPassword = control.value;
+
+    // Check if password and confirmPassword match
+    if (password === confirmPassword) {
+      return null; // Return null if they match
+    } else {
+      return { mismatch: true }; // Return an error object if they don't match
+    }
+  }
   options: string[] = [
     "Ariyalur",
     "Chengalpattu",
@@ -77,5 +98,9 @@ export class RegisterComponent implements OnInit{
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  navigateToLogin(){
+    this.route.navigate(['login']);
   }
 }

@@ -12,14 +12,18 @@ import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { AboutComponent } from './about/about.component';
+import { TabComponent } from './tab/tab.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
-  ],
+    HomeComponent,
+    AboutComponent,
+    TabComponent
+   ],
   imports: [
     CommonModule,
     MatToolbarModule,
