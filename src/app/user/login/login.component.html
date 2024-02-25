@@ -1,43 +1,53 @@
 <app-navbar></app-navbar>
 <div class="row">
-    <div class="col-lg-6"></div>
-    <div class="col-lg-6 login-container">
+    <div class="col-lg-5">
+        <img src="../../../assets/dribbble_network2.gif" width="100%" height="100%">
+    </div>
+    <div class="col-lg-7 login-container">
         <h1>Login</h1>
-        <form class="example-form">
-            <div class="example-container">
-            <div>
-            <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                        Please enter a valid email address
-                    </mat-error>
-                    <mat-error *ngIf="emailFormControl.hasError('required')">
-                        Email is <strong>required</strong>
-                    </mat-error>
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field appearance="outline">
-                    <mat-label>password</mat-label>
-                    <input [type]="hide ? 'password' : 'text'" matInput [formControl]="passwordFormControl"
-                        [errorStateMatcher]="matcher">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <div class="example-container">
+            <form class="example-form">
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>password</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" matInput [formControl]="passwordFormControl"
+                            [errorStateMatcher]="matcher">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">Password is required</mat-error>
+                        <mat-error *ngIf="passwordFormControl.hasError('minlength')">Password must be at least 8
+                            characters</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" class="login-button">
+                        Login
                     </button>
-                    <mat-error *ngIf="passwordFormControl.hasError('required')">Password is required</mat-error>
-                    <mat-error *ngIf="passwordFormControl.hasError('minlength')">Password must be at least 8
-                        characters</mat-error>
-                </mat-form-field>
-            </div>
-            <div>
-                <button mat-raised-button color="primary">
-                    Login
-                </button>
-            </div>
-            <p class="mt-4">New Customer ? Register</p>
+                </div>
+                <div>
+                    <button mat-raised-button class="login-button">
+                        Google
+                    </button>
+                </div>
+
+                <p class="m-2">New Customer ? <button mat-button color="primary" class="anchor-like"
+                        (click)="navigateToRegister()">Register</button></p>
+            </form>
         </div>
-        </form>
+
     </div>
 </div>
