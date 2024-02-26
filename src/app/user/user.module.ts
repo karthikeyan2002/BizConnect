@@ -16,7 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { TabComponent } from './tab/tab.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -37,7 +37,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatButtonModule,
     MatAutocompleteModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule
   ],
 })
 export class UserModule { }

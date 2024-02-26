@@ -1,5 +1,8 @@
-            <form class="example-form login-container">
-                <div class="example-container">
+<div class="example-container login-container">
+    <h1>Register</h1>
+   
+            <form class="example-form">
+              
                     <div>
                         <mat-form-field appearance="outline">
                             <mat-label>First Name</mat-label>
@@ -69,16 +72,19 @@
                                 Password</mat-error>
                         </mat-form-field>
                     </div>
-                    <div>
+                    <div class="text-center">
                         <button mat-raised-button color="primary">
                             Register
                         </button>
+                        <p class="m-2 small text-muted">Continue as guest</p>
+                        <p class="m-2">Having an Account ? <button mat-button color="primary" class="anchor-like"
+                            (click)="navigateToLogin()">Login</button></p>
+                       
                     </div>
                     <div>
-                        <p class="m-2 float-left">Having an Account ? <button mat-button color="primary" class="anchor-like"
-                            (click)="navigateToLogin()">Login</button></p>
-                        <p class="m-2 float-right">Continue as guest</p>
+                     
+                        
                     </div>
                  
-                </div>
+         
             </form>
