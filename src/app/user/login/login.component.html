@@ -38,7 +38,8 @@
             </button>
         </div>
         <div class="text-center">
-            <p class="m-2 small text-muted">Continue as guest</p>
+            <!-- <p class="m-2 small text-muted">Continue as guest</p> -->
+            <button mat-stroked-button (click)="navigateToHome()">Continue as guest</button>
             
         <p class="m-2">New Customer ? <button mat-button color="primary" class="anchor-like"
             (click)="moveToRegister($event)">Register</button></p>

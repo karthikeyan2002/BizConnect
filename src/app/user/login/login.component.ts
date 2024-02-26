@@ -32,8 +32,8 @@ export class LoginComponent {
   hide = true;
   matcher = new MyErrorStateMatcher();
 
-  navigateToRegister(){
-    this.route.navigate(['register'])
+  navigateToHome(){
+    this.route.navigate(['home'])
   }
 }
 

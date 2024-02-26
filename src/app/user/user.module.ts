@@ -17,6 +17,8 @@ import { TabComponent } from './tab/tab.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
+import { CategoriesComponent } from './categories/categories.component';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -25,7 +27,8 @@ import {MatDividerModule} from '@angular/material/divider';
     HomeComponent,
     AboutComponent,
     TabComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    CategoriesComponent
    ],
   imports: [
     CommonModule,
@@ -38,7 +41,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatAutocompleteModule,
     MatTabsModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
 })
 export class UserModule { }
