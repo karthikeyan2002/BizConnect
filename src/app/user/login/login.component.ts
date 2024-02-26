@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component,Output,EventEmitter} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Router } from '@angular/router';
@@ -19,6 +19,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent {
   constructor(private route:Router) {}
+
+  @Output() goToRegister = new EventEmitter<void>();
+
+  moveToRegister(event:Event) {
+    event.preventDefault();
+    this.goToRegister.emit();
+  }
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('',[Validators.required,Validators.minLength(8)])

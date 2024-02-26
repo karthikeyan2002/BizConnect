@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, OnInit , Output} from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
@@ -20,6 +21,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class RegisterComponent implements OnInit {
   constructor(private route:Router) {}
+  
+  @Output() goToLogin = new EventEmitter<void>();
+
+  moveToLogin(event:Event){
+    event.preventDefault();
+    this.goToLogin.emit();
+  }
+
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)])
   hide = true;
@@ -45,6 +54,7 @@ export class RegisterComponent implements OnInit {
       return { mismatch: true }; // Return an error object if they don't match
     }
   }
+
   options: string[] = [
     "Ariyalur",
     "Chengalpattu",
