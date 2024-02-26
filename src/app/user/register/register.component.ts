@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)])
-  hide = true;
+  hidePassword = true;
+  hideConfirmPassword = true;
   matcher = new MyErrorStateMatcher();
   cityControl = new FormControl('', [Validators.required]);
   // Define a new FormControl for confirmPassword
