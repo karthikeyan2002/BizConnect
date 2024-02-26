@@ -1,4 +1,4 @@
-<mat-chip-listbox aria-label="Fish selection" class="categories">
+<mat-chip-listbox aria-label="Fish selection" class="categories" >
     <ng-container *ngFor="let category of categoriesWithSubcategories">
         <mat-chip-option [value]="category" (click)="chipSelected(category.category)">{{ category.category
             }}</mat-chip-option>

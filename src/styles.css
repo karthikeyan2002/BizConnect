@@ -148,8 +148,7 @@ body {
 .example-spacer {
     flex: 1 1 auto;
 }
-
-mat-chip-listbox{
+.categories,.sub-categories{
     /* position: relative;
     top: 80px; */
     display: flex;
@@ -157,5 +156,6 @@ mat-chip-listbox{
     padding: 1rem 2rem; 
     background-color:whitesmoke;
     margin: 0;
+    flex-wrap: nowrap;
 }
 

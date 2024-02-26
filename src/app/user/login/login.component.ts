@@ -2,6 +2,7 @@ import {Component,Output,EventEmitter} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -18,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private route:Router) {}
+  constructor(private route:Router,private auth:AuthService) {}
 
   @Output() goToRegister = new EventEmitter<void>();
 
@@ -34,6 +35,11 @@ export class LoginComponent {
 
   navigateToHome(){
     this.route.navigate(['home'])
+  }
+
+  loginWithGoogle(event:Event){
+    event.preventDefault();
+    this.auth.logInWithGoogleProvider();
   }
 }
 
