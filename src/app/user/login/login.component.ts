@@ -1,6 +1,6 @@
-import {Component,Output,EventEmitter} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -18,26 +18,37 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
-  constructor(private route:Router,private auth:AuthService) {}
+
+  constructor(private route: Router, private auth: AuthService) { }
 
   @Output() goToRegister = new EventEmitter<void>();
 
-  moveToRegister(event:Event) {
+  moveToRegister(event: Event) {
     event.preventDefault();
     this.goToRegister.emit();
   }
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordFormControl = new FormControl('',[Validators.required,Validators.minLength(8)])
+  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)])
   hide = true;
   matcher = new MyErrorStateMatcher();
 
-  navigateToHome(){
+  navigateToHome() {
     this.route.navigate(['home'])
   }
 
-  loginWithGoogle(event:Event){
+  loginWithEmailAndPassword(event:Event) {
+    event.preventDefault();
+    if (this.emailFormControl.valid && this.passwordFormControl.valid) {
+      const email = this.emailFormControl.value;
+      const password = this.passwordFormControl.value;
+      this.auth.loginWithEmailAndPassword(email!,password!);
+    }
+  }
+
+  loginWithGoogle(event: Event) {
     event.preventDefault();
     this.auth.logInWithGoogleProvider();
   }
