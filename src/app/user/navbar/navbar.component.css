@@ -1,17 +1,19 @@
 .example-container {
-     height: 100vh;
-     float: left;
- }
-  
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .example-sidenav {
-    padding: 20px;
-    background-color:#673AB7;
-  }
-  
+  height: 100vh;
+  float: left;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.example-sidenav {
+  padding: 20px;
+  background-color: #673AB7;
+}

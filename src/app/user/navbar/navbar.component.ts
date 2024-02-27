@@ -7,11 +7,17 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private auth:AuthService) {}
+  constructor(private auth: AuthService) { }
 
   showFiller = false;
-
-  logout(){
+  isSearchOpen: boolean = false;
+  
+  logout() {
     this.auth.logOut();
   }
+
+  toggleSearch() {
+    this.isSearchOpen = !this.isSearchOpen;
+  }
+
 }
