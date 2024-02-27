@@ -19,6 +19,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
 import { CategoriesComponent } from './categories/categories.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {MatChipsModule} from '@angular/material/chips';
     AboutComponent,
     TabComponent,
     LoginRegisterComponent,
-    CategoriesComponent
+    CategoriesComponent,
    ],
   imports: [
     CommonModule,
@@ -44,7 +45,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatTabsModule,
     MatDividerModule,
     MatChipsModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule
   ],
 })
 export class UserModule { }

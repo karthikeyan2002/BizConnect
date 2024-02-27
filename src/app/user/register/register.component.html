@@ -35,7 +35,8 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="email" name="email">
+                <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                    [(ngModel)]="email" name="email">
                 <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                     Please enter a valid email address
                 </mat-error>
@@ -60,7 +61,8 @@
             <mat-form-field appearance="outline">
                 <mat-label>Confirm password</mat-label>
                 <input [type]="hideConfirmPassword ? 'password' : 'text'" matInput
-                    [formControl]="confirmPasswordControl" [errorStateMatcher]="matcher" [(ngModel)]="confirmPassword" name="confirmPassword">
+                    [formControl]="confirmPasswordControl" [errorStateMatcher]="matcher" [(ngModel)]="confirmPassword"
+                    name="confirmPassword">
                 <button mat-icon-button matSuffix type="button" (click)="hideConfirmPassword = !hideConfirmPassword"
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
                     <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
