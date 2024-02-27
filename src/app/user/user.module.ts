@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UserRoutingModule } from './user-routing.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,6 +19,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
 import { CategoriesComponent } from './categories/categories.component';
 import {MatChipsModule} from '@angular/material/chips';
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -42,7 +43,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatAutocompleteModule,
     MatTabsModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule
   ],
 })
 export class UserModule { }

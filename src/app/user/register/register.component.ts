@@ -1,10 +1,11 @@
 import { outputAst } from '@angular/compiler';
-import { Component, EventEmitter, OnInit , Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,19 +21,29 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class RegisterComponent implements OnInit {
-  constructor(private route:Router) {}
-  
+  firstName: string = '';
+  lastName: string = '';
+  city: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+  hidePassword: boolean = true;
+  hideConfirmPassword: boolean = true;
+
+  constructor(private route: Router, private auth: AuthService) { }
+
   @Output() goToLogin = new EventEmitter<void>();
 
-  moveToLogin(event:Event){
+  moveToLogin(event: Event) {
     event.preventDefault();
     this.goToLogin.emit();
   }
 
+  firstNameControl = new FormControl('', [Validators.required]);
+  lastNameControl = new FormControl('', [Validators.required]);
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(8)])
-  hidePassword = true;
-  hideConfirmPassword = true;
+
   matcher = new MyErrorStateMatcher();
   cityControl = new FormControl('', [Validators.required]);
   // Define a new FormControl for confirmPassword
@@ -111,7 +122,12 @@ export class RegisterComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  navigateToLogin(){
+  navigateToLogin() {
     this.route.navigate(['login']);
   }
+
+  register() {
+    this.auth.signUpWithEmailAndPassword(this.email, this.password);
+  }
+
 }

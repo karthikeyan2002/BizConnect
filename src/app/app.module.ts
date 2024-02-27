@@ -11,6 +11,8 @@ import { firebaseConfig } from 'src/environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     UserModule,
     AdminModule,
     BusinessModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     AngularFireModule.initializeApp(firebaseConfig)
