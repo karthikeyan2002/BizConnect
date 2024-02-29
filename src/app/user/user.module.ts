@@ -21,6 +21,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatChipsModule,
     FormsModule,
     MatSidenavModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatMenuModule
   ],
 })
 export class UserModule { }
