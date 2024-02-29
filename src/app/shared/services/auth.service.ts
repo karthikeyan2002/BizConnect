@@ -33,6 +33,7 @@ export class AuthService {
       })
   }
 
+
   loginWithEmailAndPassword(email: string, password: string) {
     this.firebaseAuthenticationService.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -56,14 +57,14 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
-  
+
   logOut() {
     return this.firebaseAuthenticationService.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login-register']);
     })
   }
-  
+
   observeUserState() {
     this.firebaseAuthenticationService.authState.subscribe((userState) => {
       userState && this.ngZone.run(() => this.router.navigate(['home']));

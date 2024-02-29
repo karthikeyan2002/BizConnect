@@ -10,7 +10,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
-  }
+}
 
 html,
 body {
@@ -154,28 +154,35 @@ body {
 .example-spacer {
     flex: 1 1 auto;
 }
-.categories,.sub-categories{
+
+.categories,
+.sub-categories {
     /* position: relative;
     top: 80px; */
     display: flex;
     justify-content: center;
-    padding: 1rem 2rem; 
-    background-color:whitesmoke;
+    padding: 1rem 2rem;
+    background-color: whitesmoke;
     margin: 0;
     flex-wrap: nowrap;
 }
+
 .search-box-open {
-    width: 200px; /* Adjust as needed */
-    transition: width 0.3s ease; /* Add transition effect */
+    width: 200px;
+    /* Adjust as needed */
+    transition: width 0.3s ease;
+    /* Add transition effect */
 }
 
-.search-box-open::placeholder{
+.search-box-open::placeholder {
     font-size: small;
     margin-left: 50px;
 }
 
 .search-box-open:focus {
-    outline: none !important; /* Remove the default focus outline */
-    border-color: transparent !important; /* Set the border color to transparent when focused */
+    outline: none !important;
+    /* Remove the default focus outline */
+    border-color: transparent !important;
+    /* Set the border color to transparent when focused */
     font-size: small;
-  }
+}

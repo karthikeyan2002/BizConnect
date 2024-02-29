@@ -20,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CategoriesComponent } from './categories/categories.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatDividerModule,
     MatChipsModule,
     FormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTooltipModule
   ],
 })
 export class UserModule { }

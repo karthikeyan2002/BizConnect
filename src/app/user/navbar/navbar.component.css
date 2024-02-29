@@ -11,6 +11,7 @@
   align-content: flex-start;
   flex-wrap: wrap;
   color: white;
+  width: 10rem;
 }
 
 .example-sidenav {

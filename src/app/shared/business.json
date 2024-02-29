@@ -1,0 +1,77 @@
+{
+    "business": [
+      {
+        "name": "ABC Electronics",
+        "description": "Your one-stop shop for all electronics needs.",
+        "addresslane-1": "123 Main Street",
+        "addresslane-2": "Suite 101",
+        "city": "Metropolis",
+        "rating": 4.5,
+        "type": "product",
+        "avgpricing": "$$$",
+        "category": "Electronics",
+        "subcategory": "Consumer Electronics"
+      },
+      {
+        "name": "XYZ Fashion Boutique",
+        "description": "Trendy fashion for men and women.",
+        "addresslane-1": "456 Fashion Avenue",
+        "addresslane-2": "",
+        "city": "Fashion City",
+        "rating": 4.2,
+        "type": "product",
+        "avgpricing": "$$",
+        "category": "Fashion",
+        "subcategory": "Apparel"
+      },
+      {
+        "name": "Sunshine Spa & Wellness Center",
+        "description": "Relax, rejuvenate, and pamper yourself.",
+        "addresslane-1": "789 Serenity Street",
+        "addresslane-2": "Suite 200",
+        "city": "Tranquility Town",
+        "rating": 4.8,
+        "type": "service",
+        "avgpricing": "$$$",
+        "category": "Health & Wellness",
+        "subcategory": "Spa"
+      },
+      {
+        "name": "Green Thumb Garden Supplies",
+        "description": "Everything you need to make your garden flourish.",
+        "addresslane-1": "321 Garden Grove",
+        "addresslane-2": "Unit B",
+        "city": "Botanical City",
+        "rating": 4.4,
+        "type": "product",
+        "avgpricing": "$$",
+        "category": "Home & Garden",
+        "subcategory": "Gardening Supplies"
+      },
+      {
+        "name": "Books & Brews Cafe",
+        "description": "A cozy cafe where you can enjoy good books and great coffee.",
+        "addresslane-1": "567 Literary Lane",
+        "addresslane-2": "",
+        "city": "Bookwormville",
+        "rating": 4.6,
+        "type": "service",
+        "avgpricing": "$$",
+        "category": "Food & Beverage",
+        "subcategory": "Cafe"
+      },
+      {
+        "name": "Sporty Spice Fitness Store",
+        "description": "Get fit with our range of sports equipment and gear.",
+        "addresslane-1": "987 Fitness Avenue",
+        "addresslane-2": "Suite 300",
+        "city": "Athletic City",
+        "rating": 4.3,
+        "type": "product",
+        "avgpricing": "$$$",
+        "category": "Fitness",
+        "subcategory": "Sporting Goods"
+      }
+    ]
+  }
+  

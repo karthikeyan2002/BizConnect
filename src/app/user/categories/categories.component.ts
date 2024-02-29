@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FetchService } from 'src/app/shared/services/fetch.service';
+import { Shop } from '../../shared/interfaces/shop.interface';
 
 @Component({
   selector: 'app-categories',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 
 export class CategoriesComponent {
+
+  Business:Shop[] | undefined;
+  constructor(private fet:FetchService) {
+    this.fetchBusiness();
+  }
+
 
   category: string | undefined;
   categoriesWithSubcategories = [
@@ -82,6 +90,11 @@ export class CategoriesComponent {
     }
   }
 
+  fetchBusiness(){
+    this.fet.fetchBusiness().subscribe((res)=>{
+      this.Business = res;
+    })
+  }
 }
 
 
