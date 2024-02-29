@@ -90,11 +90,34 @@ export class CategoriesComponent {
     }
   }
 
+  getStars(rating: number): string[] {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const stars: string[] = [];
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push('star');
+    }
+
+    if (halfStar) {
+      stars.push('star_half');
+    }
+
+    return stars;
+  }
+
   fetchBusiness(){
     this.fet.fetchBusiness().subscribe((res)=>{
-      this.Business = res;
+      if(res){
+          this.Business = res;
+      }else{
+        console.warn("few problems");
+        
+      }
     })
   }
+    
+  
 }
 
 

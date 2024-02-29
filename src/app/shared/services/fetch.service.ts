@@ -10,6 +10,6 @@ export class FetchService {
   constructor(private http:HttpClient) {}
 
   fetchBusiness(){
-    return this.http.get<Shop[]>('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/business.json');
+    return this.http.get<Shop[]>('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json');
   }
 }
