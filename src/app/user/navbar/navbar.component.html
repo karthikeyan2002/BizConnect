@@ -4,7 +4,7 @@
   <span class="example-spacer"></span>
   <div>
     <input type="text" *ngIf="isSearchOpen" [class.search-box-open]="isSearchOpen" placeholder="Search here"
-      class="poppins-light">
+      class="roboto-regular">
   </div>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
     (click)="toggleSearch()">
@@ -25,7 +25,7 @@
 <mat-menu #profileMenu="matMenu">
   <button mat-menu-item>My Profile</button>
   <button mat-menu-item>My Business</button>
-  <button mat-menu-item>
+  <button mat-menu-item (click)="logout()">
     Logout
     <mat-icon>logout</mat-icon>
   </button>

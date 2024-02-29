@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { Shop } from '../../shared/interfaces/shop.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -11,7 +12,7 @@ import { Shop } from '../../shared/interfaces/shop.interface';
 export class CategoriesComponent {
 
   Business:Shop[] | undefined;
-  constructor(private fet:FetchService) {
+  constructor(private fet:FetchService,private route:Router) {
     this.fetchBusiness();
   }
 
@@ -117,6 +118,9 @@ export class CategoriesComponent {
     })
   }
     
+  navigateToShop(id:any){
+    this.route.navigate([`shop/${id}`])
+  }
   
 }
 

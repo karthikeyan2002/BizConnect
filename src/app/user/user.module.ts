@@ -22,6 +22,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { ShopComponent } from './shop/shop.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { MatMenuModule } from '@angular/material/menu';
     TabComponent,
     LoginRegisterComponent,
     CategoriesComponent,
+    ShopComponent,
   ],
   imports: [
     CommonModule,
