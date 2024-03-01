@@ -1,7 +1,43 @@
 <app-navbar></app-navbar>
+<div class="container mt-4">
+    <div class="float-start">
+        <h1 class="mb-1 float-left">{{product.name}}</h1>
+
+        <p class="mb-0 text-muted">{{product.addressLane1}} , {{product.addressLane2}} , {{product.city | titlecase}}
+        </p>
+
+        <div class="ratings mt-0 mb-2">
+            <ng-container *ngFor="let star of getStars(product.rating)">
+                <mat-icon class="star mt-2">{{ star }}</mat-icon>
+            </ng-container>
+            <span>({{product.rating}})</span>
+        </div>
+
+    </div>
+    <div class="float-end">
+        <div class=" d-flex align-items-center my-1" matTooltip="Delivery Not Available" matTooltipPosition="right">
+            <mat-icon>local_shipping</mat-icon>
+            <span class="mx-2">Not Available</span>
+        </div>
+
+        <div class="d-flex align-items-center my-1" matTooltip="Cash on Delivery Not Available"
+            matTooltipPosition="right">
+            <mat-icon>payment</mat-icon>
+            <span class="mx-2">Pre-Paid</span>
+        </div>
+
+    </div>
+
+    <div class="float-none">
+        <p class="mt-2 text-italic">{{product.description}}</p>
+    </div>
+
+    <mat-divider></mat-divider>
+
 <ng-container *ngIf="type === 'product'">
     <app-product></app-product>
 </ng-container>
 <ng-container *ngIf="type === 'service'">
     <app-service></app-service>
 </ng-container>
+</div>
