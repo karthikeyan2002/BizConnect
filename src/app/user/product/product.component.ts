@@ -12,6 +12,8 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fet: FetchService) { }
 
   id!: String;
+  panelOpenState = false;
+  
   product: Shop = {
     name: '',
     description: '',

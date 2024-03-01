@@ -25,7 +25,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { ServiceComponent } from './service/service.component';
-
+import {MatExpansionModule, matExpansionAnimations} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,8 @@ import { ServiceComponent } from './service/service.component';
     FormsModule,
     MatSidenavModule,
     MatTooltipModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule
   ],
 })
 export class UserModule { }
