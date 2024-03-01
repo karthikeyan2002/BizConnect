@@ -20,12 +20,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CategoriesComponent } from './categories/categories.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { ServiceComponent } from './service/service.component';
-import {MatExpansionModule, matExpansionAnimations} from '@angular/material/expansion';
+import { MatExpansionModule, matExpansionAnimations } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import {MatExpansionModule, matExpansionAnimations} from '@angular/material/expa
     MatSidenavModule,
     MatTooltipModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 })
 export class UserModule { }
