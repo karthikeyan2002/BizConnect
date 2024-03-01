@@ -1,2 +1,7 @@
 <app-navbar></app-navbar>
-{{id}}
+<ng-container *ngIf="type === 'product'">
+    <app-product></app-product>
+</ng-container>
+<ng-container *ngIf="type === 'service'">
+    <app-service></app-service>
+</ng-container>

@@ -23,6 +23,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { ShopComponent } from './shop/shop.component';
+import { ProductComponent } from './product/product.component';
+import { ServiceComponent } from './service/service.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { ShopComponent } from './shop/shop.component';
     LoginRegisterComponent,
     CategoriesComponent,
     ShopComponent,
+    ProductComponent,
+    ServiceComponent,
   ],
   imports: [
     CommonModule,
