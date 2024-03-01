@@ -1,1 +1,12 @@
-<p>product works!</p>
+<div class="container">
+    <h1>{{product.name}}</h1>
+    <div class="ratings">
+        <ng-container *ngFor="let star of getStars(product.rating)">
+            <mat-icon class="star mt-2">{{ star }}</mat-icon>
+        </ng-container>
+        <span>({{product.rating}})</span>
+    </div>
+    <p>{{product.addressLane1}} , {{product.addressLane2}} , {{product.city | titlecase}}</p>
+    <p>{{product.description}}</p>
+</div>
+

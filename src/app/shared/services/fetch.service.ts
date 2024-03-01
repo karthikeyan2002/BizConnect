@@ -26,5 +26,9 @@ export class FetchService {
         })
       );
   }
+
+  fetchShop(id:String){
+    return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`)
+  }
   
 }
