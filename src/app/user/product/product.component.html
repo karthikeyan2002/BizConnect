@@ -19,7 +19,8 @@
             <span class="mx-2">Not Available</span>
         </div>
 
-        <div class="d-flex align-items-center my-1" matTooltip="Cash on Delivery Not Available" matTooltipPosition="right">
+        <div class="d-flex align-items-center my-1" matTooltip="Cash on Delivery Not Available"
+            matTooltipPosition="right">
             <mat-icon>payment</mat-icon>
             <span class="mx-2">Pre-Paid</span>
         </div>
@@ -32,5 +33,23 @@
 
     <mat-divider></mat-divider>
     <h2 class="mt-2">Our Products</h2>
+    <div class="row">
+        <ng-container *ngFor="let i of product.products">
+            <div class="col-lg-4 my-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top"
+                        src="https://images.unsplash.com/photo-1549479732-ee0adb0f5d32?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Card image cap">
+                    <div class="card-header">
+                        <h4 class="card-title font-weight-bold mb-1">{{i.name}}</h4>
+                        <p class="float-start">{{i.price | currency:'INR'}}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button mat-raised-button color="primary">Add To Cart</button>
+                    </div>
 
+                </div>
+            </div>
+        </ng-container>
+    </div>
 </div>

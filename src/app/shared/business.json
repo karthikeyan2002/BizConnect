@@ -1,136 +1,200 @@
 {
-  "business": [
-      {
-          "name": "ABC Electronics",
-          "description": "Your one-stop shop for all electronics needs.",
-          "addressLane1": "123 Main Street",
-          "addressLane2": "KMCH HOSPITAL",
-          "city": "Coimbatore",
-          "rating": 4.5,
-          "type": "product",
-          "avgpricing": "$$$",
-          "category": "Electronics",
-          "subcategory": "Consumer Electronics"
-      },
-      {
-          "name": "XYZ Fashion Boutique",
-          "description": "Trendy fashion for men and women.",
-          "addressLane1": "456 Fashion Avenue",
-          "addressLane2": "Gandhipuram",
-          "city": "Coimbatore",
-          "rating": 4.2,
-          "type": "product",
-          "avgpricing": "$$",
-          "category": "Fashion",
-          "subcategory": "Apparel"
-      },
-      {
-          "name": "Sunshine Spa & Wellness Center",
-          "description": "Relax, rejuvenate, and pamper yourself.",
-          "addressLane1": "789 Serenity Street",
-          "addressLane2": "Teachers Colony",
-          "city": "Coimbatore",
-          "rating": 4.8,
-          "type": "service",
-          "avgpricing": "$$$",
-          "category": "Health & Wellness",
-          "subcategory": "Spa"
-      },
-      {
-          "name": "Green Thumb Garden Supplies",
-          "description": "Everything you need to make your garden flourish.",
-          "addressLane1": "321 Garden Grove",
-          "addressLane2": "Koodal Nagar",
-          "city": "Madurai",
-          "rating": 4.4,
-          "type": "product",
-          "avgpricing": "$$",
-          "category": "Home & Garden",
-          "subcategory": "Gardening Supplies"
-      },
-      {
-          "name": "Books & Brews Cafe",
-          "description": "A cozy cafe where you can enjoy good books and great coffee.",
-          "addressLane1": "567 Literary Lane",
-          "addressLane2": "Kalavasal",
-          "city": "Madurai",
-          "rating": 4.6,
-          "type": "service",
-          "avgpricing": "$$",
-          "category": "Food & Beverage",
-          "subcategory": "Cafe"
-      },
-      {
-          "name": "Sporty Spice Fitness Store",
-          "description": "Get fit with our range of sports equipment and gear.",
-          "addressLane1": "987 Fitness Avenue",
-          "addressLane2": "Anna Nagar",
-          "city": "Madurai",
-          "rating": 4.3,
-          "type": "product",
-          "avgpricing": "$$$",
-          "category": "Fitness",
-          "subcategory": "Sporting Goods"
-      },
-      {
-          "name": "Smart Minds Tutoring Center",
-          "description": "Unlock your potential with our expert tutors.",
-          "addressLane1": "246 Education Street",
-          "addressLane2": "RS Puram",
-          "city": "Coimbatore",
-          "rating": 4.7,
-          "type": "service",
-          "avgpricing": "$$$",
-          "category": "Education",
-          "subcategory": "Tutoring"
-      },
-      {
-          "name": "Language Junction Institute",
-          "description": "Learn languages from around the world with us.",
-          "addressLane1": "369 Polyglot Place",
-          "addressLane2": "Race Course",
-          "city": "Coimbatore",
-          "rating": 4.4,
-          "type": "service",
-          "avgpricing": "$$",
-          "category": "Education",
-          "subcategory": "Language Learning"
-      },
-      {
-          "name": "Iron Body Gym & Training",
-          "description": "Transform your body with our personalized training programs.",
-          "addressLane1": "654 Fitness Plaza",
-          "addressLane2": "Tirupur",
-          "city": "Coimbatore",
-          "rating": 4.9,
-          "type": "service",
-          "avgpricing": "$$$",
-          "category": "Fitness",
-          "subcategory": "Gym & Training"
-      },
-      {
-          "name": "Eventful Creations Event Planners",
-          "description": "We bring your events to life with creativity and precision.",
-          "addressLane1": "789 Celebration Street",
-          "addressLane2": "Hopes College",
-          "city": "Coimbatore",
-          "rating": 4.6,
-          "type": "service",
-          "avgpricing": "$$$",
-          "category": "Events & Entertainment",
-          "subcategory": "Event Planning"
-      },
-      {
-          "name": "Focus Frame Photography Studio",
-          "description": "Capture your moments with perfection and style.",
-          "addressLane1": "101 Shutter Avenue",
-          "addressLane2": "Ramanathapuram",
-          "city": "Coimbatore",
-          "rating": 4.7,
-          "type": "service",
-          "avgpricing": "$$",
-          "category": "Events & Entertainment",
-          "subcategory": "Photography"
-      }
-  ]
+    "business": [
+        {
+            "name": "ABC Electronics",
+            "description": "Your one-stop shop for all electronics needs.",
+            "addressLane1": "123 Main Street",
+            "addressLane2": "KMCH HOSPITAL",
+            "city": "Coimbatore",
+            "rating": 4.5,
+            "type": "product",
+            "avgpricing": "$$$",
+            "category": "Electronics",
+            "subcategory": "Consumer Electronics",
+            "products": [
+                {
+                    "name": "Laptop",
+                    "price": 800,
+                    "isavailable": true,
+                    "productid": "abc001",
+                    "rating":4.2
+                },
+                {
+                    "name": "Smartphone",
+                    "price": 500,
+                    "isavailable": true,
+                    "productid": "abc002",
+                    "rating":4.2
+                }
+            ]
+        },
+        {
+            "name": "XYZ Fashion Boutique",
+            "description": "Trendy fashion for men and women.",
+            "addressLane1": "456 Fashion Avenue",
+            "addressLane2": "Gandhipuram",
+            "city": "Coimbatore",
+            "rating": 4.2,
+            "type": "product",
+            "avgpricing": "$$",
+            "category": "Fashion",
+            "subcategory": "Apparel",
+            "products": [
+                {
+                    "name": "T-Shirt",
+                    "price": 20,
+                    "isavailable": true,
+                    "productid": "xyz001",
+                    "rating":3.1
+                },
+                {
+                    "name": "Jeans",
+                    "price": 40,
+                    "isavailable": true,
+                    "productid": "xyz002",
+                    "rating":3.1
+                }
+            ]
+        },
+        {
+            "name": "Sunshine Spa & Wellness Center",
+            "description": "Relax, rejuvenate, and pamper yourself.",
+            "addressLane1": "789 Serenity Street",
+            "addressLane2": "Teachers Colony",
+            "city": "Coimbatore",
+            "rating": 4.8,
+            "type": "service",
+            "avgpricing": "$$$",
+            "category": "Health & Wellness",
+            "subcategory": "Spa"
+        },
+        {
+            "name": "Green Thumb Garden Supplies",
+            "description": "Everything you need to make your garden flourish.",
+            "addressLane1": "321 Garden Grove",
+            "addressLane2": "Koodal Nagar",
+            "city": "Madurai",
+            "rating": 4.4,
+            "type": "product",
+            "avgpricing": "$$",
+            "category": "Home & Garden",
+            "subcategory": "Gardening Supplies",
+            "products": [
+                {
+                    "name": "Potted Plant",
+                    "price": 15,
+                    "isavailable": true,
+                    "productid": "grn001",
+                    "rating":4.6
+                },
+                {
+                    "name": "Garden Tools Set",
+                    "price": 30,
+                    "isavailable": true,
+                    "productid": "grn002",
+                    "rating":4.6
+                }
+            ]
+        },
+        {
+            "name": "Books & Brews Cafe",
+            "description": "A cozy cafe where you can enjoy good books and great coffee.",
+            "addressLane1": "567 Literary Lane",
+            "addressLane2": "Kalavasal",
+            "city": "Madurai",
+            "rating": 4.6,
+            "type": "service",
+            "avgpricing": "$$",
+            "category": "Food & Beverage",
+            "subcategory": "Cafe"
+        },
+        {
+            "name": "Sporty Spice Fitness Store",
+            "description": "Get fit with our range of sports equipment and gear.",
+            "addressLane1": "987 Fitness Avenue",
+            "addressLane2": "Anna Nagar",
+            "city": "Madurai",
+            "rating": 4.3,
+            "type": "product",
+            "avgpricing": "$$$",
+            "category": "Fitness",
+            "subcategory": "Sporting Goods",
+            "products": [
+                {
+                    "name": "Dumbbells Set",
+                    "price": 50,
+                    "isavailable": true,
+                    "productid": "ssf001",
+                    "rating":3.9
+                },
+                {
+                    "name": "Yoga Mat",
+                    "price": 20,
+                    "isavailable": true,
+                    "productid": "ssf002",
+                    "rating":3.9
+                }
+            ]
+        },
+        {
+            "name": "Smart Minds Tutoring Center",
+            "description": "Unlock your potential with our expert tutors.",
+            "addressLane1": "246 Education Street",
+            "addressLane2": "RS Puram",
+            "city": "Coimbatore",
+            "rating": 4.7,
+            "type": "service",
+            "avgpricing": "$$$",
+            "category": "Education",
+            "subcategory": "Tutoring"
+        },
+        {
+            "name": "Language Junction Institute",
+            "description": "Learn languages from around the world with us.",
+            "addressLane1": "369 Polyglot Place",
+            "addressLane2": "Race Course",
+            "city": "Coimbatore",
+            "rating": 4.4,
+            "type": "service",
+            "avgpricing": "$$",
+            "category": "Education",
+            "subcategory": "Language Learning"
+        },
+        {
+            "name": "Iron Body Gym & Training",
+            "description": "Transform your body with our personalized training programs.",
+            "addressLane1": "654 Fitness Plaza",
+            "addressLane2": "Tirupur",
+            "city": "Coimbatore",
+            "rating": 4.9,
+            "type": "service",
+            "avgpricing": "$$$",
+            "category": "Fitness",
+            "subcategory": "Gym & Training"
+        },
+        {
+            "name": "Eventful Creations Event Planners",
+            "description": "We bring your events to life with creativity and precision.",
+            "addressLane1": "789 Celebration Street",
+            "addressLane2": "Hopes College",
+            "city": "Coimbatore",
+            "rating": 4.6,
+            "type": "service",
+            "avgpricing": "$$$",
+            "category": "Events & Entertainment",
+            "subcategory": "Event Planning"
+        },
+        {
+            "name": "Focus Frame Photography Studio",
+            "description": "Capture your moments with perfection and style.",
+            "addressLane1": "101 Shutter Avenue",
+            "addressLane2": "Ramanathapuram",
+            "city": "Coimbatore",
+            "rating": 4.7,
+            "type": "service",
+            "avgpricing": "$$",
+            "category": "Events & Entertainment",
+            "subcategory": "Photography"
+        }
+    ]
 }

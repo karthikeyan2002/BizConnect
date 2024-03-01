@@ -1,3 +1,5 @@
+import { Product } from "./product.interface";
+
 export interface Shop {
     name: string;
     description: string;
@@ -9,4 +11,5 @@ export interface Shop {
     avgPricing: string;
     category: string;
     subcategory: string;
+    products:Product[]
 }

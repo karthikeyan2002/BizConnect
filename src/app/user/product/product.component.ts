@@ -24,7 +24,8 @@ export class ProductComponent implements OnInit {
     type: 'product',
     avgPricing: '',
     category: '',
-    subcategory: ''
+    subcategory: '',
+    products: []
   };
 
   ngOnInit(): void {
