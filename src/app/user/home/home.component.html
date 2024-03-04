@@ -1,2 +1,7 @@
 <app-navbar></app-navbar>
-<app-categories></app-categories>
+<ng-container *ngIf="city">
+    <app-categories></app-categories>
+</ng-container>
+<ng-container *ngIf="!city">
+   <app-profile></app-profile>
+</ng-container>

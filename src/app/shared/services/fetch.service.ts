@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Shop } from '../interfaces/shop.interface';
 import { Observable, filter, map, tap } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
+import { UserProfile } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,13 @@ export class FetchService {
 
   fetchShopFilterByCategory(category: string) {
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json`);
+  }
+
+  getUserInfo(id:string):Observable<UserProfile>{
+    return this.http.get<UserProfile>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${id}.json`)
+  }
+
+  updateUser(id: string, updates: Partial<UserProfile>): Observable<any> {
+    return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${id}.json`, updates);
   }
 }

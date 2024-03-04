@@ -15,9 +15,8 @@ const routes: Routes = [
     component: LoginRegisterComponent
   },
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'shop/:id',
@@ -28,8 +27,9 @@ const routes: Routes = [
     component: LoginRegisterComponent
   },
   {
-    path:'cart',
-    component:MycartComponent
+    path: 'cart',
+    component: MycartComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
