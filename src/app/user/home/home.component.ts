@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { UserProfile } from 'src/app/shared/interfaces/userProfile.interface';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,9 @@ export class HomeComponent {
   city!: string;
 
   constructor(private fet: FetchService) {
-    this.fet.getUserId().subscribe((res:string) => {
+    this.fet.getUserId().subscribe((res: string) => {
       this.id = res;
-      this.fet.getUserInfo(this.id).subscribe((result:any) => {
+      this.fet.getUserInfo(this.id).subscribe((result: any) => {
         if (result) {
           this.city = result.city;
         } else {
@@ -22,6 +23,11 @@ export class HomeComponent {
         }
       })
     });
+
+  }
+
+  isGuest(){
+    return localStorage.getItem('user') === 'null';
   }
 
 }
