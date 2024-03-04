@@ -28,6 +28,7 @@ import { ServiceComponent } from './service/service.component';
 import { MatExpansionModule, matExpansionAnimations } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
+import { MycartComponent } from './mycart/mycart.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ShopComponent,
     ProductComponent,
     ServiceComponent,
+    MycartComponent
   ],
   imports: [
     CommonModule,

@@ -2,10 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Shop } from '../interfaces/shop.interface';
 import { Observable, map } from 'rxjs';
+import { Product } from '../interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FetchService {
 
   constructor(private http: HttpClient) { }
@@ -21,7 +23,7 @@ export class FetchService {
       })
     )
   }
-  
+
   fetchBusiness() {
     return this.http.get<Shop[]>('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json');
   }
@@ -41,6 +43,11 @@ export class FetchService {
 
   fetchShop(id: String) {
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`)
+  }
+
+  getCart(uid: string): Observable<{ [key: string]: Product }> {
+    const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart.json`;
+    return this.http.get<{ [key: string]: Product }>(url);
   }
 
 }

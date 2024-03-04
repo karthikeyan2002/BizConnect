@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ShopComponent } from './shop/shop.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
+import { MycartComponent } from './mycart/mycart.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: '',
     component: LoginRegisterComponent
+  },
+  {
+    path:'cart',
+    component:MycartComponent
   }
 ];
 
