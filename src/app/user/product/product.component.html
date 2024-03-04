@@ -12,7 +12,7 @@
                     <p class="float-start">{{i.price | currency:'INR'}}</p>
                 </div>
                 <div class="card-footer text-center">
-                    <button mat-raised-button color="primary">Add To Cart</button>
+                    <button mat-raised-button color="primary" (click)="AddToCart(i)">Add To Cart</button>
                 </div>
 
             </div>

@@ -26,26 +26,26 @@ export class StorageService {
 
     }
 
-    // addToCart(items: any, uid: any): Observable<any> {
-    //     const url1 = 'https://fillmycart-f1f01-default-rtdb.asia-southeast1.firebasedatabase.app/users/' + uid + '/myCart/' + items.id + '.json';
+    addToCart(items: any, uid: any): Observable<any> {
+        const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart/${items.productid}.json`;
 
-    //     return this.http.get(url1).pipe(
-    //         switchMap((val: any) => {
-    //             if (val) {
-    //                 console.log(val);
-    //                 if ('quantity' in val) {
-    //                     items.quantity += 1;
-    //                 } else {
-    //                     console.log("Quantity not found in response.");
-    //                 }
-    //             } else {
-    //                 console.log("DATA NOT FOUND");
-    //             }
+        return this.http.get(url1).pipe(
+            switchMap((val: any) => {
+                if (val) {
+                    console.log(val);
+                    if ('quantity' in val) {
+                        items.quantity += 1;
+                    } else {
+                        console.log("Quantity not found in response.");
+                    }
+                } else {
+                    console.log("DATA NOT FOUND");
+                }
 
-    //             return this.http.patch(url1, items);
-    //         })
-    //     );
-    // }
+                return this.http.patch(url1, items);
+            })
+        );
+    }
 
     // placeOrder(items:any,uid:any){
     //     const myOrders = {

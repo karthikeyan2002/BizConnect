@@ -10,11 +10,23 @@ export class FetchService {
 
   constructor(private http: HttpClient) { }
 
+  getUserId(): Observable<any> {
+    const user = localStorage.getItem('user') || '';
+    const parsedObject = JSON.parse(user);
+    return this.http.get('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users.json').pipe(
+      map((users: any) => {
+        const userKeys = Object.keys(users);
+        const matchedUserKey = userKeys.find(key => users[key].uid === parsedObject.uid)
+        return matchedUserKey;
+      })
+    )
+  }
+  
   fetchBusiness() {
     return this.http.get<Shop[]>('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json');
   }
-  
-  fetchType(id: string): Observable<string>{
+
+  fetchType(id: string): Observable<string> {
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`)
       .pipe(
         map((res) => {
@@ -27,8 +39,8 @@ export class FetchService {
       );
   }
 
-  fetchShop(id:String){
+  fetchShop(id: String) {
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`)
   }
-  
+
 }

@@ -17,14 +17,14 @@
                     "price": 800,
                     "isavailable": true,
                     "productid": "abc001",
-                    "rating":4.2
+                    "rating": 4.2
                 },
                 {
                     "name": "Smartphone",
                     "price": 500,
                     "isavailable": true,
                     "productid": "abc002",
-                    "rating":4.2
+                    "rating": 4.2
                 }
             ]
         },
@@ -45,14 +45,14 @@
                     "price": 20,
                     "isavailable": true,
                     "productid": "xyz001",
-                    "rating":3.1
+                    "rating": 3.1
                 },
                 {
                     "name": "Jeans",
                     "price": 40,
                     "isavailable": true,
                     "productid": "xyz002",
-                    "rating":3.1
+                    "rating": 3.1
                 }
             ]
         },
@@ -85,14 +85,14 @@
                     "price": 15,
                     "isavailable": true,
                     "productid": "grn001",
-                    "rating":4.6
+                    "rating": 4.6
                 },
                 {
                     "name": "Garden Tools Set",
                     "price": 30,
                     "isavailable": true,
                     "productid": "grn002",
-                    "rating":4.6
+                    "rating": 4.6
                 }
             ]
         },
@@ -125,14 +125,14 @@
                     "price": 50,
                     "isavailable": true,
                     "productid": "ssf001",
-                    "rating":3.9
+                    "rating": 3.9
                 },
                 {
                     "name": "Yoga Mat",
                     "price": 20,
                     "isavailable": true,
                     "productid": "ssf002",
-                    "rating":3.9
+                    "rating": 3.9
                 }
             ]
         },

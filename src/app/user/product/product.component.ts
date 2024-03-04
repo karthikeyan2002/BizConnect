@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
+import { StorageService } from 'src/app/shared/services/store.service';
 
 @Component({
   selector: 'app-product',
@@ -9,11 +10,18 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private fet: FetchService) { }
+  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService) { 
+    this.fet.getUserId().subscribe((data) => {
+      this.uid = data;
+    }, (err) => {
+      console.log(err)
+    });
+  }
 
   id!: String;
   panelOpenState = false;
-  
+  uid!:string;
+
   product: Shop = {
     name: '',
     description: '',
@@ -57,4 +65,20 @@ export class ProductComponent implements OnInit {
     return stars;
   }
 
+  AddToCart(item: any) {
+    const items = {
+      ...item,
+      "quantity": 1,
+    }
+    this.storage.addToCart(items, this.uid).subscribe(
+      (response) => {
+        alert("Items added")
+      },
+      (err) => {
+        alert("problem here")
+
+      }
+    );
+
+  }
 }
