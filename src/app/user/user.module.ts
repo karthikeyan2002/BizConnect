@@ -30,6 +30,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { MycartComponent } from './mycart/mycart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MybookingsComponent } from './mybookings/mybookings.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ProfileComponent } from './profile/profile.component';
     ProductComponent,
     ServiceComponent,
     MycartComponent,
-    ProfileComponent
+    ProfileComponent,
+    MybookingsComponent
   ],
   imports: [
     CommonModule,
