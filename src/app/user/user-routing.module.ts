@@ -7,7 +7,8 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { ShopComponent } from './shop/shop.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { MycartComponent } from './mycart/mycart.component';
-
+import { MybookingsComponent } from './mybookings/mybookings.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,20 @@ const routes: Routes = [
     path: 'cart',
     component: MycartComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'bookings',
+    component: MybookingsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile',
+    component: MyprofileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: '/home'
   }
 ];
 

@@ -11,13 +11,13 @@
     <mat-icon>search</mat-icon>
   </button>
 
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/wishlist">
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/cart">
     <mat-icon>local_mall</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/bookings">
     <mat-icon>bookmarkadded</mat-icon>
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="profileMenu">
@@ -26,8 +26,8 @@
 </mat-toolbar>
 
 <mat-menu #profileMenu="matMenu">
-  <button mat-menu-item>My Profile</button>
-  <button mat-menu-item>My Business</button>
+  <button mat-menu-item routerLink="/profile">My Profile</button>
+  <button mat-menu-item routerLink="/business">My Business</button>
   <button mat-menu-item (click)="logout()">
     Logout
     <mat-icon>logout</mat-icon>
