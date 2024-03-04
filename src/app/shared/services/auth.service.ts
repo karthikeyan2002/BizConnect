@@ -85,7 +85,7 @@ export class AuthService {
         );
       })
       .catch((error: Error) => {
-        alert(error.message);
+        this.errorMessageSubject.next(error.message);
       });
   }
 

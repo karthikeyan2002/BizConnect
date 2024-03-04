@@ -1,9 +1,9 @@
 import { outputAst } from '@angular/compiler';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -20,7 +20,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit,OnDestroy {
+  errorMessage:string|null = null;
+  private errorMessageSubscription:Subscription | undefined;
+
   firstName: string = '';
   lastName: string = '';
   city: string = '';
@@ -30,7 +33,11 @@ export class RegisterComponent implements OnInit {
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
 
-  constructor(private route: Router, private auth: AuthService) { }
+  constructor(private route: Router, private auth: AuthService) { 
+    this.errorMessageSubscription = this.auth.errorMessage$.subscribe(
+      errorMessage => this.errorMessage = errorMessage
+    );
+  }
 
   @Output() goToLogin = new EventEmitter<void>();
 
@@ -128,6 +135,10 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.auth.signUpWithEmailAndPassword(this.email, this.password,this.firstName,this.lastName,this.city);
+  }
+
+  ngOnDestroy(): void {
+      this.errorMessageSubscription?.unsubscribe();
   }
 
 }
