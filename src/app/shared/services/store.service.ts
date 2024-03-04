@@ -11,7 +11,7 @@ import { user } from "@angular/fire/auth";
 
 export class StorageService {
     // private datePipe: DatePipe
-    constructor(private http: HttpClient ) {}
+    constructor(private http: HttpClient) { }
 
     // currentTime:any = new Date();
     // formattedTime:any = this.datePipe.transform(this.currentTime, 'medium');
@@ -19,12 +19,11 @@ export class StorageService {
     appendUser(userData: any): Observable<any> {
         const userId = userData.uid;
         const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json`;
-        userData.myCart = [];
-        userData.myOrders = [];
-        userData.myBookings = [];
-        userData.city = '';
-        console.log(userData);
-        return this.http.patch(url, userData);
+        userData.mycat = [];
+        userData.myorders = [];
+        userData.mybookings = [];
+        return this.http.patch<any>(url, userData);
+
     }
 
     // addToCart(items: any, uid: any): Observable<any> {

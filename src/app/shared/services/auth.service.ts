@@ -61,19 +61,29 @@ export class AuthService {
       })
   }
 
-  signUpWithEmailAndPassword(email: string, password: string) {
+  signUpWithEmailAndPassword(email: string, password: string, firstName: string, lastName: string, city: string) {
     return this.firebaseAuthenticationService.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.userData = userCredential.user;
-        this.storage.appendUser(this.userData).subscribe(
+        const userData = userCredential.user;
+        // Assuming you have a method to append user data to storage
+        this.storage.appendUser({
+          uid: userData?.uid,
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          city: city
+        }).subscribe(
           (response) => {
             this.observeUserState();
           },
           (err) => { }
         );
-
       })
+      .catch((error: Error) => {
+        alert(error.message);
+      });
   }
+  
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
