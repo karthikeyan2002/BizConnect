@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, user } from '@angular/fire/auth';
+import { StorageService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,13 @@ import { GoogleAuthProvider, user } from '@angular/fire/auth';
 export class AuthService {
 
   userData: any;
+  users: any;
 
   constructor(
     private firebaseAuthenticationService: AngularFireAuth,
     private router: Router,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private storage: StorageService
   ) {
     this.firebaseAuthenticationService.authState.subscribe((user) => {
       if (user) {
@@ -27,7 +30,20 @@ export class AuthService {
 
   logInWithGoogleProvider() {
     return this.firebaseAuthenticationService.signInWithPopup(new GoogleAuthProvider())
-      .then(() => this.observeUserState())
+      .then((userCredential) => {
+        this.userData = userCredential.user;
+        this.storage.appendUser(this.userData).subscribe(
+          (response) => {
+            // console.log("success");
+            this.observeUserState();
+          },
+          (err) => {
+            // console.log("error");
+
+          }
+        );
+        // this.observeUserState()
+      })
       .catch((error: Error) => {
         alert(error.message);
       })
@@ -49,7 +65,13 @@ export class AuthService {
     return this.firebaseAuthenticationService.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         this.userData = userCredential.user;
-        this.observeUserState()
+        this.storage.appendUser(this.userData).subscribe(
+          (response) => {
+            this.observeUserState();
+          },
+          (err) => { }
+        );
+
       })
   }
 
@@ -67,7 +89,7 @@ export class AuthService {
 
   observeUserState() {
     this.firebaseAuthenticationService.authState.subscribe((userState) => {
-      userState && this.ngZone.run(() => this.router.navigate(['home']));
+      userState && this.ngZone.run(() => this.router.navigate(['']));
     })
   }
 }
