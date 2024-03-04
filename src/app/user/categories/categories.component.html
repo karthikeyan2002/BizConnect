@@ -3,6 +3,7 @@
         <mat-chip-option [value]="category" (click)="chipSelected(category.category)">{{ category.category
             }}</mat-chip-option>
     </ng-container>
+    <button mat-button color="primary" class="mt-1" (click)="clearFilter()">Clear Filter</button>
 </mat-chip-listbox>
 
 <div *ngIf="subCategories.length>0">
@@ -12,6 +13,7 @@
         </ng-container>
     </mat-chip-listbox>
 </div>
+
 <div class="container">
     <div class="row">
         <ng-container *ngFor="let i of Business;let index = index">

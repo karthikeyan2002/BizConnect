@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Shop } from '../interfaces/shop.interface';
-import { Observable, map } from 'rxjs';
+import { Observable, filter, map, tap } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class FetchService {
       );
   }
 
-  fetchShop(id: String) {
+  fetchShop(id: String):Observable<Shop>{
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`)
   }
 
@@ -50,4 +50,11 @@ export class FetchService {
     return this.http.get<{ [key: string]: Product }>(url);
   }
 
+  fetchCategories() {
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/categories.json`);
+  }
+
+  fetchShopFilterByCategory(category: string) {
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json`);
+  }
 }
