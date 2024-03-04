@@ -14,8 +14,11 @@ export class AuthService {
   userData: any;
   users: any;
 
-  private errorMessageSubject = new BehaviorSubject<string | null>(null);
-  errorMessage$ = this.errorMessageSubject.asObservable();
+  private loginErrorMessageSubject = new BehaviorSubject<string | null>(null);
+  LoginerrorMessage$ = this.loginErrorMessageSubject.asObservable();
+
+  private singUpErrorMessageSubject = new BehaviorSubject<string | null>(null);
+  SignUpErrorMessage$ = this.singUpErrorMessageSubject.asObservable();
 
   constructor(
     private firebaseAuthenticationService: AngularFireAuth,
@@ -62,7 +65,7 @@ export class AuthService {
         this.observeUserState()
       })
       .catch((error) => {
-        this.errorMessageSubject.next(error.message);
+        this.loginErrorMessageSubject.next("Invalid Credentials. Please try again !");
       })
   }
 
@@ -85,7 +88,7 @@ export class AuthService {
         );
       })
       .catch((error: Error) => {
-        this.errorMessageSubject.next(error.message);
+        this.singUpErrorMessageSubject.next('Email is already registerd with us. Please try login !');
       });
   }
 

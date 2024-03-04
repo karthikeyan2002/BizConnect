@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit,OnDestroy {
   hideConfirmPassword: boolean = true;
 
   constructor(private route: Router, private auth: AuthService) { 
-    this.errorMessageSubscription = this.auth.errorMessage$.subscribe(
+    this.errorMessageSubscription = this.auth.SignUpErrorMessage$.subscribe(
       errorMessage => this.errorMessage = errorMessage
     );
   }

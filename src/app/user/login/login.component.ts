@@ -27,7 +27,7 @@ export class LoginComponent implements OnDestroy {
 
 
   constructor(private route: Router, private auth: AuthService) {
-    this.errorMessageSubscription = this.auth.errorMessage$.subscribe(
+    this.errorMessageSubscription = this.auth.LoginerrorMessage$.subscribe(
       errorMessage => this.errorMessage = errorMessage
     );
   }
