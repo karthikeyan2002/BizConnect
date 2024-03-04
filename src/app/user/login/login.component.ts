@@ -1,8 +1,10 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { Subscription, subscribeOn } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
+
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -19,9 +21,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
+  errorMessage: string | null = null;
+  private errorMessageSubscription: Subscription | undefined;
 
-  constructor(private route: Router, private auth: AuthService) { }
+
+  constructor(private route: Router, private auth: AuthService) {
+    this.errorMessageSubscription = this.auth.errorMessage$.subscribe(
+      errorMessage => this.errorMessage = errorMessage
+    );
+  }
 
   @Output() goToRegister = new EventEmitter<void>();
 
@@ -39,18 +48,22 @@ export class LoginComponent {
     this.route.navigate(['home'])
   }
 
-  loginWithEmailAndPassword(event:Event) {
+  loginWithEmailAndPassword(event: Event) {
     event.preventDefault();
     if (this.emailFormControl.valid && this.passwordFormControl.valid) {
       const email = this.emailFormControl.value;
       const password = this.passwordFormControl.value;
-      this.auth.loginWithEmailAndPassword(email!,password!);
+      this.auth.loginWithEmailAndPassword(email!, password!);
     }
   }
 
   loginWithGoogle(event: Event) {
     event.preventDefault();
     this.auth.logInWithGoogleProvider();
+  }
+
+  ngOnDestroy(): void {
+    this.errorMessageSubscription?.unsubscribe();
   }
 }
 

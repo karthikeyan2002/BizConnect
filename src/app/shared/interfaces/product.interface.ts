@@ -1,8 +1,8 @@
 export interface Product {
-    name: string;
-    price: number;
-    isAvailable: boolean;
-    productId: string;
-    rating:number;
-  }
-  
+  isAvailable: boolean;
+  name: string;
+  price: number;
+  productId: string;
+  quantity: number;
+  rating: number;
+}

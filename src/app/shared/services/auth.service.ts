@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider, user } from '@angular/fire/auth';
 import { StorageService } from './store.service';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,9 @@ export class AuthService {
 
   userData: any;
   users: any;
+
+  private errorMessageSubject = new BehaviorSubject<string | null>(null);
+  errorMessage$ = this.errorMessageSubject.asObservable();
 
   constructor(
     private firebaseAuthenticationService: AngularFireAuth,
@@ -57,7 +62,7 @@ export class AuthService {
         this.observeUserState()
       })
       .catch((error) => {
-        alert(error.message)
+        this.errorMessageSubject.next(error.message);
       })
   }
 
@@ -83,7 +88,7 @@ export class AuthService {
         alert(error.message);
       });
   }
-  
+
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);

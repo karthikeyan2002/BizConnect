@@ -1,4 +1,7 @@
 <div class="example-container login-container">
+    <div class="alert alert-warning" role="alert" *ngIf="errorMessage">
+       {{errorMessage}}
+      </div>
     <h1>Login</h1>
     <form class="example-form" (submit)="loginWithEmailAndPassword($event)">
         <div>
