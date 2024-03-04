@@ -16,7 +16,7 @@
 
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let i of Business;let index = index">
+        <ng-container *ngFor="let i of Business">
             <div class="col-lg-4 my-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top"
@@ -54,7 +54,7 @@
                         <p class="text-muted">{{i.addressLane2 | titlecase}} , {{i.city | titlecase}}</p>
                     </div>
                     <div class="card-footer text-center">
-                        <button mat-raised-button color="primary" (click)="navigateToShop(index)">Visit Shop</button>
+                        <button mat-raised-button color="primary" (click)="navigateToShop(i.id)">Visit Shop</button>
                     </div>
                 </div>
             </div>

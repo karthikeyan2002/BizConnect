@@ -15,6 +15,7 @@ export class ShopComponent implements OnInit {
   panelOpenState = false;
   
   product: Shop = {
+    id:0,
     name: '',
     description: '',
     addressLane1: '',

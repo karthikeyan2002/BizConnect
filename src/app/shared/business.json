@@ -1,5 +1,6 @@
 [
     {
+        "id": 0,
         "name": "ABC Electronics",
         "description": "Your one-stop shop for all electronics needs.",
         "addressLane1": "123 Main Street",
@@ -27,6 +28,7 @@
         ]
     },
     {
+        "id": 1,
         "name": "XYZ Fashion Boutique",
         "description": "Trendy fashion for men and women.",
         "addressLane1": "456 Fashion Avenue",
@@ -54,6 +56,7 @@
         ]
     },
     {
+        "id": 2,
         "name": "Sunshine Spa & Wellness Center",
         "description": "Relax, rejuvenate, and pamper yourself.",
         "addressLane1": "789 Serenity Street",
@@ -66,6 +69,7 @@
         "subcategory": "Spa"
     },
     {
+        "id": 3,
         "name": "Green Thumb Garden Supplies",
         "description": "Everything you need to make your garden flourish.",
         "addressLane1": "321 Garden Grove",
@@ -94,6 +98,7 @@
         ]
     },
     {
+        "id": 4,
         "name": "Books & Brews Cafe",
         "description": "A cozy cafe where you can enjoy good books and great coffee.",
         "addressLane1": "567 Literary Lane",
@@ -106,6 +111,7 @@
         "subcategory": "Cafe"
     },
     {
+        "id": 5,
         "name": "Sporty Spice Fitness Store",
         "description": "Get fit with our range of sports equipment and gear.",
         "addressLane1": "987 Fitness Avenue",
@@ -134,6 +140,7 @@
         ]
     },
     {
+        "id": 6,
         "name": "Smart Minds Tutoring Center",
         "description": "Unlock your potential with our expert tutors.",
         "addressLane1": "246 Education Street",
@@ -146,6 +153,7 @@
         "subcategory": "6-8"
     },
     {
+        "id": 7,
         "name": "Language Junction Institute",
         "description": "Learn languages from around the world with us.",
         "addressLane1": "369 Polyglot Place",
@@ -158,6 +166,7 @@
         "subcategory": "Hindi"
     },
     {
+        "id": 8,
         "name": "Iron Body Gym & Training",
         "description": "Transform your body with our personalized training programs.",
         "addressLane1": "654 Fitness Plaza",
@@ -170,6 +179,7 @@
         "subcategory": "Gym"
     },
     {
+        "id": 9,
         "name": "Eventful Creations Event Planners",
         "description": "We bring your events to life with creativity and precision.",
         "addressLane1": "789 Celebration Street",
@@ -182,6 +192,7 @@
         "subcategory": "Event Planning"
     },
     {
+        "id": 10,
         "name": "Focus Frame Photography Studio",
         "description": "Capture your moments with perfection and style.",
         "addressLane1": "101 Shutter Avenue",

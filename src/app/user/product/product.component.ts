@@ -23,6 +23,7 @@ export class ProductComponent implements OnInit {
   uid!:string;
 
   product: Shop = {
+    id:0,
     name: '',
     description: '',
     addressLane1: '',

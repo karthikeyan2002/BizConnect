@@ -1,6 +1,7 @@
 import { Product } from "./product.interface";
 
 export interface Shop {
+    id:number;
     name: string;
     description: string;
     addressLane1: string;
