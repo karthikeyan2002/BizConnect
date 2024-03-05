@@ -11,7 +11,7 @@ import { StorageService } from 'src/app/shared/services/store.service';
 })
 
 export class MycartComponent {
- 
+
   uid: any;
   myCart: Product[] = [];
   isCartEmpty: boolean = true;
@@ -36,8 +36,8 @@ export class MycartComponent {
 
   getCart(id: string) {
     this.fet.getCart(id).subscribe((cartData: { [key: string]: Product }) => {
-  
-      
+
+
       if (cartData) {
         console.log("working");
         this.isCartEmpty = false;
@@ -57,26 +57,35 @@ export class MycartComponent {
   }
 
   navigate() {
-    this.route.navigate(['order']);
+    this.route.navigate(['myorders']);
   }
 
   placeOrder() {
-    // this.storage.placeOrder(this.myCart, this.uid).subscribe((res) => {
-    //   if (res) {
-    //     console.log(res)
-    //     this.storage.EmptyCart([], this.uid).subscribe((res) => {
-    //       if (res) {
-    //         console.log(res);
-
-    //       } else {
-    //         console.log('error');
-
-    //       }
-    //     })
-    //   }
-    // })
-    // this.navigate();
+    this.storage.placeOrder(this.myCart, this.uid).subscribe(
+      (res) => {
+        if (res) {
+          console.log(res);
+          this.storage.EmptyCart([], this.uid).subscribe(
+            (emptyCartRes) => {
+              if (emptyCartRes) {
+                console.log(emptyCartRes);
+              } else {
+                console.log('Error emptying cart.');
+              }
+            },
+            (emptyCartError) => {
+              console.error('Error emptying cart:', emptyCartError);
+            }
+          );
+        }
+      },
+      (placeOrderError) => {
+        console.error('Error placing order:', placeOrderError);
+      }
+    );
+    this.navigate();
   }
+
 
   navigateToHome() {
     this.route.navigate(['home']);

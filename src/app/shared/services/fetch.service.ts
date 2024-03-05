@@ -42,7 +42,7 @@ export class FetchService {
       );
   }
 
-  fetchShop(id: String):Observable<Shop>{
+  fetchShop(id: String): Observable<Shop> {
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`)
   }
 
@@ -59,11 +59,20 @@ export class FetchService {
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json`);
   }
 
-  getUserInfo(id:string):Observable<UserProfile>{
+  getUserInfo(id: string): Observable<UserProfile> {
     return this.http.get<UserProfile>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${id}.json`)
   }
 
   updateUser(id: string, updates: Partial<UserProfile>): Observable<any> {
     return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${id}.json`, updates);
   }
+  fetchOrders(uid: string) {
+    const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders.json`;
+    return this.http.get(url)
+  }
+  fetchOrder(id: string, uid: string) {
+    const url = `https://fillmycart-f1f01-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders/${id}.json`;
+    return this.http.get(url)
+  }
+
 }

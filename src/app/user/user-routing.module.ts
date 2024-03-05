@@ -9,6 +9,8 @@ import { AuthGuard } from '../shared/guards/auth.guard';
 import { MycartComponent } from './mycart/mycart.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { MyordersComponent } from './myorders/myorders.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,16 @@ const routes: Routes = [
   {
     path: 'profile',
     component: MyprofileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'myorders',
+    component: MyordersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'order/:id',
+    component: OrderComponent,
     canActivate: [AuthGuard]
   },
   {

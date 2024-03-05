@@ -3,7 +3,7 @@
     <ng-container *ngIf="isCartEmpty">
         <div class="container text-center p-2 m-2">
             <h1>Your Cart is Empty</h1>
-            <button class="anchor-like" (click)="navigateToHome()">shop now</button>
+            <button mat-raised-button color="primary" (click)="navigateToHome()">shop now</button>
         </div>
         
     </ng-container>
@@ -29,7 +29,7 @@
             </ng-container>
         </div>
         <div class="d-flex justify-content-end m-2">
-            <button class="btn btn-success" (click)="placeOrder()">PlaceMyOrder</button>
+            <button mat-raised-button color="primary" (click)="placeOrder()">PlaceMyOrder</button>
         </div>
     </ng-container>
 </div>

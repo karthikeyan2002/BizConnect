@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, switchMap } from 'rxjs';
-// import { user } from "rxfire/auth";
-// import { DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { user } from "@angular/fire/auth";
 
 @Injectable({
@@ -10,11 +9,11 @@ import { user } from "@angular/fire/auth";
 })
 
 export class StorageService {
-    // private datePipe: DatePipe
+    private datePipe!: DatePipe;
     constructor(private http: HttpClient) { }
 
-    // currentTime:any = new Date();
-    // formattedTime:any = this.datePipe.transform(this.currentTime, 'medium');
+    currentTime:any = new Date();
+    formattedTime:any = this.datePipe?.transform(this.currentTime, 'medium');
 
     appendUser(userData: any): Observable<any> {
         const userId = userData.uid;
@@ -47,21 +46,24 @@ export class StorageService {
         );
     }
 
-    // placeOrder(items:any,uid:any){
-    //     const myOrders = {
-    //         ...items,
-    //         status:"Order Placed",
-    //         completed:false,
-    //         time:this.formattedTime,
-    //     }
-    //     const url = 'https://fillmycart-f1f01-default-rtdb.asia-southeast1.firebasedatabase.app/users/'+uid+'/myOrders.json';
-    //     return this.http.post(url,myOrders)
-    // }
+    placeOrder(items:any,uid:any){
+        const myOrders = {
+            ...items,
+            status:"Order Placed",
+            completed:false,
+            time:this.formattedTime,
+        }
+        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders.json`;
+        return this.http.post(url,myOrders)
+    }
 
-    // EmptyCart(items:any,uid:any){
-    //     const url1 = 'https://fillmycart-f1f01-default-rtdb.asia-southeast1.firebasedatabase.app/users/' + uid + '/myCart.json';
-    //     return this.http.delete(url1)
-    // }
+    EmptyCart(items:any,uid:any){
+      
+        const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart.json`;
+        console.log(url1);
+        
+        return this.http.delete(url1)
+    }
 
 }
 

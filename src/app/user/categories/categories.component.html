@@ -14,7 +14,10 @@
     </mat-chip-listbox>
 </div>
 
+
 <div class="container">
+    <div *ngIf="Business?.length">
+ 
     <div class="row">
         <ng-container *ngFor="let i of Business">
             <div class="col-lg-4 my-4">
@@ -60,4 +63,9 @@
             </div>
         </ng-container>
     </div>
+</div>
+<div *ngIf="!Business?.length">
+    <p>NO MATCH FOR SELECTED FILTER</p>
+
+</div>
 </div>

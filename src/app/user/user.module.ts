@@ -34,6 +34,8 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MyordersComponent } from './myorders/myorders.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MybookingsComponent,
     MyprofileComponent,
     DialogComponent,
+    MyordersComponent,
+    OrderComponent,
   ],
   imports: [
     CommonModule,
