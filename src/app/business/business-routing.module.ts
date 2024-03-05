@@ -4,10 +4,10 @@ import { BusinesshomeComponent } from './businesshome/businesshome.component';
 
 
 const routes: Routes = [
- {
-    path:'business',
-    component:BusinesshomeComponent
- }
+  {
+    path: '',
+    component: BusinesshomeComponent
+  }
 ];
 
 @NgModule({
