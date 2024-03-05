@@ -12,7 +12,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class HomeComponent {
   id!: string;
-  firstName!: string;
+  email!: string;
   city!: string;
   animal!: string;
   name!: string;
@@ -23,16 +23,16 @@ export class HomeComponent {
       this.id = res;
       this.fet.getUserInfo(this.id).subscribe((result: any) => {
         if (result) {
-          this.firstName = result.firstName;
+          this.email = result.firstName;
         } else {
           console.warn("mistake here");
         }
       })
     });
    
-    if(this.isGuest()){
-      this.openDialog()
-    }
+    // if(this.isGuest()){
+    //   this.openDialog()
+    // }
 
   }
 

@@ -1,12 +1,4 @@
 <app-navbar></app-navbar>
-<ng-container *ngIf="isGuest()">
-   <div class="bg-img"></div>
-</ng-container>
-<ng-container *ngIf="!isGuest()">
-    <ng-container *ngIf="firstName">
-        <app-categories></app-categories>
-    </ng-container>
-    <ng-container *ngIf="!firstName">
-        <app-profile></app-profile>
-    </ng-container>
+<ng-container>
+    <app-categories></app-categories>
 </ng-container>
