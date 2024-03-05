@@ -71,7 +71,7 @@ export class FetchService {
     return this.http.get(url)
   }
   fetchOrder(id: string, uid: string) {
-    const url = `https://fillmycart-f1f01-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders/${id}.json`;
+    const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders/${id}.json`;
     return this.http.get(url)
   }
 

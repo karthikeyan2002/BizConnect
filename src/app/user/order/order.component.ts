@@ -37,6 +37,6 @@ export class OrderComponent {
   }
 
   backToOrders() {
-    this.router.navigate(['order'])
+    this.router.navigate(['myorders'])
   }
 }
