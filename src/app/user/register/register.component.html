@@ -4,7 +4,7 @@
     <form class="example-form" (ngSubmit)="register()">
         <div class="alert alert-warning" role="alert" *ngIf="errorMessage">
             {{errorMessage}}
-           </div>
+        </div>
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
@@ -79,15 +79,15 @@
             <button mat-raised-button color="primary">
                 Register
             </button>
-            <p class="m-2 small text-muted">Continue as guest</p>
+            <p class="mt-2">
+                <button mat-stroked-button (click)="navigateToHome()">Continue as guest</button>
+            </p>
+
+
             <p class="m-2">Having an Account ? <button mat-button color="primary" class="anchor-like"
                     (click)="moveToLogin($event)">Login</button></p>
 
         </div>
         <div>
-
-
         </div>
-
-
     </form>

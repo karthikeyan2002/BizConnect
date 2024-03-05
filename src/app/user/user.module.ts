@@ -70,7 +70,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     MatMenuModule,
     MatExpansionModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
 })
 export class UserModule { }

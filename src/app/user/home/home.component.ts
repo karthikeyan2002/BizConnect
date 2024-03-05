@@ -10,14 +10,15 @@ import { user } from '@angular/fire/auth';
 })
 export class HomeComponent {
   id!: string;
-  city!: string;
+  firstName!: string;
+  city!:string;
 
   constructor(private fet: FetchService) {
     this.fet.getUserId().subscribe((res: string) => {
       this.id = res;
       this.fet.getUserInfo(this.id).subscribe((result: any) => {
         if (result) {
-          this.city = result.city;
+          this.firstName = result.firstName;
         } else {
           console.warn("mistake here");
         }

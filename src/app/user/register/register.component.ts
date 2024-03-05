@@ -20,9 +20,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit,OnDestroy {
-  errorMessage:string|null = null;
-  private errorMessageSubscription:Subscription | undefined;
+export class RegisterComponent implements OnInit, OnDestroy {
+  errorMessage: string | null = null;
+  private errorMessageSubscription: Subscription | undefined;
 
   firstName: string = '';
   lastName: string = '';
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit,OnDestroy {
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
 
-  constructor(private route: Router, private auth: AuthService) { 
+  constructor(private route: Router, private auth: AuthService) {
     this.errorMessageSubscription = this.auth.SignUpErrorMessage$.subscribe(
       errorMessage => this.errorMessage = errorMessage
     );
@@ -134,11 +134,16 @@ export class RegisterComponent implements OnInit,OnDestroy {
   }
 
   register() {
-    this.auth.signUpWithEmailAndPassword(this.email, this.password,this.firstName,this.lastName,this.city);
+    this.auth.signUpWithEmailAndPassword(this.email, this.password, this.firstName, this.lastName, this.city);
   }
 
   ngOnDestroy(): void {
-      this.errorMessageSubscription?.unsubscribe();
+    this.errorMessageSubscription?.unsubscribe();
   }
+
+  navigateToHome() {
+    this.route.navigate(['home'])
+  }
+
 
 }
