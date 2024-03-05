@@ -1,0 +1,20 @@
+<div mat-dialog-content>
+  <p>Where are you form ?</p>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>City</mat-label>
+    <input type="text" placeholder="City" aria-label="Number" matInput [formControl]="cityControl"
+        [matAutocomplete]="auto" [(ngModel)]="city" name="city">
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+        </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="cityControl.hasError('required')">
+        City is <strong>required</strong>
+    </mat-error>
+</mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-button (click)="onNoClick()">No Thanks</button> -->
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>visit</button>
+</div>

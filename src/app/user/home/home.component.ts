@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { UserProfile } from 'src/app/shared/interfaces/userProfile.interface';
 import { user } from '@angular/fire/auth';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +13,12 @@ import { user } from '@angular/fire/auth';
 export class HomeComponent {
   id!: string;
   firstName!: string;
-  city!:string;
+  city!: string;
+  animal!: string;
+  name!: string;
 
-  constructor(private fet: FetchService) {
+  constructor(private fet: FetchService, public dialog: MatDialog) {
+
     this.fet.getUserId().subscribe((res: string) => {
       this.id = res;
       this.fet.getUserInfo(this.id).subscribe((result: any) => {
@@ -24,10 +29,25 @@ export class HomeComponent {
         }
       })
     });
+   
+    if(this.isGuest()){
+      this.openDialog()
+    }
 
   }
 
-  isGuest(){
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: { name: this.name, animal: this.animal },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+  isGuest() {
     return localStorage.getItem('user') === 'null';
   }
 

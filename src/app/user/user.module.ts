@@ -32,6 +32,8 @@ import { MycartComponent } from './mycart/mycart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     ProfileComponent,
     MybookingsComponent,
     MyprofileComponent,
-   ],
+    DialogComponent,
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -71,6 +74,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule
   ],
 })
 export class UserModule { }
