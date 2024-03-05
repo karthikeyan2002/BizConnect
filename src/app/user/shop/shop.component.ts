@@ -17,6 +17,7 @@ export class ShopComponent implements OnInit {
   product: Shop = {
     id:0,
     name: '',
+    src:'',
     description: '',
     addressLane1: '',
     addressLane2: '',

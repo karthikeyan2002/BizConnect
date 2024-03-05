@@ -10,6 +10,7 @@
         "type": "product",
         "category": "Electronics",
         "subcategory": "Gadgets",
+        "Imgsrc": "gs://bizconnect-11500.appspot.com/electronics.jpg",
         "products": [
             {
                 "name": "Laptop",
@@ -38,6 +39,7 @@
         "type": "product",
         "category": "Clothings",
         "subcategory": "Men and Women",
+        "Imgsrc": "",
         "products": [
             {
                 "name": "T-Shirt",
@@ -64,9 +66,9 @@
         "city": "Coimbatore",
         "rating": 4.8,
         "type": "service",
-        "avgpricing": "$$$",
         "category": "Wellness",
-        "subcategory": "Spa"
+        "subcategory": "Spa",
+        "Imgsrc": ""
     },
     {
         "id": 3,
@@ -77,9 +79,9 @@
         "city": "Madurai",
         "rating": 4.4,
         "type": "product",
-        "avgpricing": "$$",
         "category": "Gardening",
         "subcategory": "Gardening Supplies",
+        "Imgsrc": "",
         "products": [
             {
                 "name": "Potted Plant",
@@ -106,9 +108,9 @@
         "city": "Madurai",
         "rating": 4.6,
         "type": "service",
-        "avgpricing": "$$",
         "category": "Food",
-        "subcategory": "Cafe"
+        "subcategory": "Cafe",
+        "Imgsrc": "gs://bizconnect-11500.appspot.com/cafe.jpg"
     },
     {
         "id": 5,
@@ -119,9 +121,9 @@
         "city": "Madurai",
         "rating": 4.3,
         "type": "product",
-        "avgpricing": "$$$",
         "category": "Fitness",
         "subcategory": "",
+        "Imgsrc": "",
         "products": [
             {
                 "name": "Dumbbells Set",
@@ -148,9 +150,9 @@
         "city": "Coimbatore",
         "rating": 4.7,
         "type": "service",
-        "avgpricing": "$$$",
         "category": "Tutoring",
-        "subcategory": "6-8"
+        "subcategory": "6-8",
+        "Imgsrc": ""
     },
     {
         "id": 7,
@@ -161,9 +163,9 @@
         "city": "Coimbatore",
         "rating": 4.4,
         "type": "service",
-        "avgpricing": "$$",
         "category": "Language tutoring",
-        "subcategory": "Hindi"
+        "subcategory": "Hindi",
+        "Imgsrc": ""
     },
     {
         "id": 8,
@@ -174,9 +176,9 @@
         "city": "Coimbatore",
         "rating": 4.9,
         "type": "service",
-        "avgpricing": "$$$",
         "category": "Fitness",
-        "subcategory": "Gym"
+        "subcategory": "Gym",
+        "Imgsrc": ""
     },
     {
         "id": 9,
@@ -187,9 +189,9 @@
         "city": "Coimbatore",
         "rating": 4.6,
         "type": "service",
-        "avgpricing": "$$$",
         "category": "Events",
-        "subcategory": "Event Planning"
+        "subcategory": "Event Planning",
+        "Imgsrc": ""
     },
     {
         "id": 10,
@@ -200,8 +202,8 @@
         "city": "Coimbatore",
         "rating": 4.7,
         "type": "service",
-        "avgpricing": "$$",
         "category": "Photograpy",
-        "subcategory": "event"
+        "subcategory": "event",
+        "Imgsrc": ""
     }
 ]

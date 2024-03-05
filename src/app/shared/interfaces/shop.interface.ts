@@ -1,6 +1,7 @@
 import { Product } from "./product.interface";
 
 export interface Shop {
+src: any;
     id:number;
     name: string;
     description: string;
