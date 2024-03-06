@@ -19,6 +19,8 @@ import { MybusinessComponent } from './mybusiness/mybusiness.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { BusinessshopComponent } from './businessshop/businessshop.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { BusinessproductComponent } from './businessproduct/businessproduct.component';
+import { BusinessserviceComponent } from './businessservice/businessservice.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     BusinessprofileComponent,
     MybusinessComponent,
     BusinessshopComponent,
+    BusinessproductComponent,
+    BusinessserviceComponent,
   ],
   imports: [
     CommonModule,
