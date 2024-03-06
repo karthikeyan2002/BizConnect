@@ -42,8 +42,8 @@ export class MybusinessComponent {
     }
   }
 
-  navigateToShop(shopid:number){
-    this.route.navigate([`shop/${shopid}`])
+  navigateToBusinessShop(shopid:number){
+    this.route.navigate([`/business/businessshop/${shopid}`])
   }
 
 }

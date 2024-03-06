@@ -63,5 +63,9 @@ export class StorageService {
         return this.http.delete(url1)
     }
 
+    updateShop(id:string,shop:any){
+        return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`,shop)
+    }
+
 }
 

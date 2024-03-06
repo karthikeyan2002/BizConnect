@@ -1,0 +1,65 @@
+<div *ngIf="canEdit">
+    <app-businessnav></app-businessnav>
+    <form (submit)="updateChanges()">
+    
+    
+    <div class="container mt-4 fade-in">
+        <div class="float-start">
+            <h1 class="mb-1 float-left">
+                <input type="text" [value]="product.name" [(ngModel)]="product.name" name="product.name">
+                </h1>
+    
+            <p class="mb-0 text-muted">
+                <input type="text" [value]="product.addressLane1" [(ngModel)]="product.addressLane1" name="product.addressLane1">
+                <input type="text" [value]="product.addressLane2" [(ngModel)]="product.addressLane2" name="product.addressLane2">
+                <input type="text" [value]="product.city" [(ngModel)]="product.city" name="product.city">
+            </p>
+    
+            <div class="ratings mt-0 mb-2">
+                <ng-container *ngFor="let star of getStars(product.rating)">
+                    <mat-icon class="star mt-2">{{ star }}</mat-icon>
+    
+                </ng-container>
+                <span>({{product.rating}})</span>
+                <mat-slide-toggle>Enable Rating</mat-slide-toggle>
+    
+            </div>
+    
+        </div>
+        <div class="float-end">
+            <div class=" d-flex align-items-center my-1" matTooltip="Delivery Not Available" matTooltipPosition="right">
+                <mat-icon>local_shipping</mat-icon>
+                <span class="mx-2">
+                    <input type="text" value="Not Available"></span>
+            </div>
+    
+            <div class="d-flex align-items-center my-1" matTooltip="Cash on Delivery Not Available"
+                matTooltipPosition="right">
+                <mat-icon>payment</mat-icon>
+                <span class="mx-2">
+                    <input type="text" value="Pre-Paid">
+                </span>
+            </div>
+    
+        </div>
+    
+        <div class="float-none">
+       
+                <textarea cols="100" [(ngModel)]="product.description" name="product.description">
+                   {{product.description}}
+                </textarea>
+                <button mat-raised-button color="primary" class="mb-4 mx-4" type="submit">UPDATE CHANGE</button>
+    
+        </div>
+        
+        <mat-divider></mat-divider>
+    
+        <ng-container *ngIf="type === 'product'">
+            <!-- <app-product></app-product> -->
+        </ng-container>
+        <ng-container *ngIf="type === 'service'">
+            <!-- <app-service></app-service> -->
+        </ng-container>
+    </div>
+    </form>
+</div>

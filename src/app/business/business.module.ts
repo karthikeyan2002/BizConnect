@@ -17,6 +17,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MybusinessComponent } from './mybusiness/mybusiness.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { BusinessshopComponent } from './businessshop/businessshop.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     BusinessnavComponent,
     BusinessprofileComponent,
     MybusinessComponent,
+    BusinessshopComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatButtonModule,
     MatDividerModule,
     MatTooltipModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSlideToggleModule
   ]
 })
 export class BusinessModule { }
