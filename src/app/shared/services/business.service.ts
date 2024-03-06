@@ -25,34 +25,37 @@ export class BusinessService {
   }
 
   addShop(formData: any) {
-    let uid:any;
+    let uid: any;
     return this.getId().pipe(
       switchMap(newId => {
         console.log(newId);
         formData.id = newId;
-        this.fet.getUserId().subscribe((res)=>{
+        this.fet.getUserId().subscribe((res) => {
           uid = res;
-          this.addtoProfile(newId, uid).subscribe(()=>{
+          this.addtoProfile(newId, uid).subscribe(() => {
             console.log('success');
-            
-          },err=>{
+
+          }, err => {
             console.warn('few problem here');
-            
+
           })
         });
-       
+
         return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${newId}.json`, formData);
       })
     );
   }
 
-  addtoProfile(businessid: any,uid:any) {
-    console.warn(businessid);
-    console.warn(uid);
-    
-    
+  addtoProfile(businessid: any, uid: any) {
     const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myBusiness.json`;
     return this.http.post(url, businessid)
   }
 
+  getMyBusiness(uid: any) {
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myBusiness.json`)
+  }
+
+  fetchMyShop(key:number){
+    return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${key}.json`)
+ }
 }

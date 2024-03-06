@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MybusinessComponent } from './mybusiness/mybusiness.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -23,8 +24,7 @@ import { MybusinessComponent } from './mybusiness/mybusiness.component';
     BusinesshomeComponent,
     BusinessnavComponent,
     BusinessprofileComponent,
-    MybusinessComponent
-
+    MybusinessComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +39,8 @@ import { MybusinessComponent } from './mybusiness/mybusiness.component';
     MatAutocompleteModule,
     MatButtonModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule
   ]
 })
 export class BusinessModule { }

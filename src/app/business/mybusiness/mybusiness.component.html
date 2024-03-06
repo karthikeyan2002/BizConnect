@@ -1,1 +1,46 @@
 <app-businessnav></app-businessnav>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let shop of myShops">
+            <div class="col-lg-4 my-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" [src]="shop.src || '../../../assets/shops/shop.jpg'" alt="Card image cap">
+                    <div class="card-header">
+
+                        <div>
+                            <b>
+                                <h4 class="card-title">{{shop.name}}</h4>
+                            </b>
+                            <!-- <div class="ratings">
+
+                            <ng-container *ngFor="let star of getStars(shop.rating)">
+                                <mat-icon class="star mt-2">{{ star }}</mat-icon>
+                            </ng-container>
+
+                            <span>({{shop.rating}})</span>
+                        </div> -->
+
+
+                        </div>
+
+                        <!-- <div>
+                            <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon"
+                                class="heart" matTooltip="Add To Wishlist">
+                                <mat-icon>favorite</mat-icon>
+                            </button>
+                        </div> -->
+                    </div>
+                    <div class="card-body">
+                        <div class="card-description">
+                            <p class="card-text text-small">{{shop.description}}</p>
+                        </div>
+                        <p class="text-muted">{{shop.addressLane2 | titlecase}} , {{shop.city | titlecase}}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button mat-raised-button color="primary">Edit Shop</button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

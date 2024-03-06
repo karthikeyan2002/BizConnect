@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 import { BusinessService } from 'src/app/shared/services/business.service';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-businessprofile',
@@ -11,7 +13,7 @@ import { Shop } from 'src/app/shared/interfaces/shop.interface';
 })
 export class BusinessprofileComponent implements OnInit {
 
-  constructor(private bus: BusinessService) { }
+  constructor(private bus: BusinessService,private route:Router) { }
 
   shopName!: string;
   shopDescription!: string;
@@ -102,6 +104,8 @@ export class BusinessprofileComponent implements OnInit {
   addShop() {
     this.bus.addShop(this.formData).subscribe((res) => {
       console.log("FORM SUBMISSION DONE SUCEESSFULLy");
+      this.route.navigate(['/business/mybusiness']);
+      
     }, err => {
       console.log("SUBMISSION ERROR");
     })
