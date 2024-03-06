@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
+import { BusinessService } from 'src/app/shared/services/business.service';
+import { Shop } from 'src/app/shared/interfaces/shop.interface';
 
 @Component({
   selector: 'app-businessprofile',
@@ -8,14 +10,36 @@ import { Observable, map, startWith } from 'rxjs';
   styleUrls: ['./businessprofile.component.css']
 })
 export class BusinessprofileComponent implements OnInit {
-  formData: any = {};
+
+  constructor(private bus: BusinessService) { }
+
+  shopName!: string;
+  shopDescription!: string;
+  addressLane1!: string;
+  addressLane2!: string;
+  city!: string;
+  category!: string;
+  subCategory!: string;
+  type!: string;
+
+  formData: Shop = {
+    src: undefined,
+    id: 0,
+    name: '',
+    description: '',
+    addressLane1: '',
+    addressLane2: '',
+    city: '',
+    rating: 0,
+    type: 'product',
+    avgPricing: '',
+    category: '',
+    subcategory: '',
+    products: []
+  };
   selectedFile: File | null = null;
   cityControl = new FormControl('', [Validators.required]);
 
-  submitForm() {
-    console.log(this.formData);
-    this.formData = {};
-  }
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -72,8 +96,16 @@ export class BusinessprofileComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
+
+  addShop() {
+    this.bus.addShop(this.formData).subscribe((res) => {
+      console.log("FORM SUBMISSION DONE SUCEESSFULLy");
+    }, err => {
+      console.log("SUBMISSION ERROR");
+    })
+  }
+
 
 }

@@ -57,11 +57,9 @@ export class StorageService {
         return this.http.post(url,myOrders)
     }
 
-    EmptyCart(items:any,uid:any){
-      
+    EmptyCart(items:any,uid:any){   
         const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart.json`;
         console.log(url1);
-        
         return this.http.delete(url1)
     }
 

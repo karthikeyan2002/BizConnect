@@ -1,48 +1,39 @@
-<div class="container">
-    <h1>Register Shop</h1>
-</div>
-
 <div class="row">
 
-<div class="col-lg-4">
+    <div class="col-lg-4 new-business">
+        <h1>MOVE YOUR BUSINESS ONLINE</h1>
+    </div>
+    <div class="col-lg-8">
+        <div class="example-container login-container m-4 p-4"><br><br>
+            <form class="example-form" (ngSubmit)="addShop()">
 
-</div>
-
-<div class="col-lg-8">
-    <div class="example-container login-container m-4 p-4">
-        <div>
-            <br><br>
-        </div>
-        <form class="example-form">
             <div>
                 <mat-form-field appearance="outline" style="width: 100%;">
                     <mat-label>Shop Name</mat-label>
-                    <input type="text" matInput name="shopName">
+                    <input type="text" matInput name="shopName" [(ngModel)]="formData.name">
                 </mat-form-field>
-
-            </div>
+            
             <div>
                 <mat-form-field appearance="outline" style="width: 100%;">
                     <mat-label>Shop Description</mat-label>
-                    <textarea matInput name="shopDescription" rows="5"></textarea>
+                    <textarea matInput name="shopDescription" rows="5" [(ngModel)]="formData.description"></textarea>
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline">
                     <mat-label>Address Lane 1</mat-label>
-                    <input type="text" matInput name="addressLane1">
+                    <input type="text" matInput name="addressLane1" [(ngModel)]="formData.addressLane1">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Address Lane 2</mat-label>
-                    <input type="text" matInput name="addressLane2">
+                    <input type="text" matInput name="addressLane2" [(ngModel)]="formData.addressLane2">
                 </mat-form-field>
             </div>
-
             <div>
-                <mat-form-field appearance="outline">
+                <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>City</mat-label>
-                    <input type="text" placeholder="City" aria-label="Number" matInput [matAutocomplete]="auto"
-                        name="city">
+                    <input type="text" placeholder="City" aria-label="Number" matInput [matAutocomplete]="auto"  
+                        [(ngModel)]="formData.city" name="city">
                     <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                             {{option}}
@@ -53,22 +44,22 @@
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                    <mat-label>Pin code</mat-label>
-                    <input type="text" matInput name="addressLane2">
+                    <mat-label>Category</mat-label>
+                    <input type="text" matInput name="category" [(ngModel)]="formData.category">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field appearance="outline">
+                    <mat-label>Sub Category</mat-label>
+                    <input type="text" matInput name="subCategory" [(ngModel)]="formData.subcategory">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
                     <mat-label>Type</mat-label>
-                    <mat-select name="type" matInput>
+                    <mat-select name="type" matInput [(ngModel)]="formData.type">
                         <mat-option value="product">Product</mat-option>
                         <mat-option value="service">Service</mat-option>
                     </mat-select>
-
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Category</mat-label>
-                    <input type="email" matInput name="email">
                 </mat-form-field>
             </div>
             <div class="text-center">
@@ -76,6 +67,7 @@
                     Register
                 </button>
             </div>
-        </form>
+        </div>
+        
+    </form>
     </div>
-</div>

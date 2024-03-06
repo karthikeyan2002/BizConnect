@@ -1,5 +1,8 @@
-.business-profile{
-    background-color: red;
-    height: 40vh;
+.new-business {
+    background-color: #673AB7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-

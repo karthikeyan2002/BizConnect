@@ -14,15 +14,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MybusinessComponent } from './mybusiness/mybusiness.component';
 
 
 @NgModule({
   declarations: [
     BusinesshomeComponent,
     BusinessnavComponent,
-    BusinessprofileComponent
+    BusinessprofileComponent,
+    MybusinessComponent
 
   ],
   imports: [
@@ -37,7 +38,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSelectModule,
     MatAutocompleteModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
   ]
 })
 export class BusinessModule { }
