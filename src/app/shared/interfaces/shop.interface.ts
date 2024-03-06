@@ -13,5 +13,6 @@ src: any;
     avgPricing: string;
     category: string;
     subcategory: string;
-    products:Product[]
+    products:Product[];
+    admin:string;
 }

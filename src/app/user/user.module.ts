@@ -36,6 +36,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderComponent } from './order/order.component';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { OrderComponent } from './order/order.component';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRippleModule
   ],
 })
 export class UserModule { }

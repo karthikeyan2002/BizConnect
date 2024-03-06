@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { BusinessService } from 'src/app/shared/services/business.service';
 import { FetchService } from 'src/app/shared/services/fetch.service';
@@ -10,10 +11,12 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
 })
 export class MybusinessComponent {
 
+
+
   myBusiness: object = {};
   myBusinessKeys: any;
   myShops:Array<Shop> = [];
-  constructor(private bus: BusinessService, private fet: FetchService) {
+  constructor(private bus: BusinessService, private fet: FetchService,private route:Router) {
     this.fet.getUserId().subscribe((res) => {
       this.bus.getMyBusiness(res).subscribe((result) => {
         this.myBusiness = result;
@@ -37,6 +40,10 @@ export class MybusinessComponent {
           
       })
     }
+  }
+
+  navigateToShop(shopid:number){
+    this.route.navigate([`shop/${shopid}`])
   }
 
 }

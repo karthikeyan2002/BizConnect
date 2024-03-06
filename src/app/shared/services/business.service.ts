@@ -30,8 +30,10 @@ export class BusinessService {
       switchMap(newId => {
         console.log(newId);
         formData.id = newId;
+     
         this.fet.getUserId().subscribe((res) => {
           uid = res;
+          formData.admin = res;
           this.addtoProfile(newId, uid).subscribe(() => {
             console.log('success');
 

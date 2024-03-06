@@ -27,7 +27,8 @@ export class ShopComponent implements OnInit {
     avgPricing: '',
     category: '',
     subcategory: '',
-    products: []
+    products: [],
+    admin:'',
   };
 
 

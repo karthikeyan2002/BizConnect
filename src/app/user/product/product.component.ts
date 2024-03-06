@@ -23,9 +23,9 @@ export class ProductComponent implements OnInit {
   uid!:string;
 
   product: Shop = {
-    id:0,
+    id: 0,
     name: '',
-    src:'',
+    src: '',
     description: '',
     addressLane1: '',
     addressLane2: '',
@@ -35,7 +35,8 @@ export class ProductComponent implements OnInit {
     avgPricing: '',
     category: '',
     subcategory: '',
-    products: []
+    products: [],
+    admin: ''
   };
 
   ngOnInit(): void {

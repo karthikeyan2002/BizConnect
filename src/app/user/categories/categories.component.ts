@@ -14,6 +14,7 @@ export class CategoriesComponent {
 
   Business: Shop[] | undefined;
   categoriesWithSubcategories: any;
+  myColor: string = '#ababab';
 
   constructor(private fet: FetchService, private route: Router) {
     this.fetchBusiness();

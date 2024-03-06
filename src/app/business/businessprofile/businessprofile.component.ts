@@ -4,6 +4,7 @@ import { Observable, map, startWith } from 'rxjs';
 import { BusinessService } from 'src/app/shared/services/business.service';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { Router } from '@angular/router';
+import { FetchService } from 'src/app/shared/services/fetch.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class BusinessprofileComponent implements OnInit {
 
-  constructor(private bus: BusinessService,private route:Router) { }
+  constructor(private bus: BusinessService,private route:Router,private fet:FetchService) { }
 
   shopName!: string;
   shopDescription!: string;
@@ -37,8 +38,10 @@ export class BusinessprofileComponent implements OnInit {
     avgPricing: '',
     category: '',
     subcategory: '',
-    products: []
+    products: [],
+    admin:'',
   };
+  
   selectedFile: File | null = null;
   cityControl = new FormControl('', [Validators.required]);
 
@@ -102,13 +105,17 @@ export class BusinessprofileComponent implements OnInit {
   }
 
   addShop() {
-    this.bus.addShop(this.formData).subscribe((res) => {
-      console.log("FORM SUBMISSION DONE SUCEESSFULLy");
-      this.route.navigate(['/business/mybusiness']);
-      
-    }, err => {
-      console.log("SUBMISSION ERROR");
+    this.fet.getUserId().subscribe((res)=>{
+      this.formData.admin = res;
+      this.bus.addShop(this.formData).subscribe((res) => {
+        console.log("FORM SUBMISSION DONE SUCEESSFULLy");
+        this.route.navigate(['/business/mybusiness']);
+       
+      }, err => {
+        console.log("SUBMISSION ERROR");
+      })
     })
+    
   }
 
 
