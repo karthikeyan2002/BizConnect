@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/shared/services/store.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService) { 
+  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService) {
     this.fet.getUserId().subscribe((data) => {
       this.uid = data;
     }, (err) => {
@@ -20,7 +20,9 @@ export class ProductComponent implements OnInit {
 
   id!: String;
   panelOpenState = false;
-  uid!:string;
+  uid!: string;
+  myColor: string = '#673AB7';
+  Message!:string;
 
   product: Shop = {
     id: 0,
@@ -68,6 +70,7 @@ export class ProductComponent implements OnInit {
     return stars;
   }
 
+
   AddToCart(item: any) {
     const items = {
       ...item,
@@ -75,11 +78,14 @@ export class ProductComponent implements OnInit {
     }
     this.storage.addToCart(items, this.uid).subscribe(
       (response) => {
-        alert("Items added")
+        this.Message = "Added to Cart";
+        setTimeout(() => {
+          this.Message = '';
+        }, 2000);
       },
       (err) => {
         alert("problem here")
-
+        this.Message = "Item missing :("
       }
     );
 
