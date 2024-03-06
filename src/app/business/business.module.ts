@@ -21,6 +21,7 @@ import { BusinessshopComponent } from './businessshop/businessshop.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { BusinessproductComponent } from './businessproduct/businessproduct.component';
 import { BusinessserviceComponent } from './businessservice/businessservice.component';
+import {MatRippleModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { BusinessserviceComponent } from './businessservice/businessservice.comp
     MatDividerModule,
     MatTooltipModule,
     MatProgressBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatRippleModule,
   ]
 })
 export class BusinessModule { }
