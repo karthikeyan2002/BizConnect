@@ -24,6 +24,10 @@ import { BusinessserviceComponent } from './businessservice/businessservice.comp
 import { MatRippleModule } from '@angular/material/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { NewproductComponent } from './newproduct/newproduct.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
+
 
 
 @NgModule({
@@ -54,7 +58,10 @@ import { NewproductComponent } from './newproduct/newproduct.component';
     MatProgressBarModule,
     MatSlideToggleModule,
     MatRippleModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatButtonToggleModule,
+    MatDatepickerModule,
+    MatTableModule
   ]
 })
 export class BusinessModule { }
