@@ -1,3 +1,7 @@
 .float-none{
     clear: both;
 }
+
+.custom-icon-color .swal2-success-icon {
+    background-color: blue;
+  }

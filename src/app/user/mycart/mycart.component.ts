@@ -62,26 +62,29 @@ export class MycartComponent {
 
   placeOrder() {
     this.storage.placeOrder(this.myCart, this.uid).subscribe(
-      (res) => {
-        if (res) {
-          console.log(res);
-          this.storage.EmptyCart([], this.uid).subscribe(
-            (emptyCartRes) => {
-              if (emptyCartRes) {
-                console.log(emptyCartRes);
-              } else {
-                console.log('Error emptying cart.');
+      {
+        next: res => {
+          if (res) {
+                console.log(res);
+                this.storage.EmptyCart([], this.uid).subscribe(
+                  (emptyCartRes) => {
+                    if (emptyCartRes) {
+                      console.log(emptyCartRes);
+                    } else {
+                      console.log('Error emptying cart.');
+                    }
+                  },
+                  (emptyCartError) => {
+                    console.error('Error emptying cart:', emptyCartError);
+                  }
+                );
               }
-            },
-            (emptyCartError) => {
-              console.error('Error emptying cart:', emptyCartError);
-            }
-          );
+        },
+        error: placeOrderError => {
+          console.error('Error placing order:', placeOrderError);
         }
-      },
-      (placeOrderError) => {
-        console.error('Error placing order:', placeOrderError);
       }
+ 
     );
     this.navigate();
   }

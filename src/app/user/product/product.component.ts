@@ -4,6 +4,7 @@ import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -81,10 +82,14 @@ export class ProductComponent implements OnInit {
     }
     this.storage.addToCart(items, this.uid).subscribe(
       (response) => {
-        this.Message = "Added to Cart";
-        setTimeout(() => {
-          this.Message = '';
-        }, 2000);
+        Swal.fire({
+          title: "Added To Cart",
+          icon: "success",
+          customClass: {
+            icon: 'custom-icon-color'
+          }
+        });
+        
       },
       (err) => {
         alert("problem here")
