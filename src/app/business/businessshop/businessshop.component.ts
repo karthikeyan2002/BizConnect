@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
+import { BusinessService } from 'src/app/shared/services/business.service';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
 
@@ -34,12 +35,13 @@ export class BusinessshopComponent {
   };
 
 
-  constructor(private route: ActivatedRoute, private fet: FetchService, private store: StorageService) { }
+  constructor(private route: ActivatedRoute, private fet: FetchService, private store: StorageService,private bus:BusinessService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     this.fetchType();
     this.fetchShop();
+    this.bus.setBusinessId(this.id);
   }
 
   fetchType() {

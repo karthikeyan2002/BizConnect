@@ -14,11 +14,8 @@ export class NewproductComponent {
   shopid!:string;
 
   constructor(private _newproductRef: MatBottomSheetRef<NewproductComponent>,private bus:BusinessService,private route:ActivatedRoute) {
-    this.shopid = this.route.snapshot.paramMap.get('id') || '';
+    this.shopid = this.bus.getBusinessId();
     console.log(this.shopid);
-    console.log();
-    
-    
    }
 
   openLink(event: MouseEvent): void {

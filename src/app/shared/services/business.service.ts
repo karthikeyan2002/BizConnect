@@ -3,14 +3,22 @@ import { Injectable } from '@angular/core';
 import { Observable, map, switchMap } from 'rxjs';
 import { Shop } from '../interfaces/shop.interface';
 import { FetchService } from './fetch.service';
+import { Product } from '../interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessService {
   uid!: any;
+  shopid!: any;
 
   constructor(private http: HttpClient, private fet: FetchService) { }
+  setBusinessId(id: any) {
+    this.shopid = id;
+  }
+  getBusinessId() {
+    return this.shopid;
+  }
 
   getId(): Observable<number> {
     return this.http.get<any[]>('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json')
@@ -61,9 +69,9 @@ export class BusinessService {
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${key}.json`)
   }
 
-  addProduct(shopid:any,product: any) {
+  addProduct(shopid: any, product: Product) {
     console.log(shopid);
-    
-    return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/product.json`, product)
+
+    return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/product/${product.productId}.json`, product)
   }
 }
