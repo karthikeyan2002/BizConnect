@@ -4,6 +4,7 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { BusinessService } from 'src/app/shared/services/business.service';
+import { FetchService } from 'src/app/shared/services/fetch.service';
 
 @Component({
   selector: 'app-newproduct',
@@ -12,8 +13,9 @@ import { BusinessService } from 'src/app/shared/services/business.service';
 })
 export class NewproductComponent {
   shopid!:string;
+ 
 
-  constructor(private _newproductRef: MatBottomSheetRef<NewproductComponent>,private bus:BusinessService,private route:ActivatedRoute) {
+  constructor(private _newproductRef: MatBottomSheetRef<NewproductComponent>,private bus:BusinessService,private route:ActivatedRoute,private fet:FetchService) {
     this.shopid = this.bus.getBusinessId();
     console.log(this.shopid);
    }
@@ -41,5 +43,6 @@ export class NewproductComponent {
      
     }
   }
+
 
 }

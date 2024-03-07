@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
@@ -25,7 +26,7 @@ export class ProductComponent implements OnInit {
   uid!: string;
   myColor: string = '#673AB7';
   Message!:string;
-  products!:object;
+  products:Product[]=[];
   product: Shop = {
     id: 0,
     name: '',
@@ -95,9 +96,7 @@ export class ProductComponent implements OnInit {
 
   fechProduct(){
     this.fet.fetchProducts(this.id).subscribe((res)=>{
-     this.products = res;
-    console.log(this.products);
-    
+      this.products = Object.values(res);
     })
   }
 }

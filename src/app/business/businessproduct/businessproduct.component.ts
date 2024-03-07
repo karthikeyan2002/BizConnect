@@ -5,6 +5,7 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
 import { NewproductComponent } from '../newproduct/newproduct.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Product } from 'src/app/shared/interfaces/product.interface';
 
 @Component({
   selector: 'app-businessproduct',
@@ -15,6 +16,7 @@ export class BusinessproductComponent {
   constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService, private _bottomSheet: MatBottomSheet) {
     this.fet.getUserId().subscribe((data) => {
       this.uid = data;
+      this.fechProduct();
     }, (err) => {
       console.log(err)
     });
@@ -25,6 +27,7 @@ export class BusinessproductComponent {
   uid!: string;
   myColor: string = '#673AB7';
   Message!: string;
+  products:Product[]=[];
 
   product: Shop = {
     id: 0,
@@ -95,6 +98,15 @@ export class BusinessproductComponent {
 
   openBottomSheet(): void {
     this._bottomSheet.open(NewproductComponent);
+  }
+
+  
+  fechProduct(){
+    this.fet.fetchProducts(this.id).subscribe((res)=>{
+      this.products = Object.values(res);
+      console.log(this.products);
+      
+    })
   }
 
 }
