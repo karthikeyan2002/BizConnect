@@ -75,4 +75,7 @@ export class FetchService {
     return this.http.get(url)
   }
 
+  fetchProducts(id:any){
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}/product.json`)
+  }
 }

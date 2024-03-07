@@ -13,9 +13,11 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService) {
     this.fet.getUserId().subscribe((data) => {
       this.uid = data;
+      this.fechProduct();
     }, (err) => {
       console.log(err)
     });
+   
   }
 
   id!: String;
@@ -23,7 +25,7 @@ export class ProductComponent implements OnInit {
   uid!: string;
   myColor: string = '#673AB7';
   Message!:string;
-
+  products!:object;
   product: Shop = {
     id: 0,
     name: '',
@@ -89,5 +91,13 @@ export class ProductComponent implements OnInit {
       }
     );
 
+  }
+
+  fechProduct(){
+    this.fet.fetchProducts(this.id).subscribe((res)=>{
+     this.products = res;
+    console.log(this.products);
+    
+    })
   }
 }

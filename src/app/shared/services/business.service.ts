@@ -71,7 +71,6 @@ export class BusinessService {
 
   addProduct(shopid: any, product: Product) {
     console.log(shopid);
-
     return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/product/${product.productId}.json`, product)
   }
 }
