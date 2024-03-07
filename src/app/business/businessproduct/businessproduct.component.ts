@@ -6,6 +6,7 @@ import { StorageService } from 'src/app/shared/services/store.service';
 import { NewproductComponent } from '../newproduct/newproduct.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Product } from 'src/app/shared/interfaces/product.interface';
+import { BusinessService } from 'src/app/shared/services/business.service';
 
 @Component({
   selector: 'app-businessproduct',
@@ -13,7 +14,8 @@ import { Product } from 'src/app/shared/interfaces/product.interface';
   styleUrls: ['./businessproduct.component.css']
 })
 export class BusinessproductComponent {
-  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService, private _bottomSheet: MatBottomSheet) {
+
+  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService, private _bottomSheet: MatBottomSheet,private bus:BusinessService) {
     this.fet.getUserId().subscribe((data) => {
       this.uid = data;
       this.fechProduct();
@@ -28,7 +30,14 @@ export class BusinessproductComponent {
   myColor: string = '#673AB7';
   Message!: string;
   products:Product[]=[];
-
+  item:Product ={
+    isAvailable: false,
+    name: '',
+    price: 0,
+    productId: '',
+    quantity: 0,
+    rating: 0
+  };
   product: Shop = {
     id: 0,
     name: '',
@@ -105,6 +114,14 @@ export class BusinessproductComponent {
     this.fet.fetchProducts(this.id).subscribe((res)=>{
       this.products = Object.values(res);
       console.log(this.products);
+      
+    })
+  }
+
+  updateProduct(item:Product) {
+    
+    this.bus.updateProduct(this.bus.getBusinessId(),item).subscribe(()=>{
+      console.log("completed");
       
     })
   }

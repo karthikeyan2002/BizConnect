@@ -26,7 +26,6 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { NewproductComponent } from './newproduct/newproduct.component';
 
 
-
 @NgModule({
   declarations: [
     BusinesshomeComponent,
