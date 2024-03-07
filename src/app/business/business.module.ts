@@ -16,12 +16,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MybusinessComponent } from './mybusiness/mybusiness.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BusinessshopComponent } from './businessshop/businessshop.component';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { BusinessproductComponent } from './businessproduct/businessproduct.component';
 import { BusinessserviceComponent } from './businessservice/businessservice.component';
-import {MatRippleModule} from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { NewproductComponent } from './newproduct/newproduct.component';
+
 
 
 @NgModule({
@@ -33,10 +36,11 @@ import {MatRippleModule} from '@angular/material/core';
     BusinessshopComponent,
     BusinessproductComponent,
     BusinessserviceComponent,
+    NewproductComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule, 
+    RouterModule,
     UserRoutingModule,
     MatIconModule,
     MatToolbarModule,
@@ -51,6 +55,7 @@ import {MatRippleModule} from '@angular/material/core';
     MatProgressBarModule,
     MatSlideToggleModule,
     MatRippleModule,
+    MatBottomSheetModule
   ]
 })
 export class BusinessModule { }

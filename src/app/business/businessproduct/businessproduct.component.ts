@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
+import { NewproductComponent } from '../newproduct/newproduct.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-businessproduct',
@@ -10,7 +12,7 @@ import { StorageService } from 'src/app/shared/services/store.service';
   styleUrls: ['./businessproduct.component.css']
 })
 export class BusinessproductComponent {
-  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService) {
+  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService, private _bottomSheet: MatBottomSheet) {
     this.fet.getUserId().subscribe((data) => {
       this.uid = data;
     }, (err) => {
@@ -22,7 +24,7 @@ export class BusinessproductComponent {
   panelOpenState = false;
   uid!: string;
   myColor: string = '#673AB7';
-  Message!:string;
+  Message!: string;
 
   product: Shop = {
     id: 0,
@@ -90,4 +92,9 @@ export class BusinessproductComponent {
     );
 
   }
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(NewproductComponent);
+  }
+
 }

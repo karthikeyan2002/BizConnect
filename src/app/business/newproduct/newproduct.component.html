@@ -1,0 +1,24 @@
+<h1 class="new-product text-light text-center m-2 p-2">ADD NEW PRODUCT</h1>
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+  <div class="d-flex justify-content-between m-3">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" ngModel required>
+  </div>
+  <div class="d-flex justify-content-between m-3">
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" ngModel required>
+  </div>
+  <div class="d-flex justify-content-between m-3">
+    <label for="productId">Product ID:</label>
+    <input type="text" id="productId" name="productId" ngModel required>
+  </div>
+  <div class="d-flex justify-content-between m-3">
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" ngModel required>
+  </div>
+  <div class="d-flex justify-content-between m-3">
+    <label for="isAvailable">Available:</label>
+    <input type="checkbox" id="isAvailable" name="isAvailable" ngModel>
+  </div>
+  <button type="submit" mat-raised-button>Submit</button>
+</form>
