@@ -4,7 +4,6 @@ import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
 
-
 @Component({
   selector: 'app-businessshop',
   templateUrl: './businessshop.component.html',
@@ -41,8 +40,6 @@ export class BusinessshopComponent {
     this.id = this.route.snapshot.paramMap.get('id') || '';
     this.fetchType();
     this.fetchShop();
-  
-
   }
 
   fetchType() {
@@ -59,8 +56,8 @@ export class BusinessshopComponent {
           this.uid = res;
           console.log(this.uid);
           console.log(this.product.admin);
-          
-          
+
+
           if (this.uid == this.product.admin) {
             this.canEdit = true;
           }

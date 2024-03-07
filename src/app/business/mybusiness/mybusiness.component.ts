@@ -11,8 +11,6 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
 })
 export class MybusinessComponent {
 
-
-
   myBusiness: object = {};
   myBusinessKeys: any;
   myShops:Array<Shop> = [];

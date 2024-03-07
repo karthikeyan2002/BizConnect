@@ -30,7 +30,7 @@ export class BusinessService {
       switchMap(newId => {
         console.log(newId);
         formData.id = newId;
-     
+
         this.fet.getUserId().subscribe((res) => {
           uid = res;
           formData.admin = res;
@@ -57,7 +57,13 @@ export class BusinessService {
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myBusiness.json`)
   }
 
-  fetchMyShop(key:number){
+  fetchMyShop(key: number) {
     return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${key}.json`)
- }
+  }
+
+  addProduct(shopid:any,product: any) {
+    console.log(shopid);
+    
+    return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/product.json`, product)
+  }
 }
