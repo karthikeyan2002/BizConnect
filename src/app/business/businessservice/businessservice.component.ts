@@ -97,8 +97,10 @@ export class BusinessserviceComponent {
 
   getMyBookings() {
     this.bus.getMyBookings(this.shopid).subscribe((res) => {
-      this.mybookings.push(Object.values(res));
+      this.mybookings.push(...Object.values(res));
     })
+    console.log(this.mybookings);
+    
   }
-  
+
 }
