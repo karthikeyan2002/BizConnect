@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BusinessService } from 'src/app/shared/services/business.service';
 
 export interface DailyBooking {
   time: string;
@@ -11,14 +13,16 @@ export interface DailyBooking {
   styleUrls: ['./businessservice.component.css']
 })
 export class BusinessserviceComponent {
-  slot: string[] = [];
-  selectedSlots: { slotName: string, timing: string, available: boolean }[] = [{'slotName':'Morning Slot','timing':'10AM TO 11AM','available':true}];
+  slot:Array<string>=[];
+  
+  selectedSlots: { slotName: string, timing: string, available: boolean }[] = [{ 'slotName': 'Morning Slot', 'timing': '10AM TO 11AM', 'available': true }];
   selectedSlotName: string = '';
   selectedTiming: string = '';
   selectedAvailable: boolean = false;
 
   minDate: Date;
   maxDate: Date;
+  shopid:any;
 
   dataSource: DailyBooking[] = [
     { time: '10:00 AM', available: true },
@@ -36,21 +40,35 @@ export class BusinessserviceComponent {
   displayedColumns: string[] = ['time', 'available'];
   selectedColumns: string[] = ['slotName', 'timing', 'available'];
 
-  constructor() {
+  constructor(private bus:BusinessService,private route:ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.shopid = params['id'];
+    });
     const today = new Date();
     const oneMonthFromNow = new Date();
     oneMonthFromNow.setMonth(today.getMonth() + 1);
 
     this.minDate = today;
     this.maxDate = oneMonthFromNow;
+
+    this.bus.getTypeOfService(this.shopid).subscribe((res)=>{
+      this.slot = Object.values(res)
+    })
   }
 
   logSelectedSlots() {
-    console.log(this.slot);
+    this.bus.updateTypeOfService(this.shopid,this.slot).subscribe(()=>{
+      console.log("done success");
+      
+    })
   }
 
   submitEventForm() {
-    // Implement event form submission logic here
+    
+    this.bus.updateTypeOfService(this.shopid,this.slot).subscribe(()=>{
+      console.log("done success");
+      
+    })
   }
 
   submitDailyForm() {
@@ -58,11 +76,13 @@ export class BusinessserviceComponent {
   }
 
   submitSelectedForm() {
+
     this.selectedSlots.push({
       slotName: this.selectedSlotName,
       timing: this.selectedTiming,
       available: this.selectedAvailable
     });
+
     this.selectedSlotName = '';
     this.selectedTiming = '';
     this.selectedAvailable = false;

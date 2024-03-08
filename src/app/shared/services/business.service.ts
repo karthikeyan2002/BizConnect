@@ -79,4 +79,12 @@ export class BusinessService {
     
     return this.http.put(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/products/${product.productId}.json`, product)
   }
+
+  updateTypeOfService(shopid:any,service:Array<string>){
+    return this.http.put(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/typeOfService.json/`, service)
+  }
+
+  getTypeOfService(shopid:any){
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/typeOfService.json/`)
+  }
 }
