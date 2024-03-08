@@ -7,14 +7,20 @@ export interface DailyBooking {
   available: boolean;
 }
 
+export interface EventBooking {
+  date: string,
+  uid: string,
+}
+
 @Component({
   selector: 'app-businessservice',
   templateUrl: './businessservice.component.html',
   styleUrls: ['./businessservice.component.css']
 })
 export class BusinessserviceComponent {
-  slot:Array<string>=[];
-  
+  slot: Array<string> = [];
+  mybookings: any = [];
+
   selectedSlots: { slotName: string, timing: string, available: boolean }[] = [{ 'slotName': 'Morning Slot', 'timing': '10AM TO 11AM', 'available': true }];
   selectedSlotName: string = '';
   selectedTiming: string = '';
@@ -22,7 +28,7 @@ export class BusinessserviceComponent {
 
   minDate: Date;
   maxDate: Date;
-  shopid:any;
+  shopid: any;
 
   dataSource: DailyBooking[] = [
     { time: '10:00 AM', available: true },
@@ -40,7 +46,7 @@ export class BusinessserviceComponent {
   displayedColumns: string[] = ['time', 'available'];
   selectedColumns: string[] = ['slotName', 'timing', 'available'];
 
-  constructor(private bus:BusinessService,private route:ActivatedRoute) {
+  constructor(private bus: BusinessService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.shopid = params['id'];
     });
@@ -51,23 +57,24 @@ export class BusinessserviceComponent {
     this.minDate = today;
     this.maxDate = oneMonthFromNow;
 
-    this.bus.getTypeOfService(this.shopid).subscribe((res)=>{
+    this.bus.getTypeOfService(this.shopid).subscribe((res) => {
       this.slot = Object.values(res)
     })
+    this.getMyBookings();
   }
 
   logSelectedSlots() {
-    this.bus.updateTypeOfService(this.shopid,this.slot).subscribe(()=>{
+    this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
       console.log("done success");
-      
+
     })
   }
 
   submitEventForm() {
-    
-    this.bus.updateTypeOfService(this.shopid,this.slot).subscribe(()=>{
+
+    this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
       console.log("done success");
-      
+
     })
   }
 
@@ -87,4 +94,11 @@ export class BusinessserviceComponent {
     this.selectedTiming = '';
     this.selectedAvailable = false;
   }
+
+  getMyBookings() {
+    this.bus.getMyBookings(this.shopid).subscribe((res) => {
+      this.mybookings.push(Object.values(res));
+    })
+  }
+  
 }

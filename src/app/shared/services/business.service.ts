@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable, map, retry, switchMap } from 'rxjs';
 import { Shop } from '../interfaces/shop.interface';
 import { FetchService } from './fetch.service';
 import { Product } from '../interfaces/product.interface';
@@ -90,5 +90,9 @@ export class BusinessService {
 
   bookEventSlot(shopid:any,type:any,date:any){
     return this.http.post(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/mybookings/${type}.json`,date)
+  }
+
+  getMyBookings(shopid:any){
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/mybookings/event.json`)
   }
 }
