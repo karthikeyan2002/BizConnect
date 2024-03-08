@@ -146,6 +146,9 @@ body {
     0% {
       opacity: 1;
     }
+    50%{
+        opacity: 0.5;
+    }
     100% {
       opacity: 0;
     }
@@ -153,7 +156,7 @@ body {
   
   .fade-out {
     animation-name: fadeOut; 
-    animation-duration: 2s;
+    animation-duration: 20s;
     animation-fill-mode: forwards; 
   }
   

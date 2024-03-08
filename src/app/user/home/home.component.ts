@@ -15,7 +15,7 @@ export class HomeComponent {
   email!: string;
   city!: string;
   animal!: string;
-  name!: string;
+  userName:String = 'Guest';
 
   constructor(private fet: FetchService, public dialog: MatDialog) {
 
@@ -23,7 +23,7 @@ export class HomeComponent {
       this.id = res;
       this.fet.getUserInfo(this.id).subscribe((result: any) => {
         if (result) {
-          this.email = result.firstName;
+          this.userName = result.firstName;
         } else {
           console.warn("mistake here");
         }
@@ -37,9 +37,7 @@ export class HomeComponent {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
-      data: { name: this.name, animal: this.animal },
-    });
+    const dialogRef = this.dialog.open(DialogComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
