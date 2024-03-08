@@ -18,17 +18,17 @@ const routes: Routes = [
     component: LoginRegisterComponent
   },
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
   {
     path: 'shop/:id',
     component: ShopComponent
   },
-  {
-    path: '',
-    component: LoginRegisterComponent
-  },
+  // {
+  //   path: '',
+  //   component: LoginRegisterComponent
+  // },
   {
     path: 'cart',
     component: MycartComponent,

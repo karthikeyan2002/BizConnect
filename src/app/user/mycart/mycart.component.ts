@@ -91,7 +91,7 @@ export class MycartComponent {
 
 
   navigateToHome() {
-    this.route.navigate(['home']);
+    this.route.navigate(['']);
   }
 
 }

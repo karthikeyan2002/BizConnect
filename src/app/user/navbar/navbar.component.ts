@@ -16,6 +16,10 @@ export class NavbarComponent {
     this.auth.logOut();
   }
 
+  isLogin(){
+    return this.auth.isLoggedIn;
+  }
+
   toggleSearch() {
     this.isSearchOpen = !this.isSearchOpen;
   }

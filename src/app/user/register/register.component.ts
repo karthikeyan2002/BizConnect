@@ -142,7 +142,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   navigateToHome() {
-    this.route.navigate(['home'])
+    this.route.navigate([''])
   }
 
 

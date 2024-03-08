@@ -28,8 +28,15 @@
 <mat-menu #profileMenu="matMenu">
   <button mat-menu-item routerLink="/profile">My Profile</button>
   <button mat-menu-item routerLink="/business/mybusiness">My Business</button>
-  <button mat-menu-item (click)="logout()">
-    Logout
-    <mat-icon>logout</mat-icon>
-  </button>
+  <ng-container *ngIf="isLogin()">
+    <button mat-menu-item color="primary" (click)="logout()">
+      Logout
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-container>
+  <ng-container *ngIf="!isLogin()">
+    <button mat-menu-item routerLink="/login-register" color="primary">Login</button>
+  </ng-container>
+
+ 
 </mat-menu>

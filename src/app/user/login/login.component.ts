@@ -45,7 +45,7 @@ export class LoginComponent implements OnDestroy {
   matcher = new MyErrorStateMatcher();
 
   navigateToHome() {
-    this.route.navigate(['home'])
+    this.route.navigate([''])
   }
 
   loginWithEmailAndPassword(event: Event) {
