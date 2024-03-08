@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
 import { DailyBooking } from 'src/app/business/businessservice/businessservice.component';
 import { BusinessService } from 'src/app/shared/services/business.service';
+import { FetchService } from 'src/app/shared/services/fetch.service';
 
 export interface Booking {
   date: Date;
@@ -16,8 +18,8 @@ export interface Booking {
 })
 export class ServiceComponent {
 
-  slot:Array<string>=[];
-  
+  slot: Array<string> = [];
+
   selectedSlots: { slotName: string, timing: string, available: boolean }[] = [{ 'slotName': 'Morning Slot', 'timing': '10AM TO 11AM', 'available': true }];
   selectedSlotName: string = '';
   selectedTiming: string = '';
@@ -25,7 +27,9 @@ export class ServiceComponent {
 
   minDate: Date;
   maxDate: Date;
-  shopid:any;
+  shopid: any;
+  selectedDate!: string;
+  userid!: string;
 
   dataSource: DailyBooking[] = [
     { time: '10:00 AM', available: true },
@@ -43,7 +47,10 @@ export class ServiceComponent {
   displayedColumns: string[] = ['time', 'available'];
   selectedColumns: string[] = ['slotName', 'timing', 'available'];
 
-  constructor(private bus:BusinessService,private route:ActivatedRoute) {
+  constructor(private bus: BusinessService, private route: ActivatedRoute, private fet: FetchService) {
+    this.fet.getUserId().subscribe((res) => {
+      this.userid = res;
+    })
     this.route.params.subscribe(params => {
       this.shopid = params['id'];
     });
@@ -54,23 +61,23 @@ export class ServiceComponent {
     this.minDate = today;
     this.maxDate = oneMonthFromNow;
 
-    this.bus.getTypeOfService(this.shopid).subscribe((res)=>{
+    this.bus.getTypeOfService(this.shopid).subscribe((res) => {
       this.slot = Object.values(res)
     })
   }
 
   logSelectedSlots() {
-    this.bus.updateTypeOfService(this.shopid,this.slot).subscribe(()=>{
+    this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
       console.log("done success");
-      
+
     })
   }
 
   submitEventForm() {
-    
-    this.bus.updateTypeOfService(this.shopid,this.slot).subscribe(()=>{
+
+    this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
       console.log("done success");
-      
+
     })
   }
 
@@ -91,7 +98,18 @@ export class ServiceComponent {
     this.selectedAvailable = false;
   }
 
-  submitForm() {
+  bookEventSlot() {
+    const newObj = {
+      date: this.selectedDate.toString(),
+      user: this.userid,
+    }
+    this.bus.bookEventSlot(this.shopid, 'event', newObj).subscribe(()=>{
+      console.log("done success");
+      
+    },err=>{
+      console.log("error failed");
+      
+    })
   }
 
 

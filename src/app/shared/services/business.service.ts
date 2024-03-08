@@ -87,4 +87,8 @@ export class BusinessService {
   getTypeOfService(shopid:any){
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/typeOfService.json/`)
   }
+
+  bookEventSlot(shopid:any,type:any,date:any){
+    return this.http.post(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/mybookings/${type}.json`,date)
+  }
 }

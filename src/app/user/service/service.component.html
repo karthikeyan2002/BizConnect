@@ -1,17 +1,17 @@
 <div class="container p-4">
     <div *ngIf="slot.includes('event')" class="mt-4">
-        <form (ngSubmit)="submitEventForm()">
+        <form>
             <h1>EVENT BOOKING</h1>
             <p class="text-muted">This date picker will be now displayed to user</p>
             <mat-divider></mat-divider>
             <mat-form-field class="example-full-width" appearance="fill" class="mt-4">
                 <mat-label>Choose a date</mat-label>
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="selectedDate" name="selectedDate">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-            <!-- <button mat-raised-button color="primary" type="submit" class="m-4">ENABLE TO USER</button> -->
+            <button mat-raised-button color="primary" type="submit" class="m-4" (click)="bookEventSlot()">Book Slot</button>
         </form>
     </div>
 
