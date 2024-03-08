@@ -37,6 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderComponent } from './order/order.component';
 import {MatRippleModule} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import {MatRippleModule} from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatRippleModule
+    MatRippleModule,
+    MatTableModule
   ],
 })
 export class UserModule { }
