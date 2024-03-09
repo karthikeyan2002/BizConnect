@@ -69,5 +69,8 @@ export class MywishlistComponent {
     });
   }
   
+  removeWishlist(id:any){
+    this.fet.removeWishlist(this.uid,id);
+  }
   
 }
