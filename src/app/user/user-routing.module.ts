@@ -11,6 +11,7 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderComponent } from './order/order.component';
+import { MywishlistComponent } from './mywishlist/mywishlist.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
     path: 'order/:id',
     component: OrderComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'wishlist',
+    component:MywishlistComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: '**',

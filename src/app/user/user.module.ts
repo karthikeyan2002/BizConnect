@@ -37,6 +37,7 @@ import { MyordersComponent } from './myorders/myorders.component';
 import { OrderComponent } from './order/order.component';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
+import { MywishlistComponent } from './mywishlist/mywishlist.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {MatTableModule} from '@angular/material/table';
     MyprofileComponent,
     MyordersComponent,
     OrderComponent,
+    MywishlistComponent,
   ],
   imports: [
     CommonModule,
