@@ -1,1 +1,45 @@
 <app-navbar></app-navbar>
+<div class="example-container login-container">
+    <h1>Register</h1>
+
+    <form class="example-form" (ngSubmit)="register()">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input type="email" matInput [(ngModel)]="user.firstName" name="user.firstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input type="email" matInput [(ngModel)]="user.lastName" name="user.lastName">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>City</mat-label>
+                <input type="text" placeholder="City" aria-label="Number" matInput [(ngModel)]="user.city" name="city">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput [(ngModel)]="user.email" name="user.email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Address Line 1</mat-label>
+                <input type="text" placeholder="Address Line 1" matInput [(ngModel)]="user.addressLine1"
+                    name="user.addressLine1">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Address Line 2</mat-label>
+                <input type="text" placeholder="Address Line 2" matInput [(ngModel)]="user.addressLine2"
+                    name="user.addressLine2">
+            </mat-form-field>
+        </div>
+        <div class="text-center">
+            <button mat-raised-button color="primary">
+                UPDATE USER
+            </button>
+        </div>
+        <div>
+        </div>
+    </form>
