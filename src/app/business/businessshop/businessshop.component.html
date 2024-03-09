@@ -50,7 +50,14 @@
                 <textarea cols="100" [(ngModel)]="product.description" name="product.description">
                    {{product.description}}
                 </textarea>
+                <p>
+                    <input type="text" [value]="product.category" [(ngModel)]="product.category" name="product.category">
+                    <input type="text" [value]="product.subcategory" [(ngModel)]="product.subcategory" name="product.subcategory">
+                </p>
+              
+
                 <button mat-raised-button color="primary" class="mb-4 mx-4" type="submit">UPDATE CHANGE</button>
+
     
         </div>
         

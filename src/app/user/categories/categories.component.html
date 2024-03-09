@@ -1,6 +1,6 @@
 <mat-chip-listbox aria-label="Fish selection" class="categories fade-in">
     <ng-container *ngFor="let category of categoriesWithSubcategories">
-        <mat-chip-option [value]="category" (click)="chipSelected(category.category)">{{ category.category
+        <mat-chip-option [value]="category" (click)="categoryFilter(category.category)">{{ category.category
             }}</mat-chip-option>
     </ng-container>
     <button mat-button color="primary" class="mt-1" (click)="clearFilter()">Clear Filter</button>
@@ -9,7 +9,7 @@
 <div *ngIf="subCategories.length>0">
     <mat-chip-listbox aria-label="Fish selection" class="sub-categories">
         <ng-container *ngFor="let category of subCategories">
-            <mat-chip-option>{{category}}</mat-chip-option>
+            <mat-chip-option [value]="category" (click)="subCategoryFilter(category)">{{category}}</mat-chip-option>
         </ng-container>
     </mat-chip-listbox>
 </div>
@@ -59,8 +59,8 @@
             </ng-container>
         </div>
     </div>
-    <div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center align-items-center">
-        <p>NO MATCH FOR SELECTED FILTER</p>
+    <div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center align-items-center mt-4">
+        <h1>NO MATCH FOR SELECTED FILTER</h1>
 
     </div>
 </div>

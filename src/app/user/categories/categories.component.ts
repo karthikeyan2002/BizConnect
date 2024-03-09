@@ -15,6 +15,10 @@ export class CategoriesComponent {
   Business: Shop[] | undefined;
   categoriesWithSubcategories: any;
   myColor: string = '#ababab';
+  category: string | undefined;
+  subCategory!:string;
+  subCategories: string[] = [];
+  card: any;
 
   constructor(private fet: FetchService, private route: Router) {
     this.fetchBusiness();
@@ -23,13 +27,7 @@ export class CategoriesComponent {
     })
   }
 
-
-  category: string | undefined;
-
-  subCategories: string[] = [];
-  card: any;
-
-  chipSelected(category: string) {
+  categoryFilter(category: string) {
     this.category = category;
     const selectedCategory = this.categoriesWithSubcategories.find((cat: Categories) => cat.category === this.category);
 
@@ -45,7 +43,23 @@ export class CategoriesComponent {
     })
   }
 
-  clearFilter(){
+  subCategoryFilter(subcategory: string) {
+    this.subCategory = subcategory;
+    const selectedCategory = this.categoriesWithSubcategories.find((cat: Categories) => cat.subcategories.includes(this.subCategory));
+
+    // if (selectedCategory) {
+    //   this.subCategories = selectedCategory.subcategories;
+    //   console.log(this.subCategories);
+    // } else {
+    //   this.subCategories = [];
+    //   console.error("Category not found:", this.category);
+    // }
+    this.fet.fetchBusiness().subscribe((res) => {
+      this.Business = res.filter((cards) => cards.subcategory === subcategory)
+    })
+  }
+
+  clearFilter() {
     window.location.reload();
   }
 

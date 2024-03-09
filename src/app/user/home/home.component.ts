@@ -16,17 +16,21 @@ export class HomeComponent {
   userName: String = 'Guest';
 
   constructor(private fet: FetchService, public dialog: MatDialog) {
-    this.fet.getUserId().subscribe((res: string) => {
-      this.id = res;
-      this.fet.getUserInfo(this.id).subscribe((result: any) => {
-        if (result) {
-          this.userName = result.firstName;
-        } else {
-          console.warn("mistake here");
-        }
-      })
-    });
+    if (localStorage.getItem('user')) {
+      this.fet.getUserId().subscribe((res: string) => {
+        this.id = res;
+        this.fet.getUserInfo(this.id).subscribe((result: any) => {
+          if (result) {
+            this.userName = result.firstName;
+          } else {
+            console.warn("mistake here");
+          }
+        })
+      });
+    } else {
+      console.log("nothing here");
 
+    }
   }
 
 
