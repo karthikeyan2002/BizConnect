@@ -12,12 +12,9 @@ import { StorageService } from 'src/app/shared/services/store.service';
 export class MywishlistComponent {
   uid:any;
   Business: Shop[] | undefined;
-  categoriesWithSubcategories: any;
   myColor: string = '#ababab';
-  category: string | undefined;
-  subCategory!: string;
-  subCategories: string[] = [];
   card: any;
+  wishlist:Array<string> = [];
 
   constructor(private fet: FetchService, private route: Router,private store:StorageService) {
     this.fetchBusiness();
@@ -47,6 +44,7 @@ export class MywishlistComponent {
     this.fet.fetchBusiness().subscribe((res) => {
       if (res) {
         this.Business = res;
+        this.getWishlist()
       } else {
         console.warn("few problems");
 
@@ -62,7 +60,14 @@ export class MywishlistComponent {
     this.store.addToWishlist(this.uid,shopId);
   }
 
-  getWishlist(){
-    
+  getWishlist(): void {
+    this.fet.getWishlist(this.uid).subscribe((res) => {
+      const shopKeys = Object.values(res);
+      if (this.Business) {
+        this.Business = this.Business.filter(shop => shopKeys.some(key => shop.id === key));
+      }
+    });
   }
+  
+  
 }

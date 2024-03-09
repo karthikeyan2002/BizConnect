@@ -78,4 +78,8 @@ export class FetchService {
   fetchProducts(id:any){
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}/products.json`)
   }
+
+  getWishlist(uid:any){
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`)
+  }
 }
