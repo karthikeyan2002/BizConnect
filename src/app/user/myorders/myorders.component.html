@@ -1,14 +1,13 @@
 <app-navbar></app-navbar>
-<div class="container p-4">
-    <h1>MyOrders</h1>
+<div class="container p-4 mt-4">
+    <h1 class="mt-4">MyOrders</h1>
     <div class="p-2 bd-highlight d-flex justify-content-center flex-wrap">
         <ng-container *ngFor="let item of orders">
-
             <div class="card m-4 p-2" style="width: 40rem;">
                 <div class="card-body">
-                    <p><b>{{item.id | slice:1}}</b></p>    
-                    <p class="text-muted small"><b>{{item.time }}</b></p>  
-                    <p class="text-danger"><b>{{item.completed}}</b></p>        
+                    <p><b>{{item.id | slice:1}}</b></p>
+                    <p class="text-muted small"><b>{{item.time }}</b></p>
+                    <p class="text-danger"><b>{{item.completed}}</b></p>
                 </div>
                 <button mat-raised-button color="primary" (click)="TrackOrder(item.id)">Track Order</button>
             </div>

@@ -3,19 +3,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { BusinesshomeComponent } from './businesshome/businesshome.component';
 import { MybusinessComponent } from './mybusiness/mybusiness.component';
 import { BusinessshopComponent } from './businessshop/businessshop.component';
+import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: BusinesshomeComponent
+    component: BusinesshomeComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'mybusiness',
-    component: MybusinessComponent
+    component: MybusinessComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'businessshop/:id',
-    component:BusinessshopComponent
+    component:BusinessshopComponent,
+    canActivate:[AuthGuard]
   }
 ];
 

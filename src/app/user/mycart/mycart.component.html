@@ -1,33 +1,34 @@
 <app-navbar></app-navbar>
-<div class="container p-4 fade-in">
-    <ng-container *ngIf="isCartEmpty">
-        <div class="container text-center p-2 m-2">
+<div class="container p-4 fade-in mt-4">
+    <ng-container *ngIf="isCartEmpty" class="mt-4">
+        <div class="container text-center p-2 m-2 mt-4">
             <h1>Your Cart is Empty</h1>
             <button mat-raised-button color="primary" (click)="navigateToHome()">shop now</button>
         </div>
-        
     </ng-container>
-    <ng-container *ngIf="!isCartEmpty">
-   
-        <h1>MyCart</h1>
-        <div class="p-2 bd-highlight d-flex justify-content-center flex-wrap">
+    <ng-container *ngIf="!isCartEmpty" class="mt-4">
+        <h1 class="mt-4">MyCart</h1>
+        <div class="row">
             <ng-container *ngFor="let item of myCart">
-                <div class="card m-4 p-2" style="width: 18rem; height: 10rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{item.name}}</h5>
-                        <p class="card-text text-muted"></p>
-                        <p class="card-text">{{item.price | currency:'INR'}}</p>
-                        <div class="d-flex justify-content-center">
-                            <button class="small-btn px-2 py-1 rounded-left">-</button>
-                            <span
-                                class="card-text border border-primary px-2 bg-light font-weight-bold">{{item.quantity}}</span>
-                            <button class="small-btn px-2 py-1 rounded-right" (click)="increase(item)">+</button>
+                <div class="col-lg-4 my-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top"
+                            src="https://images.unsplash.com/photo-1549479732-ee0adb0f5d32?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Card image cap">
+                        <div class="card-header">
+                            <h4 class="card-title font-weight-bold mb-1">{{item.name}}</h4>
+                            <p class="float-start">{{item.price | currency:'INR'}}</p>
                         </div>
-
+                        <div class="d-flex justify-content-center py-2">
+                            <button class="rounded-0" mat-raised-button color="primary">-</button>
+                            <button class="rounded-0" mat-raised-button disabled="true">{{item.quantity}}</button>
+                            <button class="rounded-0" mat-raised-button color="primary" (click)="increase(item)">+</button>
+                        </div>
                     </div>
                 </div>
             </ng-container>
         </div>
+
         <div class="d-flex justify-content-end m-2">
             <button mat-raised-button color="primary" (click)="placeOrder()">PlaceMyOrder</button>
         </div>

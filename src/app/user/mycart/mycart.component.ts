@@ -15,6 +15,7 @@ export class MycartComponent {
   uid: any;
   myCart: Product[] = [];
   isCartEmpty: boolean = true;
+  myColor: string = '#673AB7';
 
   constructor(private fet: FetchService, private storage: StorageService, private route: Router) { }
 
