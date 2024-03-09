@@ -67,5 +67,19 @@ export class StorageService {
         return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`,shop)
     }
 
+    addToWishlist(uid:any,shopId:any){
+        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`;
+        this.http.get(url).subscribe((res)=>{
+            const shops = Object.values(res);
+            if(shopId in shops){
+                alert("Already added");
+            }else{
+                this.http.post(url,shopId).subscribe((res)=>{
+                    console.log("Done");
+                    
+                })
+            }
+        })
+    }
 }
 

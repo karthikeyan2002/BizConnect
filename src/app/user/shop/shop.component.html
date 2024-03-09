@@ -1,18 +1,15 @@
 <app-navbar></app-navbar>
-<div class="container mt-4 fade-in">
+<div class="container fade-in shop-container">
     <div class="float-start">
         <h1 class="mb-1 float-left">{{product.name}}</h1>
-
         <p class="mb-0 text-muted">{{product.addressLane1}} , {{product.addressLane2}} , {{product.city | titlecase}}
         </p>
-
         <div class="ratings mt-0 mb-2">
             <ng-container *ngFor="let star of getStars(product.rating)">
                 <mat-icon class="star mt-2">{{ star }}</mat-icon>
             </ng-container>
             <span>({{product.rating}})</span>
         </div>
-
     </div>
     <ng-container *ngIf="type === 'product'">
         <div class="float-end">
@@ -26,7 +23,6 @@
                 <mat-icon>payment</mat-icon>
                 <span class="mx-2">Pre-Paid</span>
             </div>
-
         </div>
     </ng-container>
 

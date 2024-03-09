@@ -82,13 +82,13 @@ export class ProductComponent implements OnInit {
     }
     this.storage.addToCart(items, this.uid).subscribe(
       (response) => {
-        Swal.fire({
-          title: "Added To Cart",
-          icon: "success",
-          customClass: {
-            icon: 'custom-icon-color'
-          }
-        });
+        // Swal.fire({
+        //   title: "Added To Cart",
+        //   icon: "success",
+        //   customClass: {
+        //     icon: 'custom-icon-color'
+        //   }
+        // });
 
       },
       (err) => {

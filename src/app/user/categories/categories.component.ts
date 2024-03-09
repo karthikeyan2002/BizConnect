@@ -3,6 +3,7 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
 import { Shop } from '../../shared/interfaces/shop.interface';
 import { Router } from '@angular/router';
 import { Categories } from 'src/app/shared/interfaces/categories.interface';
+import { StorageService } from 'src/app/shared/services/store.service';
 
 @Component({
   selector: 'app-categories',
@@ -12,18 +13,22 @@ import { Categories } from 'src/app/shared/interfaces/categories.interface';
 
 export class CategoriesComponent {
 
+  uid:any;
   Business: Shop[] | undefined;
   categoriesWithSubcategories: any;
   myColor: string = '#ababab';
   category: string | undefined;
-  subCategory!:string;
+  subCategory!: string;
   subCategories: string[] = [];
   card: any;
 
-  constructor(private fet: FetchService, private route: Router) {
+  constructor(private fet: FetchService, private route: Router,private store:StorageService) {
     this.fetchBusiness();
     this.fet.fetchCategories().subscribe((res) => {
       this.categoriesWithSubcategories = res;
+    })
+    this.fet.getUserId().subscribe((res)=>{
+      this.uid = res;
     })
   }
 
@@ -46,16 +51,8 @@ export class CategoriesComponent {
   subCategoryFilter(subcategory: string) {
     this.subCategory = subcategory;
     const selectedCategory = this.categoriesWithSubcategories.find((cat: Categories) => cat.subcategories.includes(this.subCategory));
-
-    // if (selectedCategory) {
-    //   this.subCategories = selectedCategory.subcategories;
-    //   console.log(this.subCategories);
-    // } else {
-    //   this.subCategories = [];
-    //   console.error("Category not found:", this.category);
-    // }
     this.fet.fetchBusiness().subscribe((res) => {
-      this.Business = res.filter((cards) => cards.subcategory === subcategory)
+      this.Business = res.filter((cards) => (cards.subcategory === subcategory) && (cards.category === this.category))
     })
   }
 
@@ -93,6 +90,10 @@ export class CategoriesComponent {
 
   navigateToShop(id: any) {
     this.route.navigate([`shop/${id}`])
+  }
+
+  addToWishlist(shopId: any) {
+    this.store.addToWishlist(this.uid,shopId);
   }
 
 }
