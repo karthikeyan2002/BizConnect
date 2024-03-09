@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="fade-in">
+<mat-toolbar color="primary" class="fade-in" class="position-fixed z-2 top-0">
   <img src="../../../assets/logo.png" class="" width="40px" height="40px">
   <span>BizConnect</span>
   <span class="example-spacer"></span>
@@ -6,17 +6,16 @@
     <input type="text" *ngIf="isSearchOpen" [class.search-box-open]="isSearchOpen" placeholder="Search here"
       class="roboto-regular">
   </div>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-    (click)="toggleSearch()">
+  <button mat-icon-button class="example-icon favorite-icon" (click)="toggleSearch()">
     <mat-icon>search</mat-icon>
   </button>
-
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-    routerLink="/wishlist" matTooltip="MyWishlist">
+  <button mat-icon-button class="example-icon favorite-icon" routerLink="" matTooltip="Home Page">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" routerLink="/wishlist" matTooltip="MyWishlist">
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
-    routerLink="/cart" matTooltip="MyCart">
+  <button mat-icon-button class="example-icon favorite-icon" routerLink="/cart" matTooltip="MyCart">
     <mat-icon>local_mall</mat-icon>
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/bookings"
