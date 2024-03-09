@@ -11,8 +11,8 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
 export class OrderComponent {
   id: string = '';
   uid: string = '';
-  order: Product[]= [];
-  orderDetails:Array<object> = [];
+  order: Product[] = [];
+  orderDetails: Array<object> = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private fet: FetchService) { }
 
@@ -23,17 +23,17 @@ export class OrderComponent {
     this.fet.getUserId().subscribe((res) => {
       this.uid = res;
       this.fet.fetchOrder(this.id, this.uid).subscribe((result: any) => {
-        for(const key in result){
-          if(typeof result[key] === 'object'){
+        for (const key in result) {
+          if (typeof result[key] === 'object') {
             this.order.push(result[key])
-          }else{
+          } else {
             this.orderDetails.push(result[key])
           }
         }
         console.log(this.orderDetails);
       });
     });
-    
+
   }
 
   backToOrders() {

@@ -13,11 +13,11 @@ export class ShopComponent implements OnInit {
   id: string = '';
   type: string = '';
   panelOpenState = false;
-  
+
   product: Shop = {
-    id:0,
+    id: 0,
     name: '',
-    src:'',
+    src: '',
     description: '',
     addressLane1: '',
     addressLane2: '',
@@ -28,7 +28,7 @@ export class ShopComponent implements OnInit {
     category: '',
     subcategory: '',
     products: [],
-    admin:'',
+    admin: '',
   };
 
 

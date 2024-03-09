@@ -17,57 +17,50 @@
 
 <div class="container">
     <div *ngIf="Business?.length">
- 
-    <div class="row fade-in">
-        <ng-container *ngFor="let i of Business">
-            <div class="col-lg-4 my-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top"
-                        [src]="i.src || '../../../assets/shops/shop.jpg'"
-                        alt="Card image cap">
-                    <div class="card-header">
-
-                        <div>
-                            <b>
-                                <h4 class="card-title">{{i.name}}</h4>
-                            </b>
-                            <div class="ratings">
-
-                                <ng-container *ngFor="let star of getStars(i.rating)">
-                                    <mat-icon class="star mt-2">{{ star }}</mat-icon>
-                                </ng-container>
-
-                                <span>({{i.rating}})</span>
+        <div class="row fade-in">
+            <ng-container *ngFor="let i of Business">
+                <div class="col-lg-4 my-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" [src]="i.src || '../../../assets/shops/shop.jpg'"
+                            alt="Card image cap">
+                        <div class="card-header">
+                            <div>
+                                <b>
+                                    <h4 class="card-title">{{i.name}}</h4>
+                                </b>
+                                <div class="ratings">
+                                    <ng-container *ngFor="let star of getStars(i.rating)">
+                                        <mat-icon class="star mt-2">{{ star }}</mat-icon>
+                                    </ng-container>
+                                    <span>({{i.rating}})</span>
+                                </div>
                             </div>
-
-
+                            <div>
+                                <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon"
+                                    class="heart" matTooltip="Add To Wishlist">
+                                    <mat-icon>favorite</mat-icon>
+                                </button>
+                            </div>
                         </div>
-
-                        <div>
-                            <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon"
-                                class="heart" matTooltip="Add To Wishlist">
-                                <mat-icon>favorite</mat-icon>
-                            </button>
+                        <div class="card-body">
+                            <div class="card-description">
+                                <p class="card-text text-small">{{i.description}}</p>
+                            </div>
+                            <p class="text-muted">{{i.addressLane2 | titlecase}} , {{i.city | titlecase}}</p>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-description">
-                            <p class="card-text text-small">{{i.description}}</p>
+                        <div class="card-footer text-center">
+                            <div matRipple [matRippleColor]="myColor">
+                                <button mat-raised-button color="primary" (click)="navigateToShop(i.id)">Visit
+                                    Shop</button>
+                            </div>
                         </div>
-                        <p class="text-muted">{{i.addressLane2 | titlecase}} , {{i.city | titlecase}}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <div matRipple [matRippleColor]="myColor">
-                            <button mat-raised-button color="primary" (click)="navigateToShop(i.id)">Visit Shop</button>
-                          </div>
                     </div>
                 </div>
-            </div>
-        </ng-container>
+            </ng-container>
+        </div>
     </div>
-</div>
-<div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center align-items-center">
-    <p>NO MATCH FOR SELECTED FILTER</p>
+    <div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center align-items-center">
+        <p>NO MATCH FOR SELECTED FILTER</p>
 
-</div>
+    </div>
 </div>

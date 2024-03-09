@@ -11,12 +11,12 @@ export class NavbarComponent {
 
   showFiller = false;
   isSearchOpen: boolean = false;
-  
+
   logout() {
     this.auth.logOut();
   }
 
-  isLogin(){
+  isLogin() {
     return this.auth.isLoggedIn;
   }
 

@@ -10,13 +10,13 @@ export class TabComponent {
   @ViewChild(MatTabGroup) tabGroup: MatTabGroup | undefined;
 
   moveToRegister() {
-    if(this.tabGroup){
-      this.tabGroup.selectedIndex = 1; 
+    if (this.tabGroup) {
+      this.tabGroup.selectedIndex = 1;
     }
   }
 
-  moveToLogin(){
-    if(this.tabGroup){
+  moveToLogin() {
+    if (this.tabGroup) {
       this.tabGroup.selectedIndex = 0;
     }
   }

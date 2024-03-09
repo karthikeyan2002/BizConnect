@@ -5,8 +5,6 @@ import { Router } from '@angular/router';
 import { Subscription, subscribeOn } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
-
-/** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -14,7 +12,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-/** @title Input with a custom ErrorStateMatcher */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,7 +21,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnDestroy {
   errorMessage: string | null = null;
   private errorMessageSubscription: Subscription | undefined;
-
 
   constructor(private route: Router, private auth: AuthService) {
     this.errorMessageSubscription = this.auth.LoginerrorMessage$.subscribe(

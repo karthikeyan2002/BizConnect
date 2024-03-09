@@ -19,15 +19,15 @@ export class ProductComponent implements OnInit {
     }, (err) => {
       console.log(err)
     });
-   
+
   }
 
   id!: String;
   panelOpenState = false;
   uid!: string;
   myColor: string = '#673AB7';
-  Message!:string;
-  products:Product[]=[];
+  Message!: string;
+  products: Product[] = [];
   product: Shop = {
     id: 0,
     name: '',
@@ -89,7 +89,7 @@ export class ProductComponent implements OnInit {
             icon: 'custom-icon-color'
           }
         });
-        
+
       },
       (err) => {
         alert("problem here")
@@ -99,8 +99,8 @@ export class ProductComponent implements OnInit {
 
   }
 
-  fechProduct(){
-    this.fet.fetchProducts(this.id).subscribe((res)=>{
+  fechProduct() {
+    this.fet.fetchProducts(this.id).subscribe((res) => {
       this.products = Object.values(res);
     })
   }

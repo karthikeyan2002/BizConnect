@@ -32,7 +32,6 @@ import { MycartComponent } from './mycart/mycart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
-import { DialogComponent } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MyordersComponent } from './myorders/myorders.component';
 import { OrderComponent } from './order/order.component';
@@ -56,7 +55,6 @@ import {MatTableModule} from '@angular/material/table';
     ProfileComponent,
     MybookingsComponent,
     MyprofileComponent,
-    DialogComponent,
     MyordersComponent,
     OrderComponent,
   ],
