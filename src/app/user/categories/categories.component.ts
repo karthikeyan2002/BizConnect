@@ -21,6 +21,7 @@ export class CategoriesComponent {
   subCategory!: string;
   subCategories: string[] = [];
   card: any;
+  searchValue: string = '';
 
   constructor(private fet: FetchService, private route: Router,private store:StorageService) {
     this.fetchBusiness();
@@ -30,6 +31,10 @@ export class CategoriesComponent {
     this.fet.getUserId().subscribe((res)=>{
       this.uid = res;
     })
+    this.fet.searchValue$.subscribe(value => {
+      this.searchValue = value;
+      this.categoryFilter(this.searchValue)
+    });
   }
 
   categoryFilter(category: string) {

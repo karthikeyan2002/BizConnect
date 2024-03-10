@@ -3,9 +3,10 @@
   <span>BizConnect</span>
   <span class="example-spacer"></span>
   <div>
-    <input type="text" *ngIf="isSearchOpen" [class.search-box-open]="isSearchOpen" placeholder="Search here"
-      class="roboto-regular">
+    <input type="text" *ngIf="isSearchOpen" [class.search-box-open]="isSearchOpen" placeholder="Search here" 
+      class="roboto-regular" (input)="handleInput($event)">
   </div>
+  
   <button mat-icon-button class="example-icon favorite-icon" (click)="toggleSearch()">
     <mat-icon>search</mat-icon>
   </button>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Shop } from '../interfaces/shop.interface';
-import { Observable, filter, map, tap } from 'rxjs';
+import { Observable, Subject, filter, map, tap } from 'rxjs';
 import { Product } from '../interfaces/product.interface';
 import { UserProfile } from '@angular/fire/auth';
 
@@ -11,6 +11,9 @@ import { UserProfile } from '@angular/fire/auth';
 
 export class FetchService {
 
+  private searchValueSubject = new Subject<string>();
+  searchValue$ = this.searchValueSubject.asObservable();
+  
   constructor(private http: HttpClient) { }
 
   getUserId(): Observable<any> {
@@ -101,6 +104,10 @@ export class FetchService {
         console.log('Item not found in wishlist.');
       }
     })
+  }
+
+  setSearchValue(value: string) {
+    this.searchValueSubject.next(value);
   }
   
 }
