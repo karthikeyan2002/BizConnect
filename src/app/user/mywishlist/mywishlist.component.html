@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
-
+<h1>My Wishlist</h1>
 <div class="container card-container">
-    <h1>My Wishlist</h1>
-    <div *ngIf="Business?.length">
+
+    <div *ngIf="myWishlist?.length">
         <div class="row fade-in">
-            <ng-container *ngFor="let i of Business">
+            <ng-container *ngFor="let i of myWishlist">
                 <div class="col-lg-4 my-4">
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" [src]="i.src || '../../../assets/shops/shop.jpg'"
@@ -45,8 +45,8 @@
             </ng-container>
         </div>
     </div>
-    <div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center p-4 card-container">
-        <h1>NO MATCH FOR SELECTED FILTER</h1>
+    <div *ngIf="!myWishlist?.length" class="fade-in d-flex justify-content-center p-4 card-container">
+        <h1>YOUR WISHLIST IS EMPTY</h1>
 
     </div>
 </div>

@@ -12,8 +12,8 @@ export class StorageService {
     private datePipe!: DatePipe;
     constructor(private http: HttpClient) { }
 
-    currentTime:any = new Date();
-    formattedTime:any = this.datePipe?.transform(this.currentTime, 'medium');
+    currentTime: any = new Date();
+    formattedTime: any = this.datePipe?.transform(this.currentTime, 'medium');
 
     appendUser(userData: any): Observable<any> {
         const userId = userData.uid;
@@ -21,6 +21,7 @@ export class StorageService {
         userData.mycat = [];
         userData.myorders = [];
         userData.mybookings = [];
+        userData.myWishlist = [];
         return this.http.patch<any>(url, userData);
 
     }
@@ -46,40 +47,59 @@ export class StorageService {
         );
     }
 
-    placeOrder(items:any,uid:any){
+    placeOrder(items: any, uid: any) {
         const myOrders = {
             ...items,
-            status:"Order Placed",
-            completed:false,
-            time:this.formattedTime,
+            status: "Order Placed",
+            completed: false,
+            time: this.formattedTime,
         }
         const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders.json`;
-        return this.http.post(url,myOrders)
+        return this.http.post(url, myOrders)
     }
 
-    EmptyCart(items:any,uid:any){   
+    EmptyCart(items: any, uid: any) {
         const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart.json`;
         console.log(url1);
         return this.http.delete(url1)
     }
 
-    updateShop(id:string,shop:any){
-        return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`,shop)
+    updateShop(id: string, shop: any) {
+        return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`, shop)
     }
 
-    addToWishlist(uid:any,shopId:any){
+    addToWishlist(uid: any, shopId: any) {
         const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`;
-        this.http.get(url).subscribe((res)=>{
-            const shops = Object.values(res);
-            if(shopId in shops){
-                alert("Already added");
-            }else{
-                this.http.post(url,shopId).subscribe((res)=>{
-                    console.log("Done");
-                    
-                })
+    
+        this.http.get(url).subscribe((res) => {
+            if (res === undefined || res === null) {
+                console.log("Wishlist is empty");
+                this.http.post(url, shopId).subscribe(() => {
+                    console.log("Shop added to wishlist");
+                }, error => {
+                    console.error("Error occurred while adding shop to wishlist:", error);
+                });
+            } else {
+                const shops = Object.values(res);
+                if (shops.includes(shopId)) {
+                    alert("Already added");
+                } else {
+                    this.http.post(url, shopId).subscribe(() => {
+                        console.log("Shop added to wishlist");
+                    }, error => {
+                        console.error("Error occurred while adding shop to wishlist:", error);
+                    });
+                }
             }
-        })
+        }, error => {
+            console.error("Error occurred while fetching wishlist:", error);
+        });
+    }
+    
+
+    updateProfile(user: any) {
+        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${user.uid}.json`;
+        return this.http.put(url, user);
     }
 }
 

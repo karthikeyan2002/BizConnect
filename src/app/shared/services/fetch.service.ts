@@ -86,7 +86,11 @@ export class FetchService {
   removeWishlist(uid: any, id: any): void {
     this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`).subscribe((res)=>{
       const wishlistItems = Object.values(res);
-      const keyToRemove = Object.keys(res).find((key: any) => wishlistItems[key] === id);
+      console.log(wishlistItems);
+      
+      const keyToRemove = Object.keys(res).filter((key:any) => wishlistItems[key] == id);
+      console.log(keyToRemove);
+      
       if (keyToRemove) {
           this.http.delete(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist/${keyToRemove}.json`).subscribe(() => {
           console.log('Wishlist item removed successfully.');

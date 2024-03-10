@@ -15,6 +15,7 @@ export class MywishlistComponent {
   myColor: string = '#ababab';
   card: any;
   wishlist:Array<string> = [];
+  myWishlist:Shop[]|undefined;
 
   constructor(private fet: FetchService, private route: Router,private store:StorageService) {
     this.fetchBusiness();
@@ -64,7 +65,7 @@ export class MywishlistComponent {
     this.fet.getWishlist(this.uid).subscribe((res) => {
       const shopKeys = Object.values(res);
       if (this.Business) {
-        this.Business = this.Business.filter(shop => shopKeys.some(key => shop.id === key));
+        this.myWishlist = this.Business.filter(shop => shopKeys.some(key => shop.id === key));
       }
     });
   }
