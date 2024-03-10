@@ -1,51 +1,56 @@
-<app-adminnav></app-adminnav>
-
-<div class="admin-container container">
-  <h1>USERS</h1>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="uid">
-      <th mat-header-cell *matHeaderCellDef> UID </th>
-      <td mat-cell *matCellDef="let user"> {{user.uid}} </td>
-    </ng-container>
+<div *ngIf="canLogin">
+  <app-adminnav></app-adminnav>
+  <div class="admin-container container">
+    <h1>USERS</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="uid">
+        <th mat-header-cell *matHeaderCellDef> UID </th>
+        <td mat-cell *matCellDef="let user"> {{user.uid}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="viewMore">
+        <th mat-header-cell *matHeaderCellDef> View More </th>
+        <td mat-cell *matCellDef="let user"> 
+          <button mat-raised-button color="primary" (click)="viewMore(user)">View More</button> 
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
   
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let user"> {{user.firstName}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="viewMore">
-      <th mat-header-cell *matHeaderCellDef> View More </th>
-      <td mat-cell *matCellDef="let user"> 
-        <button mat-raised-button color="primary" (click)="viewMore(user)">View More</button> 
-      </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <div class="mt-4 container">
+    <h1>BUSINESS</h1>
+    <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+      <ng-container matColumnDef="bid">
+        <th mat-header-cell *matHeaderCellDef> UID </th>
+        <td mat-cell *matCellDef="let business"> {{business.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="Business_name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let business"> {{business.name}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="viewMore">
+        <th mat-header-cell *matHeaderCellDef> View More </th>
+        <td mat-cell *matCellDef="let business"> 
+          <button mat-raised-button color="primary" (click)="viewMore2(business)">View More</button> 
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+    </table>
+  </div>
 </div>
+<div *ngIf="!canLogin">
+  <h1>If you are admin please login to continue</h1>
 
-<div class="mt-4 container">
-  <h1>BUSINESS</h1>
-  <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
-    <ng-container matColumnDef="bid">
-      <th mat-header-cell *matHeaderCellDef> UID </th>
-      <td mat-cell *matCellDef="let business"> {{business.id}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="Business_name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let business"> {{business.name}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="viewMore">
-      <th mat-header-cell *matHeaderCellDef> View More </th>
-      <td mat-cell *matCellDef="let business"> 
-        <button mat-raised-button color="primary" (click)="viewMore(business)">View More</button> 
-      </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
-  </table>
 </div>

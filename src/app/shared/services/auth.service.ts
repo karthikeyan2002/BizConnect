@@ -13,6 +13,7 @@ export class AuthService {
 
   userData: any;
   users: any;
+  value: boolean =false;
 
   private loginErrorMessageSubject = new BehaviorSubject<string | null>(null);
   LoginerrorMessage$ = this.loginErrorMessageSubject.asObservable();
@@ -119,5 +120,9 @@ export class AuthService {
     this.firebaseAuthenticationService.authState.subscribe((userState) => {
       userState && this.ngZone.run(() => this.router.navigate(['']));
     })
+  }
+
+  setValue(value: boolean) {
+    this.value = value;
   }
 }

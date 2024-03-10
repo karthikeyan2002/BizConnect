@@ -13,13 +13,14 @@ export class AdminloginComponent {
   username!: string;
   password!: string;
   errorMessage!: string;
+  canLogin:boolean = false;
 
-  constructor(private router:Router) {}
+  constructor(private router:Router,private auth:AuthService) {}
 
   onSubmit() {
      if (this.username === 'admin' && this.password === 'password') {
-    
-      this.router.navigate(['/admin/dashboard']);
+      this.auth.setValue(true)
+      this.router.navigate(['/admin/dashboard/']);
     } else {
 
       alert("INVALID CREDENTIALS")
