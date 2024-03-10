@@ -71,7 +71,7 @@ export class MycartComponent {
   }
 
   placeOrder() {
-    this.storage.placeOrder(this.myCart, this.uid).subscribe(
+    this.storage.placeOrder(this.myCart, this.uid,this.total).subscribe(
       {
         next: res => {
           if (res) {

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchService } from 'src/app/shared/services/fetch.service';
-
-interface Order {
-  id: string;
-  time: string;
-  completed: boolean;
-}
+import { Order } from 'src/app/shared/interfaces/order.interface';
 
 
 @Component({
@@ -29,10 +24,11 @@ export class MyordersComponent {
         for (let prodId in res) {
 
           if (res.hasOwnProperty(prodId)) {
-            const sample = { id: '', time: '', completed: false }
+            const sample = { id: '', time: '', completed: false,total:0 }
             sample.id = prodId;
             sample.completed = res[prodId]['status'];
-            sample.time = res[prodId]['time']
+            sample.time = res[prodId]['time'];
+            sample.total = res[prodId]['total'];
             this.orders.push(sample)
             console.log(this.orders);
           }

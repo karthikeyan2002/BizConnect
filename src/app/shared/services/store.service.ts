@@ -72,9 +72,10 @@ export class StorageService {
         );
     }
 
-    placeOrder(items: any, uid: any) {
+    placeOrder(items: any, uid: any,total:any) {
         const myOrders = {
             ...items,
+            total:total,
             status: "Order Placed",
             completed: false,
             time: this.formattedTime,
