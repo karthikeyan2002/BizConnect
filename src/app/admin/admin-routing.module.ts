@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: AdminloginComponent
   },
   {
     path: 'dashboard',

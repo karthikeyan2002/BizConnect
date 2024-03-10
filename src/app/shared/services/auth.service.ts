@@ -92,6 +92,16 @@ export class AuthService {
       });
   }
 
+  adminLogin(userName: string, password: string) {
+    this.firebaseAuthenticationService.signInWithEmailAndPassword(userName, password)
+      .then((userCredential) => {
+        this.userData = userCredential.user;
+        this.observeUserState()
+      })
+      .catch((error) => {
+        this.loginErrorMessageSubject.next("Invalid Credentials. Please try again !");
+      })
+  }
 
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);

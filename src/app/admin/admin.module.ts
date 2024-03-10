@@ -8,20 +8,29 @@ import { AdminnavComponent } from './adminnav/adminnav.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { BusinessprofileComponent } from './businessprofile/businessprofile.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     AdminnavComponent,
     UserprofileComponent,
-    BusinessprofileComponent
+    BusinessprofileComponent,
+    AdminloginComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MatTableModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }
