@@ -16,6 +16,7 @@ export class MycartComponent {
   myCart: Product[] = [];
   isCartEmpty: boolean = true;
   myColor: string = '#673AB7';
+  total: number = 0;
 
   constructor(private fet: FetchService, private storage: StorageService, private route: Router) { }
 
@@ -24,21 +25,28 @@ export class MycartComponent {
       this.uid = userId;
       console.log(this.uid)
       this.getCart(this.uid)
+      this.getTotal();
     })
 
   }
 
   increase(item: Product) {
     this.storage.addToCart(item, this.uid).subscribe((res) => {
+      this.getTotal();
       console.log(res);
     })
 
   }
 
+  decrease(item:Product){
+    this.storage.removeFromCart(item, this.uid).subscribe((res) => {
+      this.getTotal();
+      console.log(res);
+    })
+  }
+
   getCart(id: string) {
     this.fet.getCart(id).subscribe((cartData: { [key: string]: Product }) => {
-
-
       if (cartData) {
         console.log("working");
         this.isCartEmpty = false;
@@ -50,6 +58,7 @@ export class MycartComponent {
             console.log(this.myCart);
           }
         }
+        this.getTotal();
       } else {
         this.isCartEmpty = true;
       }
@@ -90,9 +99,31 @@ export class MycartComponent {
     this.navigate();
   }
 
+  getTotal() {
+    let total = 0;
+    for (const item of this.myCart) {
+      total += item.price * item.quantity;
+    }
+    this.total = total;
+  }
+
 
   navigateToHome() {
     this.route.navigate(['']);
   }
 
+  emptyCart(){
+    this.storage.EmptyCart([], this.uid).subscribe(
+      (emptyCartRes) => {
+        if (emptyCartRes) {
+          console.log(emptyCartRes);
+        } else {
+          console.log('Error emptying cart.');
+        }
+      },
+      (emptyCartError) => {
+        console.error('Error emptying cart:', emptyCartError);
+      }
+    );
+  }
 }

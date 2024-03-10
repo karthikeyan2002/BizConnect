@@ -47,6 +47,31 @@ export class StorageService {
         );
     }
 
+    
+    removeFromCart(items: any, uid: any): Observable<any> {
+        const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart/${items.productid}.json`;
+
+        return this.http.get(url1).pipe(
+            switchMap((val: any) => {
+                if (val) {
+                    console.log(val);
+                    if ('quantity' in val) {
+                        if(items.quantity > 1){
+                            items.quantity -= 1;
+                        }
+                    
+                    } else {
+                        console.log("Quantity not found in response.");
+                    }
+                } else {
+                    console.log("DATA NOT FOUND");
+                }
+
+                return this.http.patch(url1, items);
+            })
+        );
+    }
+
     placeOrder(items: any, uid: any) {
         const myOrders = {
             ...items,

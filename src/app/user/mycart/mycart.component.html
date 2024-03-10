@@ -20,17 +20,25 @@
                             <p class="float-start">{{item.price | currency:'INR'}}</p>
                         </div>
                         <div class="d-flex justify-content-center py-2">
-                            <button class="rounded-0" mat-raised-button color="primary">-</button>
+                            <button class="rounded-0" mat-raised-button color="primary" (click)="decrease(item)">-</button>
                             <button class="rounded-0" mat-raised-button disabled="true">{{item.quantity}}</button>
-                            <button class="rounded-0" mat-raised-button color="primary" (click)="increase(item)">+</button>
+                            <button class="rounded-0" mat-raised-button color="primary"
+                                (click)="increase(item)">+</button>
                         </div>
                     </div>
                 </div>
             </ng-container>
         </div>
 
-        <div class="d-flex justify-content-end m-2">
-            <button mat-raised-button color="primary" (click)="placeOrder()">PlaceMyOrder</button>
+        <div class="container text-center p-2 m-2 mt-4">
+            <div>Your Total: {{ total }}</div>
+            <p>
+                <button mat-raised-button color="primary" (click)="placeOrder()" class="mt-2">PlaceMyOrder</button>
+            </p>
+            <p>
+                <button mat-raised-button color="primary" (click)="emptyCart()" class="mt-2">EmptyCart</button>
+
+            </p>
         </div>
     </ng-container>
 </div>
