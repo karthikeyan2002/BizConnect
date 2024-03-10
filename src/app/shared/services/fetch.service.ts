@@ -13,7 +13,7 @@ export class FetchService {
 
   private searchValueSubject = new Subject<string>();
   searchValue$ = this.searchValueSubject.asObservable();
-  
+
   constructor(private http: HttpClient) { }
 
   getUserId(): Observable<any> {
@@ -78,24 +78,24 @@ export class FetchService {
     return this.http.get(url)
   }
 
-  fetchProducts(id:any){
+  fetchProducts(id: any) {
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}/products.json`)
   }
 
-  getWishlist(uid:any){
+  getWishlist(uid: any) {
     return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`)
   }
 
   removeWishlist(uid: any, id: any): void {
-    this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`).subscribe((res)=>{
+    this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`).subscribe((res) => {
       const wishlistItems = Object.values(res);
       console.log(wishlistItems);
-      
-      const keyToRemove = Object.keys(res).filter((key:any) => wishlistItems[key] == id);
+
+      const keyToRemove = Object.keys(res).filter((key: any) => wishlistItems[key] == id);
       console.log(keyToRemove);
-      
+
       if (keyToRemove) {
-          this.http.delete(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist/${keyToRemove}.json`).subscribe(() => {
+        this.http.delete(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist/${keyToRemove}.json`).subscribe(() => {
           console.log('Wishlist item removed successfully.');
         }, error => {
           console.error('Error removing wishlist item:', error);
@@ -109,5 +109,9 @@ export class FetchService {
   setSearchValue(value: string) {
     this.searchValueSubject.next(value);
   }
-  
+
+  fetchUsers() {
+    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users.json`);
+  }
+
 }

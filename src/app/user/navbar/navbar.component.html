@@ -3,10 +3,10 @@
   <span>BizConnect</span>
   <span class="example-spacer"></span>
   <div>
-    <input type="text" *ngIf="isSearchOpen" [class.search-box-open]="isSearchOpen" placeholder="Search here" 
+    <input type="text" *ngIf="isSearchOpen" [class.search-box-open]="isSearchOpen" placeholder="Search here"
       class="roboto-regular" (input)="handleInput($event)">
   </div>
-  
+
   <button mat-icon-button class="example-icon favorite-icon" (click)="toggleSearch()">
     <mat-icon>search</mat-icon>
   </button>
@@ -19,12 +19,10 @@
   <button mat-icon-button class="example-icon favorite-icon" routerLink="/cart" matTooltip="MyCart">
     <mat-icon>local_mall</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/bookings"
-    matTooltip="MyBookings">
+  <button mat-icon-button class="example-icon" routerLink="/bookings" matTooltip="MyBookings / MyOrders">
     <mat-icon>description</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
-    [matMenuTriggerFor]="profileMenu">
+  <button mat-icon-button class="example-icon" [matMenuTriggerFor]="profileMenu">
     <mat-icon>person</mat-icon>
   </button>
 </mat-toolbar>
