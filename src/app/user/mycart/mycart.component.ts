@@ -53,9 +53,7 @@ export class MycartComponent {
         for (const productId in cartData) {
           if (cartData.hasOwnProperty(productId)) {
             const product = cartData[productId];
-            (typeof (product));
-            this.myCart?.push(product)
-            (this.myCart);
+            this.myCart?.push(product);
           }
         }
         this.getTotal();
