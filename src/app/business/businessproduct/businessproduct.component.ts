@@ -20,7 +20,8 @@ export class BusinessproductComponent {
       this.uid = data;
       this.fechProduct();
     }, (err) => {
-      console.log(err)
+      console.warn("Error in Fetching Product");
+      
     });
   }
 
@@ -113,16 +114,12 @@ export class BusinessproductComponent {
   fechProduct(){
     this.fet.fetchProducts(this.id).subscribe((res)=>{
       this.products = Object.values(res);
-      console.log(this.products);
-      
     })
   }
 
   updateProduct(item:Product) {
     
     this.bus.updateProduct(this.bus.getBusinessId(),item).subscribe(()=>{
-      console.log("completed");
-      
     })
   }
 

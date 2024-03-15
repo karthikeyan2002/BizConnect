@@ -114,10 +114,10 @@ export class ProfileComponent {
   }
 
   update() {
-    console.log("working");
+    ("working");
 
     this.fet.updateUser(this.id, { firstName: this.firstName, lastName: this.lastName, city: this.city }).subscribe(response => {
-      console.log('User data updated successfully', response);
+      ('User data updated successfully', response);
     }, error => {
       console.error('Failed to update user data', error);
     });

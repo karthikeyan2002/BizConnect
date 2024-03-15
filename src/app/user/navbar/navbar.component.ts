@@ -15,7 +15,7 @@ export class NavbarComponent {
 
   constructor(private auth: AuthService,private fet:FetchService) { 
     this.searchInput.pipe(debounceTime(2000)).subscribe(value => {
-      console.log("Buffered search value:", value);
+      ("Buffered search value:", value);
     });
   }
 

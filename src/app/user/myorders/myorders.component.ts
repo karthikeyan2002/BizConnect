@@ -30,7 +30,7 @@ export class MyordersComponent {
             sample.time = res[prodId]['time'];
             sample.total = res[prodId]['total'];
             this.orders.push(sample)
-            console.log(this.orders);
+            (this.orders);
           }
 
 

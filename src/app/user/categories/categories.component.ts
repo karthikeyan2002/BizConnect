@@ -43,7 +43,7 @@ export class CategoriesComponent {
 
     if (selectedCategory) {
       this.subCategories = selectedCategory.subcategories;
-      console.log(this.subCategories);
+      (this.subCategories);
     } else {
       this.subCategories = [];
       console.error("Category not found:", this.category);

@@ -26,7 +26,6 @@ export class BusinessService {
         map(data => {
           const length = Object.keys(data).length;
           const newId = length;
-          console.log(newId);
           return newId;
         })
       );
@@ -36,17 +35,13 @@ export class BusinessService {
     let uid: any;
     return this.getId().pipe(
       switchMap(newId => {
-        console.log(newId);
         formData.id = newId;
-
         this.fet.getUserId().subscribe((res) => {
           uid = res;
           formData.admin = res;
           this.addtoProfile(newId, uid).subscribe(() => {
-            console.log('success');
-
           }, err => {
-            console.warn('few problem here');
+            console.warn('Problems in adding profile');
 
           })
         });
@@ -70,14 +65,11 @@ export class BusinessService {
   }
 
   addProduct(shopid: any, product: Product) {
-    console.log(shopid);
     return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/products/${product.productId}.json`, product)
   }
 
   updateProduct(shopid:any,product:Product){
-    console.log(product);
-    
-    return this.http.put(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/products/${product.productId}.json`, product)
+     return this.http.put(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/products/${product.productId}.json`, product)
   }
 
   updateTypeOfService(shopid:any,service:Array<string>){

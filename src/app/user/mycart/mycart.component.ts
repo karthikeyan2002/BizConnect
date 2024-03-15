@@ -23,7 +23,7 @@ export class MycartComponent {
   ngOnInit(): void {
     this.fet.getUserId().subscribe((userId) => {
       this.uid = userId;
-      console.log(this.uid)
+      (this.uid)
       this.getCart(this.uid)
       this.getTotal();
     })
@@ -33,7 +33,7 @@ export class MycartComponent {
   increase(item: Product) {
     this.storage.addToCart(item, this.uid).subscribe((res) => {
       this.getTotal();
-      console.log(res);
+      (res);
     })
 
   }
@@ -41,21 +41,21 @@ export class MycartComponent {
   decrease(item:Product){
     this.storage.removeFromCart(item, this.uid).subscribe((res) => {
       this.getTotal();
-      console.log(res);
+      (res);
     })
   }
 
   getCart(id: string) {
     this.fet.getCart(id).subscribe((cartData: { [key: string]: Product }) => {
       if (cartData) {
-        console.log("working");
+        ("working");
         this.isCartEmpty = false;
         for (const productId in cartData) {
           if (cartData.hasOwnProperty(productId)) {
             const product = cartData[productId];
-            console.log(typeof (product));
+            (typeof (product));
             this.myCart?.push(product)
-            console.log(this.myCart);
+            (this.myCart);
           }
         }
         this.getTotal();
@@ -75,13 +75,13 @@ export class MycartComponent {
       {
         next: res => {
           if (res) {
-            console.log(res);
+            (res);
             this.storage.EmptyCart([], this.uid).subscribe(
               (emptyCartRes) => {
                 if (emptyCartRes) {
-                  console.log(emptyCartRes);
+                  (emptyCartRes);
                 } else {
-                  console.log('Error emptying cart.');
+                  ('Error emptying cart.');
                 }
               },
               (emptyCartError) => {
@@ -116,9 +116,9 @@ export class MycartComponent {
     this.storage.EmptyCart([], this.uid).subscribe(
       (emptyCartRes) => {
         if (emptyCartRes) {
-          console.log(emptyCartRes);
+          (emptyCartRes);
         } else {
-          console.log('Error emptying cart.');
+          ('Error emptying cart.');
         }
       },
       (emptyCartError) => {

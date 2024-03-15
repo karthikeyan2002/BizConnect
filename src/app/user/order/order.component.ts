@@ -30,7 +30,7 @@ export class OrderComponent {
             this.orderDetails.push(result[key])
           }
         }
-        console.log(this.orderDetails);
+        (this.orderDetails);
       });
     });
 

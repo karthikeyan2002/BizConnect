@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
       this.uid = data;
       this.fechProduct();
     }, (err) => {
-      console.log(err)
+      (err)
     });
 
   }

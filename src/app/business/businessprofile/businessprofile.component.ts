@@ -48,7 +48,6 @@ export class BusinessprofileComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
   }
 
   options: string[] = [
@@ -108,11 +107,9 @@ export class BusinessprofileComponent implements OnInit {
     this.fet.getUserId().subscribe((res)=>{
       this.formData.admin = res;
       this.bus.addShop(this.formData).subscribe((res) => {
-        console.log("FORM SUBMISSION DONE SUCEESSFULLy");
         this.route.navigate(['/business/mybusiness']);
-       
       }, err => {
-        console.log("SUBMISSION ERROR");
+        console.warn("ERROR OCCURED IN SUBMISSION");
       })
     })
     

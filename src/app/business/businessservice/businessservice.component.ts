@@ -65,16 +65,12 @@ export class BusinessserviceComponent {
 
   logSelectedSlots() {
     this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
-      console.log("done success");
-
     })
   }
 
   submitEventForm() {
 
     this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
-      console.log("done success");
-
     })
   }
 
@@ -99,8 +95,7 @@ export class BusinessserviceComponent {
     this.bus.getMyBookings(this.shopid).subscribe((res) => {
       this.mybookings.push(...Object.values(res));
     })
-    console.log(this.mybookings);
-    
+   
   }
 
 }

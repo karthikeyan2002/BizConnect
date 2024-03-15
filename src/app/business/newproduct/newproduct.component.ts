@@ -12,13 +12,12 @@ import { FetchService } from 'src/app/shared/services/fetch.service';
   styleUrls: ['./newproduct.component.css']
 })
 export class NewproductComponent {
-  shopid!:string;
- 
+  shopid!: string;
 
-  constructor(private _newproductRef: MatBottomSheetRef<NewproductComponent>,private bus:BusinessService,private route:ActivatedRoute,private fet:FetchService) {
+
+  constructor(private _newproductRef: MatBottomSheetRef<NewproductComponent>, private bus: BusinessService, private route: ActivatedRoute, private fet: FetchService) {
     this.shopid = this.bus.getBusinessId();
-    console.log(this.shopid);
-   }
+  }
 
   openLink(event: MouseEvent): void {
     this._newproductRef.dismiss();
@@ -34,13 +33,11 @@ export class NewproductComponent {
         productId: formData.productId,
         quantity: formData.quantity,
         rating: formData.rating,
-        isAvailable: formData.isAvailable || false 
+        isAvailable: formData.isAvailable || false
       };
-      console.log(productData);
-      this.bus.addProduct(this.shopid,productData).subscribe(()=>{
-        console.log("Product updated !");
+      this.bus.addProduct(this.shopid, productData).subscribe(() => {
       },);
-     
+
     }
   }
 

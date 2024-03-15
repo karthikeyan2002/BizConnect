@@ -68,7 +68,7 @@ export class ServiceComponent {
 
   logSelectedSlots() {
     this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
-      console.log("done success");
+      ("done success");
 
     })
   }
@@ -76,7 +76,7 @@ export class ServiceComponent {
   submitEventForm() {
 
     this.bus.updateTypeOfService(this.shopid, this.slot).subscribe(() => {
-      console.log("done success");
+      ("done success");
 
     })
   }
@@ -104,10 +104,10 @@ export class ServiceComponent {
       user: this.userid,
     }
     this.bus.bookEventSlot(this.shopid, 'event', newObj).subscribe(()=>{
-      console.log("done success");
+      ("done success");
       
     },err=>{
-      console.log("error failed");
+      ("error failed");
       
     })
   }

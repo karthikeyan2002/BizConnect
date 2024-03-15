@@ -18,7 +18,6 @@ export class MybusinessComponent {
     this.fet.getUserId().subscribe((res) => {
       this.bus.getMyBusiness(res).subscribe((result) => {
         this.myBusiness = result;
-        console.log(this.myBusiness);
         this.getKeys();
         this.getShops();
       })
@@ -34,8 +33,6 @@ export class MybusinessComponent {
     for(let key of this.myBusinessKeys){
       this.bus.fetchMyShop(key).subscribe((res:Shop)=>{
           this.myShops.push(res)
-          console.log(this.myShops);
-          
       })
     }
   }

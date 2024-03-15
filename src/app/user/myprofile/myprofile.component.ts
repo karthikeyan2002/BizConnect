@@ -25,9 +25,9 @@ export class MyprofileComponent {
 
   updateProfile(){
     this.store.updateProfile(this.user).subscribe(()=>{
-      console.log("updated");
+      ("updated");
     },(err)=>{
-      console.log("Error updating");
+      ("Error updating");
       
     })
   }

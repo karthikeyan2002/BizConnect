@@ -56,10 +56,6 @@ export class BusinessshopComponent {
         this.product = res;
         this.fet.getUserId().subscribe((res) => {
           this.uid = res;
-          console.log(this.uid);
-          console.log(this.product.admin);
-
-
           if (this.uid == this.product.admin) {
             this.canEdit = true;
           }
@@ -86,12 +82,10 @@ export class BusinessshopComponent {
   }
 
   updateChanges() {
-    console.log(this.product);
     this.store.updateShop(this.id, this.product).subscribe(() => {
-      console.log("Done success");
     }, (err) => {
-      console.log("failed");
-
+      console.warn("Error Occured in Failure");
+      
     })
 
   }

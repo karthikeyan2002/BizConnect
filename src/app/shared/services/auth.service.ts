@@ -43,15 +43,11 @@ export class AuthService {
         this.userData = userCredential.user;
         this.storage.appendUser(this.userData).subscribe(
           (response) => {
-            // console.log("success");
             this.observeUserState();
           },
           (err) => {
-            // console.log("error");
-
           }
         );
-        // this.observeUserState()
       })
       .catch((error: Error) => {
         alert(error.message);

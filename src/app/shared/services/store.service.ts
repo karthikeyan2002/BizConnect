@@ -32,14 +32,12 @@ export class StorageService {
         return this.http.get(url1).pipe(
             switchMap((val: any) => {
                 if (val) {
-                    console.log(val);
                     if ('quantity' in val) {
                         items.quantity += 1;
                     } else {
-                        console.log("Quantity not found in response.");
                     }
                 } else {
-                    console.log("DATA NOT FOUND");
+
                 }
 
                 return this.http.patch(url1, items);
@@ -47,24 +45,24 @@ export class StorageService {
         );
     }
 
-    
+
     removeFromCart(items: any, uid: any): Observable<any> {
         const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart/${items.productid}.json`;
 
         return this.http.get(url1).pipe(
             switchMap((val: any) => {
                 if (val) {
-                    console.log(val);
+                    (val);
                     if ('quantity' in val) {
-                        if(items.quantity > 1){
+                        if (items.quantity > 1) {
                             items.quantity -= 1;
                         }
-                    
+
                     } else {
-                        console.log("Quantity not found in response.");
+                        ("Quantity not found in response.");
                     }
                 } else {
-                    console.log("DATA NOT FOUND");
+                    ("DATA NOT FOUND");
                 }
 
                 return this.http.patch(url1, items);
@@ -72,10 +70,10 @@ export class StorageService {
         );
     }
 
-    placeOrder(items: any, uid: any,total:any) {
+    placeOrder(items: any, uid: any, total: any) {
         const myOrders = {
             ...items,
-            total:total,
+            total: total,
             status: "Order Placed",
             completed: false,
             time: this.formattedTime,
@@ -86,7 +84,7 @@ export class StorageService {
 
     EmptyCart(items: any, uid: any) {
         const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart.json`;
-        console.log(url1);
+        (url1);
         return this.http.delete(url1)
     }
 
@@ -96,12 +94,12 @@ export class StorageService {
 
     addToWishlist(uid: any, shopId: any) {
         const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`;
-    
+
         this.http.get(url).subscribe((res) => {
             if (res === undefined || res === null) {
-                console.log("Wishlist is empty");
+                ("Wishlist is empty");
                 this.http.post(url, shopId).subscribe(() => {
-                    console.log("Shop added to wishlist");
+                    ("Shop added to wishlist");
                 }, error => {
                     console.error("Error occurred while adding shop to wishlist:", error);
                 });
@@ -111,7 +109,7 @@ export class StorageService {
                     alert("Already added");
                 } else {
                     this.http.post(url, shopId).subscribe(() => {
-                        console.log("Shop added to wishlist");
+                        ("Shop added to wishlist");
                     }, error => {
                         console.error("Error occurred while adding shop to wishlist:", error);
                     });
@@ -121,7 +119,7 @@ export class StorageService {
             console.error("Error occurred while fetching wishlist:", error);
         });
     }
-    
+
 
     updateProfile(user: any) {
         const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${user.uid}.json`;

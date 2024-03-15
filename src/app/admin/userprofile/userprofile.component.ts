@@ -18,7 +18,6 @@ export class UserprofileComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.fet.getUserInfo(this.id).subscribe((res)=>{
       this.userData = res;
-      console.log(this.userData);
       this.auth.setValue(true)
     })
   }

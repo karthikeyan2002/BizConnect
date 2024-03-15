@@ -28,7 +28,7 @@ export class HomeComponent {
         })
       });
     } else {
-      console.log("nothing here");
+      ("nothing here");
 
     }
   }

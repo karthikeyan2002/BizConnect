@@ -17,7 +17,6 @@ export class BusinessprofileComponent {
     this.id = this.route.snapshot.paramMap.get('id');
     this.fet.fetchShop(this.id).subscribe((res)=>{
       this.businessData = res;
-      console.log(this.businessData);
       this.auth.setValue(true)
     })
   }
