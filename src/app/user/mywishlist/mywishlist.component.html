@@ -45,8 +45,11 @@
             </ng-container>
         </div>
     </div>
-    <div class="container text-center p-2 m-2 mt-4 fade-in">
-        <h1>YOUR WISHLIST IS EMPTY</h1>
-        <button mat-raised-button color="primary" (click)="navigateToHome()">shop now</button>
+    <div *ngIf="!myWishlist?.length">
+        <div class="container text-center p-2 m-2 mt-4 fade-in">
+            <h1>YOUR WISHLIST IS EMPTY</h1>
+            <button mat-raised-button color="primary" (click)="navigateToHome()">shop now</button>
+        </div>
     </div>
+   
 </div>
