@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, switchMap } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { user } from "@angular/fire/auth";
+import { baseUrl } from "src/environments/environment.development";
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,7 @@ export class StorageService {
 
     appendUser(userData: any): Observable<any> {
         const userId = userData.uid;
-        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userId}.json`;
+        const url = `${baseUrl}users/${userId}.json`;
         userData.mycat = [];
         userData.myorders = [];
         userData.mybookings = [];
@@ -27,7 +28,7 @@ export class StorageService {
     }
 
     addToCart(items: any, uid: any): Observable<any> {
-        const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart/${items.productid}.json`;
+        const url1 = `${baseUrl}users/${uid}/myCart/${items.productid}.json`;
 
         return this.http.get(url1).pipe(
             switchMap((val: any) => {
@@ -47,7 +48,7 @@ export class StorageService {
 
 
     removeFromCart(items: any, uid: any): Observable<any> {
-        const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart/${items.productid}.json`;
+        const url1 = `${baseUrl}users/${uid}/myCart/${items.productid}.json`;
 
         return this.http.get(url1).pipe(
             switchMap((val: any) => {
@@ -78,22 +79,22 @@ export class StorageService {
             completed: false,
             time: this.formattedTime,
         }
-        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myOrders.json`;
+        const url = `${baseUrl}users/${uid}/myOrders.json`;
         return this.http.post(url, myOrders)
     }
 
     EmptyCart(items: any, uid: any) {
-        const url1 = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myCart.json`;
+        const url1 = `${baseUrl}users/${uid}/myCart.json`;
         (url1);
         return this.http.delete(url1)
     }
 
     updateShop(id: string, shop: any) {
-        return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${id}.json`, shop)
+        return this.http.patch(`${baseUrl}business/${id}.json`, shop)
     }
 
     addToWishlist(uid: any, shopId: any) {
-        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myWishlist.json`;
+        const url = `${baseUrl}users/${uid}/myWishlist.json`;
 
         this.http.get(url).subscribe((res) => {
             if (res === undefined || res === null) {
@@ -122,7 +123,7 @@ export class StorageService {
 
 
     updateProfile(user: any) {
-        const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${user.uid}.json`;
+        const url = `${baseUrl}users/${user.uid}.json`;
         return this.http.put(url, user);
     }
 }

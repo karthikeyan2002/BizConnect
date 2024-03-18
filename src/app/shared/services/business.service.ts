@@ -4,6 +4,7 @@ import { Observable, map, retry, switchMap } from 'rxjs';
 import { Shop } from '../interfaces/shop.interface';
 import { FetchService } from './fetch.service';
 import { Product } from '../interfaces/product.interface';
+import { baseUrl } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class BusinessService {
   }
 
   getId(): Observable<number> {
-    return this.http.get<any[]>('https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business.json')
+    return this.http.get<any[]>(`${baseUrl}business.json`)
       .pipe(
         map(data => {
           const length = Object.keys(data).length;
@@ -46,45 +47,45 @@ export class BusinessService {
           })
         });
 
-        return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${newId}.json`, formData);
+        return this.http.patch(`${baseUrl}business/${newId}.json`, formData);
       })
     );
   }
 
   addtoProfile(businessid: any, uid: any) {
-    const url = `https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myBusiness.json`;
+    const url = `${baseUrl}users/${uid}/myBusiness.json`;
     return this.http.post(url, businessid)
   }
 
   getMyBusiness(uid: any) {
-    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/users/${uid}/myBusiness.json`)
+    return this.http.get(`${baseUrl}users/${uid}/myBusiness.json`)
   }
 
   fetchMyShop(key: number) {
-    return this.http.get<Shop>(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${key}.json`)
+    return this.http.get<Shop>(`${baseUrl}business/${key}.json`)
   }
 
   addProduct(shopid: any, product: Product) {
-    return this.http.patch(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/products/${product.productId}.json`, product)
+    return this.http.patch(`${baseUrl}business/${shopid}/products/${product.productId}.json`, product)
   }
 
   updateProduct(shopid:any,product:Product){
-     return this.http.put(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/products/${product.productId}.json`, product)
+     return this.http.put(`${baseUrl}business/${shopid}/products/${product.productId}.json`, product)
   }
 
   updateTypeOfService(shopid:any,service:Array<string>){
-    return this.http.put(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/typeOfService.json/`, service)
+    return this.http.put(`${baseUrl}business/${shopid}/typeOfService.json/`, service)
   }
 
   getTypeOfService(shopid:any){
-    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/typeOfService.json/`)
+    return this.http.get(`${baseUrl}business/${shopid}/typeOfService.json/`)
   }
 
   bookEventSlot(shopid:any,type:any,date:any){
-    return this.http.post(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/mybookings/${type}.json`,date)
+    return this.http.post(`${baseUrl}business/${shopid}/mybookings/${type}.json`,date)
   }
 
   getMyBookings(shopid:any){
-    return this.http.get(`https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/business/${shopid}/mybookings/event.json`)
+    return this.http.get(`${baseUrl}business/${shopid}/mybookings/event.json`)
   }
 }

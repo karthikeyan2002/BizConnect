@@ -8,3 +8,4 @@ export const firebaseConfig = {
     appId: "1:505294234066:web:68a87b472d55f9bc84e80b",
     measurementId: "G-S000D9ZZJH"
   };
+export const baseUrl = 'https://bizconnect-11500-default-rtdb.asia-southeast1.firebasedatabase.app/';
