@@ -38,6 +38,7 @@ import { OrderComponent } from './order/order.component';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import { MywishlistComponent } from './mywishlist/mywishlist.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MywishlistComponent } from './mywishlist/mywishlist.component';
     MyordersComponent,
     OrderComponent,
     MywishlistComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -82,7 +84,8 @@ import { MywishlistComponent } from './mywishlist/mywishlist.component';
     MatNativeDateModule,
     MatDialogModule,
     MatRippleModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
 })
 export class UserModule { }

@@ -107,7 +107,7 @@ export class StorageService {
             } else {
                 const shops = Object.values(res);
                 if (shops.includes(shopId)) {
-                    alert("Already added");
+                    // alert("Already added");
                 } else {
                     this.http.post(url, shopId).subscribe(() => {
                         ("Shop added to wishlist");
