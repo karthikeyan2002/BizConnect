@@ -14,6 +14,12 @@
             </ng-container>
         </mat-chip-listbox>
     </div>
+    <mat-divider></mat-divider>
+    <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+        [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+        [pageIndex]="pageIndex" aria-label="Select page">
+    </mat-paginator>
 </div>
 
 
@@ -61,8 +67,9 @@
             </ng-container>
         </div>
     </div>
-    <div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center p-4 card-container">
-        <h1>NO MATCH FOR SELECTED FILTER</h1>
+    <div *ngIf="!Business?.length" class="fade-in d-flex justify-content-center p-4 mt-5 card-container">
+        <div class="mt-5"></div>
+        <h1 class="mt-5">NO MATCH FOR SELECTED FILTER</h1>
 
     </div>
 </div>
