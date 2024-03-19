@@ -39,6 +39,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import { MywishlistComponent } from './mywishlist/mywishlist.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDialogModule,
     MatRippleModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
 })
 export class UserModule { }

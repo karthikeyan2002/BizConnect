@@ -4,7 +4,11 @@ import { Product } from 'src/app/shared/interfaces/product.interface';
 import { Shop } from 'src/app/shared/interfaces/shop.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
-import Swal from 'sweetalert2';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -12,15 +16,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService) {
-    this.fet.getUserId().subscribe((data) => {
-      this.uid = data;
-      this.fechProduct();
-    }, (err) => {
-      (err)
-    });
 
-  }
 
   id!: String;
   panelOpenState = false;
@@ -44,6 +40,18 @@ export class ProductComponent implements OnInit {
     products: [],
     admin: ''
   };
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  constructor(private route: ActivatedRoute, private fet: FetchService, private storage: StorageService, private _snackBar: MatSnackBar) {
+    this.fet.getUserId().subscribe((data) => {
+      this.uid = data;
+      this.fechProduct();
+    }, (err) => {
+      (err)
+    });
+
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id') || '';
@@ -82,13 +90,7 @@ export class ProductComponent implements OnInit {
     }
     this.storage.addToCart(items, this.uid).subscribe(
       (response) => {
-        // Swal.fire({
-        //   title: "Added To Cart",
-        //   icon: "success",
-        //   customClass: {
-        //     icon: 'custom-icon-color'
-        //   }
-        // });
+      this.openSnackBar();
 
       },
       (err) => {
@@ -103,5 +105,14 @@ export class ProductComponent implements OnInit {
     this.fet.fetchProducts(this.id).subscribe((res) => {
       this.products = Object.values(res);
     })
+  }
+
+  openSnackBar() {
+    this._snackBar.open('Added to Cart !', '', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['text-center'],
+      duration: 1 * 1000,
+    });
   }
 }

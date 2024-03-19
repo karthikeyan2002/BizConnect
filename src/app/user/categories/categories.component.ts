@@ -49,7 +49,7 @@ export class CategoriesComponent {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       panelClass:['text-center'],
-      duration:2*1000,
+      duration:1*1000,
     });
   }
 
