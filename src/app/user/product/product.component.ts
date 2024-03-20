@@ -95,7 +95,7 @@ export class ProductComponent implements OnInit {
     this.storage.addToCart(items, this.uid).subscribe(
       (response) => {
         this.openSnackBar();
-
+        window.location.reload();
       },
       (err) => {
         alert("problem here")

@@ -33,15 +33,13 @@ export class MycartComponent {
   increase(item: Product) {
     this.storage.addToCart(item, this.uid).subscribe((res) => {
       this.getTotal();
-      (res);
-    })
+     })
 
   }
 
   decrease(item:Product){
     this.storage.removeFromCart(item, this.uid).subscribe((res) => {
       this.getTotal();
-      (res);
     })
   }
 

@@ -53,10 +53,12 @@ export class StorageService {
         return this.http.get(url1).pipe(
             switchMap((val: any) => {
                 if (val) {
-                    (val);
                     if ('quantity' in val) {
-                        if (items.quantity > 1) {
+                        if (items.quantity > 0) {
                             items.quantity -= 1;
+                            if (items.quantity == 0) {
+                                return this.http.delete(url1);
+                            }
                         }
 
                     } else {
