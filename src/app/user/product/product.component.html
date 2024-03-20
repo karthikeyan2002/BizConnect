@@ -14,14 +14,14 @@
                     <h4 class="card-title font-weight-bold mb-1">{{product.name}}</h4>
                     <p class="float-start">{{product.price | currency:'INR'}}</p>
                 </div>
-                <ng-container *ngIf="product.quantity==0 or !product.quantity">
+                <ng-container *ngIf="product.quantity === 0 || !product.quantity">
                     <div matRipple [matRippleColor]="myColor">
                         <div class="card-footer text-center">
                             <button mat-raised-button color="primary" (click)="AddToCart(product)">Add To Cart</button>
                         </div>
                     </div>
                 </ng-container>
-                <ng-container *ngIf="product.quantity>0">
+                <ng-container *ngIf="product.quantity>0 ">
                     <div class="d-flex justify-content-center py-2">
                         <button class="rounded-0" mat-raised-button color="primary"
                             (click)="decrease(product)">-</button>

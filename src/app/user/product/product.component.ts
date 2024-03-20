@@ -17,7 +17,6 @@ import {
 })
 export class ProductComponent implements OnInit {
 
-
   id!: String;
   panelOpenState = false;
   uid!: string;
@@ -107,19 +106,21 @@ export class ProductComponent implements OnInit {
 
   fetchProducts() {
     this.fet.fetchProducts(this.id).subscribe((res) => {
-      this.products = Object.values(res);
-      console.log(this.products);
+        this.products = Object.values(res);
+        console.log(this.myCart); 
         this.products.forEach(product => {
-        const isInCart = this.myCart.some(cartItem => cartItem.productId === product.productId);
-        product.isInCart = isInCart;
-        const cartProduct = this.myCart.find(cartItem => cartItem.productId === product.productId);
-        if (cartProduct) {
-          product.quantity = cartProduct.quantity;
-        }
-      });
-    });
-  }
-  
+             let cartProduct = this.myCart.find(cartItem => cartItem.productId == product.productId);
+            if (cartProduct) {
+                product.quantity = cartProduct.quantity;
+                console.log("Working ");
+                
+            } else {
+                product.quantity = 0;
+            }
+        });
+    }); 
+}
+
 
   increase(item: Product) {
     this.storage.addToCart(item, this.uid).subscribe((res) => {
@@ -142,8 +143,6 @@ export class ProductComponent implements OnInit {
   }
 
   getCart(id: string) {
-    console.log("working here");
-
     this.fet.getCart(id).subscribe((cartData: { [key: string]: Product }) => {
       if (cartData) {
         this.isCartEmpty = false;

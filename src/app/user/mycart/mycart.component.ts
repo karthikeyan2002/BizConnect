@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { FetchService } from 'src/app/shared/services/fetch.service';
 import { StorageService } from 'src/app/shared/services/store.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-mycart',
@@ -17,8 +22,10 @@ export class MycartComponent {
   isCartEmpty: boolean = true;
   myColor: string = '#673AB7';
   total: number = 0;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private fet: FetchService, private storage: StorageService, private route: Router) { }
+  constructor(private fet: FetchService, private storage: StorageService, private route: Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.fet.getUserId().subscribe((userId) => {
@@ -65,6 +72,15 @@ export class MycartComponent {
     this.route.navigate(['myorders']);
   }
 
+  openSnackBar() {
+    this._snackBar.open('Your Cart is now empty. Start Fresh !', '', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      panelClass: ['text-center'],
+      duration: 1 * 1000,
+    });
+  }
+
   placeOrder() {
     this.storage.placeOrder(this.myCart, this.uid,this.total).subscribe(
       {
@@ -74,7 +90,7 @@ export class MycartComponent {
             this.storage.EmptyCart([], this.uid).subscribe(
               (emptyCartRes) => {
                 if (emptyCartRes) {
-                  (emptyCartRes);
+                  this.openSnackBar();
                 } else {
                   ('Error emptying cart.');
                 }
@@ -110,10 +126,11 @@ export class MycartComponent {
   emptyCart(){
     this.storage.EmptyCart([], this.uid).subscribe(
       (emptyCartRes) => {
+        this.openSnackBar();
+        window.location.reload();
         if (emptyCartRes) {
-          (emptyCartRes);
+          this.openSnackBar();
         } else {
-          ('Error emptying cart.');
         }
       },
       (emptyCartError) => {
