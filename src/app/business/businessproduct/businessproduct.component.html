@@ -17,12 +17,16 @@
                             <input type="text" [value]="i.name" [(ngModel)]="i.name" [name]="i.name">
                         </h4>
                         <p class="float-start">{{i.price | currency:'INR'}}</p>
+
                     </div>
+
                     <div matRipple [matRippleColor]="myColor">
                         <div class="card-footer text-center">
                             <button mat-raised-button color="primary" (click)="updateProduct(i)">save update</button>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </ng-container>

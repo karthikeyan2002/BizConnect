@@ -13,7 +13,8 @@
                         alt="Card image cap">
                     <div class="card-header">
                         <h4 class="card-title font-weight-bold mb-1">{{item.name}}</h4>
-                        <p class="float-start">{{item.price | currency:'INR'}}</p>
+                        <p class="float-start">Price: {{item.price | currency:'INR'}}</p>
+                        <p class="float-end">Quantity : {{item.quantity}}</p>
                     </div>
                 </div>
             </div>

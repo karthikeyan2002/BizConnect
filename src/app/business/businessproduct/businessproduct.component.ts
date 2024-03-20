@@ -37,7 +37,8 @@ export class BusinessproductComponent {
     price: 0,
     productId: '',
     quantity: 0,
-    rating: 0
+    rating: 0,
+    isInCart: false
   };
   product: Shop = {
     id: 0,

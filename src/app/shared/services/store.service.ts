@@ -29,16 +29,16 @@ export class StorageService {
 
     addToCart(items: any, uid: any): Observable<any> {
         const url1 = `${baseUrl}users/${uid}/myCart/${items.productid}.json`;
-
         return this.http.get(url1).pipe(
             switchMap((val: any) => {
                 if (val) {
                     if ('quantity' in val) {
                         items.quantity += 1;
                     } else {
+                        items.isInCart = true;
                     }
                 } else {
-
+                    items.isInCart = true;
                 }
 
                 return this.http.patch(url1, items);

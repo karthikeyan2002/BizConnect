@@ -48,7 +48,6 @@ export class MycartComponent {
   getCart(id: string) {
     this.fet.getCart(id).subscribe((cartData: { [key: string]: Product }) => {
       if (cartData) {
-        ("working");
         this.isCartEmpty = false;
         for (const productId in cartData) {
           if (cartData.hasOwnProperty(productId)) {

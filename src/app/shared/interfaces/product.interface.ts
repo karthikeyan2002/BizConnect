@@ -5,4 +5,5 @@ export interface Product {
   productId: string;
   quantity: number;
   rating: number;
+  isInCart:boolean;
 }

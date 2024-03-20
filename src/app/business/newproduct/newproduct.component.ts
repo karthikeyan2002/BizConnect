@@ -33,7 +33,8 @@ export class NewproductComponent {
         productId: formData.productId,
         quantity: formData.quantity,
         rating: formData.rating,
-        isAvailable: formData.isAvailable || false
+        isAvailable: formData.isAvailable || false,
+        isInCart: false
       };
       this.bus.addProduct(this.shopid, productData).subscribe(() => {
       },);
