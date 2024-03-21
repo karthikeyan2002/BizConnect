@@ -1,8 +1,7 @@
 <div *ngIf="canEdit">
     <app-businessnav></app-businessnav>
     <form (submit)="updateChanges()">
-    
-    
+     
     <div class="container mt-4 fade-in">
         <div class="float-start">
             <h1 class="mb-1 float-left">
@@ -11,8 +10,8 @@
     
             <p class="mb-0 text-muted">
                 <input type="text" [value]="product.addressLane1" [(ngModel)]="product.addressLane1" name="product.addressLane1">
-                <input type="text" [value]="product.addressLane2" [(ngModel)]="product.addressLane2" name="product.addressLane2">
-                <input type="text" [value]="product.city" [(ngModel)]="product.city" name="product.city">
+                <input type="text" [value]="product.addressLane2" [(ngModel)]="product.addressLane2" class="mx-4" name="product.addressLane2">
+                <input type="text" [value]="product.city" [(ngModel)]="product.city" class="mx-4" name="product.city">
             </p>
     
             <div class="ratings mt-0 mb-2">
@@ -52,7 +51,7 @@
                 </textarea>
                 <p>
                     <input type="text" [value]="product.category" [(ngModel)]="product.category" name="product.category">
-                    <input type="text" [value]="product.subcategory" [(ngModel)]="product.subcategory" name="product.subcategory">
+                    <input type="text" class="mx-4" [value]="product.subcategory" [(ngModel)]="product.subcategory" name="product.subcategory">
                 </p>
               
 

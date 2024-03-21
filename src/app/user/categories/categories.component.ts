@@ -135,7 +135,7 @@ export class CategoriesComponent {
         this.Business = res.slice(startIndex, endIndex);
         this.length = res.length;
       } else {
-        console.warn("few problems");
+        console.warn("Erorr Fetching shops");
       }
     })
   }
