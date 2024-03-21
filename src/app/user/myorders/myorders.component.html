@@ -10,7 +10,7 @@
                     <p class="text-danger"><b>{{item.completed}}</b></p>
                     <p class="text-danger"><b>{{item.total | currency:'INR'}}</b></p>
                 </div>
-                <button mat-raised-button color="primary" (click)="TrackOrder(item.id)">Track Order</button>
+                <button mat-raised-button color="primary" (click)="trackOrder(item.id)">Track Order</button>
             </div>
         </ng-container>
     </div>

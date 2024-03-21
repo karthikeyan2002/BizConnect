@@ -36,7 +36,7 @@ export class MyordersComponent {
     })
   }
 
-  TrackOrder(id: string) {
+  trackOrder(id: string) {
     this.route.navigate(['order', id])
   }
 }
